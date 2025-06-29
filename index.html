@@ -261,14 +261,15 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Load den, raid table, and pokemon names data
+        // Load den, raid table, pokemon names, and gmax mapping data
         let denData = [];
         let raidTables = [];
         let pokemonNames = {};
+        let gmaxMapping = {};
         let dataLoaded = 0;
         
         function checkDataLoaded() {
-            if (dataLoaded === 3) {
+            if (dataLoaded === 4) {
                 initializeMaps();
                 setupPokemonFilter();
             }
@@ -315,6 +316,20 @@
                 dataLoaded++;
                 checkDataLoaded();
             });
+            
+        fetch('data/gmax_mapping.json')
+            .then(response => response.json())
+            .then(data => {
+                gmaxMapping = data;
+                dataLoaded++;
+                checkDataLoaded();
+            })
+            .catch(error => {
+                console.error('Error loading gmax mapping:', error);
+                gmaxMapping = {};
+                dataLoaded++;
+                checkDataLoaded();
+            });
 
         // Helper functions for raid data
         function getPokemonFromBothVersions(poolId) {
@@ -330,34 +345,44 @@
         function deduplicatePokemon(swordPokemon, shieldPokemon) {
             const pokemonMap = new Map();
             
+            // Create a unique key that includes all Pokemon attributes except probabilities
+            function createPokemonKey(pokemon) {
+                return `${pokemon.species}-${pokemon.altForm}-${pokemon.ability}-${pokemon.gender}-${pokemon.gigantamax}-${pokemon.flawlessIVs}-${pokemon.minRank}-${pokemon.maxRank}`;
+            }
+            
             // Add Sword Pokemon
             swordPokemon.forEach(pokemon => {
-                const key = pokemon.species;
+                const key = createPokemonKey(pokemon);
                 pokemonMap.set(key, {
                     ...pokemon,
                     versions: [1],
                     exclusiveVersion: null,
                     swordRanks: { min: pokemon.minRank, max: pokemon.maxRank },
-                    shieldRanks: null
+                    shieldRanks: null,
+                    swordProbabilities: pokemon.Probabilities || pokemon.probabilities,
+                    shieldProbabilities: null
                 });
             });
             
             // Add Shield Pokemon, checking for duplicates
             shieldPokemon.forEach(pokemon => {
-                const key = pokemon.species;
+                const key = createPokemonKey(pokemon);
                 if (pokemonMap.has(key)) {
-                    // Pokemon exists in both versions
+                    // Pokemon exists in both versions with identical attributes (except probabilities)
                     const existing = pokemonMap.get(key);
                     existing.versions.push(2);
                     existing.shieldRanks = { min: pokemon.minRank, max: pokemon.maxRank };
+                    existing.shieldProbabilities = pokemon.Probabilities || pokemon.probabilities;
                 } else {
-                    // Pokemon only in Shield
+                    // Pokemon only in Shield or has different attributes
                     pokemonMap.set(key, {
                         ...pokemon,
                         versions: [2],
                         exclusiveVersion: 2,
                         swordRanks: null,
-                        shieldRanks: { min: pokemon.minRank, max: pokemon.maxRank }
+                        shieldRanks: { min: pokemon.minRank, max: pokemon.maxRank },
+                        swordProbabilities: null,
+                        shieldProbabilities: pokemon.Probabilities || pokemon.probabilities
                     });
                 }
             });
@@ -403,6 +428,13 @@
         
         function createPokemonSprite(pokemon) {
             const speciesId = pokemon.species;
+            
+            // Determine sprite number - use Gmax mapping if this is a Gigantamax form
+            let spriteNumber = speciesId;
+            if (pokemon.gigantamax && gmaxMapping[speciesId]) {
+                spriteNumber = gmaxMapping[speciesId];
+            }
+            
             const exclusiveClass = pokemon.exclusiveVersion === 1 ? 'sword-exclusive' : 
                                  pokemon.exclusiveVersion === 2 ? 'shield-exclusive' : '';
             const versionText = pokemon.exclusiveVersion === 1 ? ' (Sword Only)' : 
@@ -443,9 +475,55 @@
                 tooltipRankText = ` | Ranks ${rankDisplay}`;
             }
             
+            // Build additional info for tooltip
+            let additionalInfo = '';
+            if (pokemon.altForm && pokemon.altForm > 0) {
+                additionalInfo += ` | Form: ${pokemon.altForm}`;
+            }
+            if (pokemon.gigantamax) {
+                additionalInfo += ` | Gigantamax`;
+            }
+            if (pokemon.gender === 1) {
+                additionalInfo += ` | Male Only`;
+            } else if (pokemon.gender === 2) {
+                additionalInfo += ` | Female Only`;
+            }
+            
+            // Add probability information
+            function formatProbabilities(probArray) {
+                if (!probArray || !Array.isArray(probArray)) return '';
+                return probArray
+                    .map((prob, index) => ({ star: index + 1, prob }))
+                    .filter(item => item.prob > 0)
+                    .map(item => `${item.star}☆: ${item.prob}%`)
+                    .join(', ');
+            }
+            
+            const swordProbs = formatProbabilities(pokemon.swordProbabilities);
+            const shieldProbs = formatProbabilities(pokemon.shieldProbabilities);
+            
+            if (swordProbs || shieldProbs) {
+                if (swordProbs && shieldProbs) {
+                    // Pokemon in both versions
+                    if (swordProbs === shieldProbs) {
+                        // Same probabilities in both versions
+                        additionalInfo += ` | Probabilities: ${swordProbs}`;
+                    } else {
+                        // Different probabilities
+                        additionalInfo += ` | Probabilities: (Sw) ${swordProbs} | (Sh) ${shieldProbs}`;
+                    }
+                } else if (swordProbs) {
+                    // Sword only
+                    additionalInfo += ` | Probabilities: ${swordProbs}`;
+                } else {
+                    // Shield only
+                    additionalInfo += ` | Probabilities: ${shieldProbs}`;
+                }
+            }
+            
             return `
                 <div class="pokemon-sprite-container">
-                    <div class="sprite-${speciesId} pokemon-sprite ${exclusiveClass}" title="Pokemon #${speciesId}${versionText}${tooltipRankText}"></div>
+                    <div class="sprite-${spriteNumber} pokemon-sprite ${exclusiveClass}" title="Pokemon #${speciesId}${versionText}${tooltipRankText}${additionalInfo}"></div>
                     <div class="rank-display">${rankDisplay}</div>
                 </div>
             `;
