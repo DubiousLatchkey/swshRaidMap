@@ -9,29 +9,107 @@
     <style>
         body {
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             font-family: Arial, sans-serif;
         }
-        .filter-container {
+        
+        body.modal-open {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+        
+        h1 {
             text-align: center;
-            margin: 20px 0;
-            padding: 15px;
+            margin: 10px 0 15px 0;
+            font-size: 28px;
+        }
+        .filter-container {
+            margin: 15px 0;
+            padding: 12px;
             background-color: #f5f5f5;
             border-radius: 8px;
             border: 1px solid #ddd;
         }
+        
+        .filter-main-row {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        
+        .pokemon-filter-section,
+        .star-filter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            min-width: 300px;
+        }
+        
         .filter-container label {
             font-weight: bold;
-            margin-right: 10px;
             color: #333;
-        }
-        .filter-container select {
-            padding: 8px 12px;
             font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .star-filter-container {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .star-button {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .star-button:hover {
+            border-color: #007cba;
+            background-color: #f0f8ff;
+        }
+        
+        .star-button.active {
+            border-color: #007cba;
+            background-color: #007cba;
+            color: white;
+        }
+        
+        .star-icon {
+            color: #ffa500;
+            font-weight: bold;
+            text-shadow: 0 0 1px rgba(0,0,0,0.3);
+        }
+        
+        .star-button.active .star-icon {
+            color: #fff;
+            text-shadow: 0 0 1px rgba(0,0,0,0.5);
+        }
+        
+        .clear-stars-button {
+            padding: 8px 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            background-color: white;
-            min-width: 200px;
+            background-color: #f8f9fa;
+            cursor: pointer;
+            color: #666;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+        
+        .clear-stars-button:hover {
+            background-color: #e9ecef;
+            border-color: #adb5bd;
         }
         .filter-status {
             margin-top: 10px;
@@ -43,7 +121,7 @@
         .container {
             display: flex;
             gap: 20px;
-            height: 80vh;
+            height: 75vh;
         }
         .map-container {
             flex: 1;
@@ -52,38 +130,20 @@
         .map {
             height: 100%;
             border: 2px solid #333;
+            position: relative;
+            background-color: #f0f0f0;
         }
         h2 {
             text-align: center;
             margin: 0 0 10px 0;
         }
-        .legend {
-            background: white;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 5px;
-        }
-        .legend-marker {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #ff0000;
-            border: 2px solid #ffffff;
-            margin-right: 8px;
-        }
+
         .pokemon-sprite-container {
             display: inline-block;
-            margin: 2px;
+            margin: 0;
             text-align: center;
+            min-width: 0;
+            width: 100%;
         }
         .pokemon-sprite {
             display: block;
@@ -93,7 +153,9 @@
             transition: all 0.2s ease;
             cursor: pointer;
             position: relative;
-            margin-bottom: 2px;
+            margin: 0 auto 2px auto;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         .pokemon-sprite:hover {
             border-color: #007cba;
@@ -145,23 +207,36 @@
             display: none;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
         
         .modal-content {
             background: white;
             border-radius: 8px;
-            padding: 20px;
             max-width: 90vw;
             max-height: 90vh;
-            overflow-y: auto;
             position: relative;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
         
+        .modal-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 0;
+        }
+        
         .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 15px;
             font-size: 24px;
             cursor: pointer;
             color: #666;
@@ -173,68 +248,342 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
         }
         
         .modal-close:hover {
             color: #000;
-            background-color: #f0f0f0;
-            border-radius: 50%;
+            background-color: #e9ecef;
+        }
+        
+        .modal-scroll-container {
+            max-height: 70vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 20px;
+            -webkit-overflow-scrolling: touch;
         }
         
         .pokemon-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
-            gap: 6px;
+            gap: 8px;
             margin: 15px 0;
             max-width: 900px;
             justify-items: center;
+            padding: 0 4px;
         }
         
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                flex-direction: column;
+                height: auto;
+                gap: 15px;
+            }
+            .map-container {
+                height: 70vh;
+                min-height: 350px;
+                max-height: 700px;
+                width: 100%;
+                flex-shrink: 0;
+            }
+            .map {
+                height: 100% !important;
+                width: 100% !important;
+                min-height: 280px;
+            }
+
+            .filter-container {
+                padding: 10px;
+                margin: 10px 0;
+            }
+            
+            .filter-main-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .pokemon-filter-section,
+            .star-filter-section {
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .filter-container label {
+                text-align: center;
+                margin-bottom: 8px;
+            }
+            
+            .pokemon-search-container {
+                width: 100%;
+            }
+            
+            .filter-container select,
+            .filter-container input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+            
+            .star-filter-container {
+                justify-content: center;
+                gap: 6px;
+            }
+            
+            .star-button {
+                min-width: 50px;
+                padding: 6px 8px;
+                font-size: 12px;
+            }
             .pokemon-grid {
-                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-                gap: 4px;
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 6px;
+                padding: 0 8px;
             }
             .modal-content {
-                padding: 15px;
                 margin: 10px;
+                max-height: 85vh;
             }
+            
+            .modal-header {
+                padding: 12px 15px;
+            }
+            
+            .modal-title {
+                font-size: 16px;
+            }
+            
+            .modal-scroll-container {
+                padding: 15px;
+                max-height: 65vh;
+                -webkit-overflow-scrolling: touch;
+            }
+            .pokemon-sprite-container {
+                margin: 0;
+                width: 100%;
+            }
+            .rank-display {
+                font-size: 9px;
+                padding: 1px 2px;
+            }
+            h1 {
+                font-size: 22px;
+                margin: 8px 0 12px 0;
+            }
+            h2 {
+                font-size: 18px;
+                margin: 0 0 8px 0;
+            }
+        }
+        
+        /* Additional mobile improvements */
+        @media (max-width: 480px) {
+            .pokemon-grid {
+                grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+                gap: 5px;
+                padding: 0 6px;
+            }
+            .modal-content {
+                margin: 5px;
+                max-height: 90vh;
+            }
+            
+            .modal-header {
+                padding: 10px 12px;
+            }
+            
+            .modal-title {
+                font-size: 15px;
+            }
+            
+            .modal-scroll-container {
+                padding: 12px;
+                max-height: 60vh;
+                -webkit-overflow-scrolling: touch;
+            }
+            .rank-display {
+                font-size: 8px;
+                min-height: 10px;
+                line-height: 10px;
+            }
+        }
+        
+        /* Pokemon search input styles */
+        .pokemon-search-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .pokemon-search-input {
+            width: 100%;
+            padding: 8px 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+            box-sizing: border-box;
+        }
+        
+        .pokemon-search-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 10001;
+            display: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pokemon-search-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .pokemon-search-item:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .pokemon-search-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Pokemon detail modal styles */
+        .pokemon-detail-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 15000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .pokemon-detail-content {
+            background: white;
+            border-radius: 8px;
+            max-width: 90vw;
+            max-height: 80vh;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            min-width: 300px;
+        }
+        
+        @media (max-width: 768px) {
+            .pokemon-detail-content {
+                margin: 15px;
+                min-width: auto;
+                max-height: 75vh;
+            }
+        }
+        
+
+        
+        .pokemon-detail-sprite {
+            width: 96px;
+            height: 96px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        .pokemon-detail-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 480px) {
+            .pokemon-detail-info {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+        
+        .pokemon-detail-section {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 4px solid #007cba;
+        }
+        
+        .pokemon-detail-section h4 {
+            margin: 0 0 8px 0;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .pokemon-detail-section p {
+            margin: 0;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .clickable-sprite {
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+        
+        .clickable-sprite:active {
+            transform: scale(0.95);
         }
     </style>
 </head>
 <body>
-    <h1>Pokemon Sword/Shield Raid Den Locations</h1>
+    <h1>Pokemon Raid Den Locations</h1>
     
     <div class="filter-container">
-        <label for="pokemonFilter">Filter by Pokemon:</label>
-        <select id="pokemonFilter">
-            <option value="">All Pokemon</option>
-        </select>
+        <div class="filter-main-row">
+            <div class="pokemon-filter-section">
+                <label for="pokemonSearch">Filter by Pokemon:</label>
+                <div class="pokemon-search-container">
+                    <input type="text" id="pokemonSearch" class="pokemon-search-input" placeholder="Type Pokemon name...">
+                    <div id="pokemonDropdown" class="pokemon-search-dropdown"></div>
+                </div>
+            </div>
+            
+            <div class="star-filter-section">
+                <label>Filter by Stars:</label>
+                <div class="star-filter-container">
+                    <button class="star-button" data-star="1" onclick="toggleStarFilter(1)">
+                        <span class="star-icon">★</span>
+                    </button>
+                    <button class="star-button" data-star="2" onclick="toggleStarFilter(2)">
+                        <span class="star-icon">★★</span>
+                    </button>
+                    <button class="star-button" data-star="3" onclick="toggleStarFilter(3)">
+                        <span class="star-icon">★★★</span>
+                    </button>
+                    <button class="star-button" data-star="4" onclick="toggleStarFilter(4)">
+                        <span class="star-icon">★★★★</span>
+                    </button>
+                    <button class="star-button" data-star="5" onclick="toggleStarFilter(5)">
+                        <span class="star-icon">★★★★★</span>
+                    </button>
+                    <button class="clear-stars-button" onclick="clearStarFilters()">Clear</button>
+                </div>
+            </div>
+        </div>
     </div>
     
-            <div class="legend">
-        <h3 style="margin-top: 0;">Legend</h3>
-        <div class="legend-item">
-            <div class="legend-marker"></div>
-            <span>Raid Den Location</span>
-        </div>
-        <div style="font-size: 12px; color: #666; margin-top: 10px;">
-            Click markers to see all available Pokemon<br>
-            (Shows both Sword & Shield versions)
-        </div>
-        <div style="font-size: 11px; margin-top: 8px;">
-            <strong>Pokemon Colors:</strong><br>
-            <span style="color: #0075BE;">■</span> Sword Only &nbsp;
-            <span style="color: #C62D42;">■</span> Shield Only &nbsp;
-            <span style="color: #666;">■</span> Both Versions
-        </div>
-        <div id="filterLegend" style="display: none; font-size: 11px; margin-top: 8px; border-top: 1px solid #ddd; padding-top: 8px;">
-            <strong>Den Pool Colors:</strong><br>
-            <span style="color: #ff0000;">●</span> Common Pool Only &nbsp;
-            <span style="color: #8b00ff;">●</span> Rare Pool Only &nbsp;
-            <span style="color: #ff0000; text-shadow: 0 0 0 2px #8b00ff;">●</span> Both Pools
-        </div>
-    </div>
+
     
     <div class="container">
         <div class="map-container">
@@ -254,8 +603,14 @@
     <!-- Modal for den information -->
     <div id="denModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
             <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Pokemon details -->
+    <div id="pokemonDetailModal" class="pokemon-detail-modal">
+        <div class="pokemon-detail-content">
+            <div id="pokemonDetailContent"></div>
         </div>
     </div>
 
@@ -270,8 +625,20 @@
         
         function checkDataLoaded() {
             if (dataLoaded === 4) {
-                initializeMaps();
-                setupPokemonFilter();
+                // Ensure DOM is ready before initializing maps
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() {
+                        setTimeout(() => {
+                            initializeMaps();
+                            setupPokemonFilter();
+                        }, 100);
+                    });
+                } else {
+                    setTimeout(() => {
+                        initializeMaps();
+                        setupPokemonFilter();
+                    }, 100);
+                }
             }
         }
         
@@ -437,9 +804,6 @@
             
             const exclusiveClass = pokemon.exclusiveVersion === 1 ? 'sword-exclusive' : 
                                  pokemon.exclusiveVersion === 2 ? 'shield-exclusive' : '';
-            const versionText = pokemon.exclusiveVersion === 1 ? ' (Sword Only)' : 
-                              pokemon.exclusiveVersion === 2 ? ' (Shield Only)' : 
-                              ' (Both Versions)';
             
             // Format rank display (add 1 since data is 0-indexed but game is 1-indexed)
             function formatRanks(minRank, maxRank) {
@@ -449,7 +813,6 @@
             }
             
             let rankDisplay = '';
-            let tooltipRankText = '';
             
             if (pokemon.swordRanks && pokemon.shieldRanks) {
                 // Pokemon in both versions
@@ -459,71 +822,26 @@
                 if (swordRanksStr === shieldRanksStr) {
                     // Same ranks in both versions
                     rankDisplay = swordRanksStr;
-                    tooltipRankText = ` | Ranks ${swordRanksStr}`;
                 } else {
                     // Different ranks
                     rankDisplay = `S:${swordRanksStr} Sh:${shieldRanksStr}`;
-                    tooltipRankText = ` | Sword: ${swordRanksStr}, Shield: ${shieldRanksStr}`;
                 }
             } else if (pokemon.swordRanks) {
                 // Sword only
                 rankDisplay = formatRanks(pokemon.swordRanks.min, pokemon.swordRanks.max);
-                tooltipRankText = ` | Ranks ${rankDisplay}`;
             } else if (pokemon.shieldRanks) {
                 // Shield only
                 rankDisplay = formatRanks(pokemon.shieldRanks.min, pokemon.shieldRanks.max);
-                tooltipRankText = ` | Ranks ${rankDisplay}`;
             }
             
-            // Build additional info for tooltip
-            let additionalInfo = '';
-            if (pokemon.altForm && pokemon.altForm > 0) {
-                additionalInfo += ` | Form: ${pokemon.altForm}`;
-            }
-            if (pokemon.gigantamax) {
-                additionalInfo += ` | Gigantamax`;
-            }
-            if (pokemon.gender === 1) {
-                additionalInfo += ` | Male Only`;
-            } else if (pokemon.gender === 2) {
-                additionalInfo += ` | Female Only`;
-            }
-            
-            // Add probability information
-            function formatProbabilities(probArray) {
-                if (!probArray || !Array.isArray(probArray)) return '';
-                return probArray
-                    .map((prob, index) => ({ star: index + 1, prob }))
-                    .filter(item => item.prob > 0)
-                    .map(item => `${item.star}☆: ${item.prob}%`)
-                    .join(', ');
-            }
-            
-            const swordProbs = formatProbabilities(pokemon.swordProbabilities);
-            const shieldProbs = formatProbabilities(pokemon.shieldProbabilities);
-            
-            if (swordProbs || shieldProbs) {
-                if (swordProbs && shieldProbs) {
-                    // Pokemon in both versions
-                    if (swordProbs === shieldProbs) {
-                        // Same probabilities in both versions
-                        additionalInfo += ` | Probabilities: ${swordProbs}`;
-                    } else {
-                        // Different probabilities
-                        additionalInfo += ` | Probabilities: (Sw) ${swordProbs} | (Sh) ${shieldProbs}`;
-                    }
-                } else if (swordProbs) {
-                    // Sword only
-                    additionalInfo += ` | Probabilities: ${swordProbs}`;
-                } else {
-                    // Shield only
-                    additionalInfo += ` | Probabilities: ${shieldProbs}`;
-                }
-            }
+            // Create unique ID for this pokemon instance
+            const pokemonInstanceId = `pokemon-${speciesId}-${pokemon.altForm || 0}-${pokemon.gigantamax ? 'gmax' : 'normal'}-${Date.now()}-${Math.random()}`;
             
             return `
                 <div class="pokemon-sprite-container">
-                    <div class="sprite-${spriteNumber} pokemon-sprite ${exclusiveClass}" title="Pokemon #${speciesId}${versionText}${tooltipRankText}${additionalInfo}"></div>
+                    <div class="sprite-${spriteNumber} pokemon-sprite ${exclusiveClass} clickable-sprite" 
+                         onclick="openPokemonDetailModal(${JSON.stringify(pokemon).replace(/"/g, '&quot;')})"
+                         data-pokemon-id="${pokemonInstanceId}"></div>
                     <div class="rank-display">${rankDisplay}</div>
                 </div>
             `;
@@ -531,24 +849,16 @@
         
         function createPokemonGrid(pokemonList, title) {
             if (!pokemonList || pokemonList.length === 0) {
-                return `<div class="popup-section"><h3 style="margin: 10px 0 5px 0; color: #333;">${title}</h3><p>No Pokemon data available</p></div>`;
+                return `<div class="popup-section"><h3 style="margin: 10px 0 15px 0; color: #333;">${title}</h3><p>No Pokemon data available</p></div>`;
             }
             
             const sprites = pokemonList.map(p => createPokemonSprite(p)).join('');
-            const swordOnlyCount = pokemonList.filter(p => p.exclusiveVersion === 1).length;
-            const shieldOnlyCount = pokemonList.filter(p => p.exclusiveVersion === 2).length;
-            const bothVersionsCount = pokemonList.filter(p => !p.exclusiveVersion).length;
             
             return `
                 <div class="popup-section">
-                    <h3 style="margin: 10px 0 5px 0; color: #333; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px;">
-                        ${title} <span style="font-size: 14px; color: #666; font-weight: normal;">(${pokemonList.length} Pokemon)</span>
+                    <h3 style="margin: 10px 0 15px 0; color: #333; border-bottom: 2px solid #e0e0e0; padding-bottom: 8px;">
+                        ${title}
                     </h3>
-                    <div style="font-size: 12px; color: #666; margin-bottom: 10px;">
-                        <span style="color: #0075BE;">■</span> Sword Only: ${swordOnlyCount} | 
-                        <span style="color: #C62D42;">■</span> Shield Only: ${shieldOnlyCount} | 
-                        <span style="color: #666;">■</span> Both Versions: ${bothVersionsCount}
-                    </div>
                     <div class="pokemon-grid">${sprites}</div>
                 </div>
             `;
@@ -560,30 +870,172 @@
             
             return `
                 <div style="font-size: 16px;">
-                    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
-                        <h2 style="margin: 0 0 10px 0; font-size: 24px;">Den #${index + 1}</h2>
-                        <p style="margin: 0; opacity: 0.9;">
-                            <strong>Location:</strong> ${den.location} | 
-                            <strong>Coordinates:</strong> (${den.MapX}, ${den.MapY})
-                        </p>
-                        <p style="margin: 5px 0 0 0; font-size: 14px; opacity: 0.8;">
-                            Showing Pokemon from both Sword & Shield versions
-                        </p>
-                    </div>
-                    ${createPokemonGrid(commonPokemon, `Common Pool ${den.common_pool}`)}
-                    ${createPokemonGrid(rarePokemon, `Rare Pool ${den.rare_pool}`)}
+                    ${createPokemonGrid(commonPokemon, `Common Pool`)}
+                    ${createPokemonGrid(rarePokemon, `Rare Pool`)}
                 </div>
             `;
         }
         
         // Modal functions
-        function openModal(content) {
-            document.getElementById('modalContent').innerHTML = content;
+        function openModal(content, title = 'Raid Den') {
+            document.getElementById('modalContent').innerHTML = `
+                <div class="modal-header">
+                    <h3 class="modal-title">${title}</h3>
+                    <button class="modal-close" onclick="closeModal()">&times;</button>
+                </div>
+                <div class="modal-scroll-container">
+                    ${content}
+                </div>
+            `;
+            document.body.classList.add('modal-open');
             document.getElementById('denModal').style.display = 'flex';
         }
         
         function closeModal() {
             document.getElementById('denModal').style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+        
+        // Pokemon detail modal functions
+        function openPokemonDetailModal(pokemon) {
+            const speciesId = pokemon.species;
+            const pokemonName = pokemonNames[speciesId] || `Pokemon #${speciesId}`;
+            const content = createPokemonDetailContent(pokemon);
+            
+            document.getElementById('pokemonDetailContent').innerHTML = `
+                <div class="modal-header">
+                    <h3 class="modal-title">${pokemonName}</h3>
+                    <button class="modal-close" onclick="closePokemonDetailModal()">&times;</button>
+                </div>
+                <div class="modal-scroll-container">
+                    ${content}
+                </div>
+            `;
+            document.body.classList.add('modal-open');
+            document.getElementById('pokemonDetailModal').style.display = 'flex';
+        }
+        
+        function closePokemonDetailModal() {
+            document.getElementById('pokemonDetailModal').style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+        
+        function createPokemonDetailContent(pokemon) {
+            const speciesId = pokemon.species;
+            
+            // Determine sprite number - use Gmax mapping if this is a Gigantamax form
+            let spriteNumber = speciesId;
+            if (pokemon.gigantamax && gmaxMapping[speciesId]) {
+                spriteNumber = gmaxMapping[speciesId];
+            }
+            
+            // Version info
+            const versionText = pokemon.exclusiveVersion === 1 ? 'Sword Only' : 
+                              pokemon.exclusiveVersion === 2 ? 'Shield Only' : 
+                              'Both Versions';
+            const versionColor = pokemon.exclusiveVersion === 1 ? '#0075BE' : 
+                               pokemon.exclusiveVersion === 2 ? '#C62D42' : '#666';
+            
+            // Format rank display
+            function formatRanks(minRank, maxRank) {
+                const displayMin = minRank + 1;
+                const displayMax = maxRank + 1;
+                return displayMin === displayMax ? `${displayMin}☆` : `${displayMin}☆-${displayMax}☆`;
+            }
+            
+            // Format probability information
+            function formatProbabilities(probArray, versionName) {
+                if (!probArray || !Array.isArray(probArray)) return '';
+                const probText = probArray
+                    .map((prob, index) => ({ star: index + 1, prob }))
+                    .filter(item => item.prob > 0)
+                    .map(item => `${item.star}☆: ${item.prob}%`)
+                    .join(', ');
+                return probText ? `<strong>${versionName}:</strong> ${probText}` : '';
+            }
+            
+            // Build sections
+            let sections = [];
+            
+            // Basic info section
+            let basicInfo = [];
+            if (pokemon.altForm && pokemon.altForm > 0) {
+                basicInfo.push(`<p>Alternative Form: ${pokemon.altForm}</p>`);
+            }
+            if (pokemon.gigantamax) {
+                basicInfo.push(`<p>Gigantamax Form Available</p>`);
+            }
+            if (pokemon.gender === 1) {
+                basicInfo.push(`<p>Gender: Male Only</p>`);
+            } else if (pokemon.gender === 2) {
+                basicInfo.push(`<p>Gender: Female Only</p>`);
+            } else {
+                basicInfo.push(`<p>Gender: Any</p>`);
+            }
+            if (pokemon.flawlessIVs) {
+                basicInfo.push(`<p>Guaranteed Perfect IVs: ${pokemon.flawlessIVs}</p>`);
+            }
+            
+            if (basicInfo.length > 0) {
+                sections.push(`
+                    <div class="pokemon-detail-section">
+                        <h4>Basic Information</h4>
+                        ${basicInfo.join('')}
+                    </div>
+                `);
+            }
+            
+            // Rank information
+            let rankInfo = [];
+            if (pokemon.swordRanks && pokemon.shieldRanks) {
+                const swordRanksStr = formatRanks(pokemon.swordRanks.min, pokemon.swordRanks.max);
+                const shieldRanksStr = formatRanks(pokemon.shieldRanks.min, pokemon.shieldRanks.max);
+                rankInfo.push(`<p><strong>Sword:</strong> ${swordRanksStr}</p>`);
+                rankInfo.push(`<p><strong>Shield:</strong> ${shieldRanksStr}</p>`);
+            } else if (pokemon.swordRanks) {
+                const ranksStr = formatRanks(pokemon.swordRanks.min, pokemon.swordRanks.max);
+                rankInfo.push(`<p><strong>Sword Only:</strong> ${ranksStr}</p>`);
+            } else if (pokemon.shieldRanks) {
+                const ranksStr = formatRanks(pokemon.shieldRanks.min, pokemon.shieldRanks.max);
+                rankInfo.push(`<p><strong>Shield Only:</strong> ${ranksStr}</p>`);
+            }
+            
+            if (rankInfo.length > 0) {
+                sections.push(`
+                    <div class="pokemon-detail-section">
+                        <h4>Star Ranks</h4>
+                        ${rankInfo.join('')}
+                    </div>
+                `);
+            }
+            
+            // Probability information
+            let probInfo = [];
+            const swordProbs = formatProbabilities(pokemon.swordProbabilities, 'Sword');
+            const shieldProbs = formatProbabilities(pokemon.shieldProbabilities, 'Shield');
+            
+            if (swordProbs) probInfo.push(`<p>${swordProbs}</p>`);
+            if (shieldProbs) probInfo.push(`<p>${shieldProbs}</p>`);
+            
+            if (probInfo.length > 0) {
+                sections.push(`
+                    <div class="pokemon-detail-section">
+                        <h4>Spawn Probabilities</h4>
+                        ${probInfo.join('')}
+                    </div>
+                `);
+            }
+            
+            return `
+                <div style="text-align: center; margin-bottom: 20px;">
+                    <div class="sprite-${spriteNumber} pokemon-detail-sprite" style="margin: 0 auto 15px auto;"></div>
+                    <p style="margin: 0; font-size: 16px; color: #666;">#${speciesId}</p>
+                    <p style="margin: 5px 0 0 0; font-size: 14px; color: ${versionColor}; font-weight: bold;">${versionText}</p>
+                </div>
+                <div class="pokemon-detail-info">
+                    ${sections.join('')}
+                </div>
+            `;
         }
         
         // Close modal when clicking outside of it
@@ -594,47 +1046,172 @@
                 }
             });
             
+            document.getElementById('pokemonDetailModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closePokemonDetailModal();
+                }
+            });
+            
             // Close modal with Escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     closeModal();
+                    closePokemonDetailModal();
+                }
+            });
+            
+            // Prevent modal content from propagating clicks to overlay
+            document.addEventListener('click', function(e) {
+                const modalContent = e.target.closest('.modal-content');
+                const pokemonContent = e.target.closest('.pokemon-detail-content');
+                if (modalContent || pokemonContent) {
+                    e.stopPropagation();
                 }
             });
         });
 
         // Pokemon filter setup
         let allMarkers = []; // Store all markers for filtering
+        let pokemonList = []; // Store Pokemon list for search
+        let currentFilter = ''; // Store current filter value
+        let selectedStars = new Set(); // Store selected star filters
         
         function setupPokemonFilter() {
-            const dropdown = document.getElementById('pokemonFilter');
+            const searchInput = document.getElementById('pokemonSearch');
+            const dropdown = document.getElementById('pokemonDropdown');
             
             // Create array of pokemon with names for sorting
-            const pokemonList = Object.entries(pokemonNames).map(([id, name]) => ({
+            pokemonList = Object.entries(pokemonNames).map(([id, name]) => ({
                 id: parseInt(id),
-                name: name
+                name: name,
+                searchText: `${name.toLowerCase()}`
             }));
             
             // Sort alphabetically by name
             pokemonList.sort((a, b) => a.name.localeCompare(b.name));
             
-            // Populate dropdown
-            pokemonList.forEach(pokemon => {
-                const option = document.createElement('option');
-                option.value = pokemon.id;
-                option.textContent = `${pokemon.name} (#${pokemon.id})`;
-                dropdown.appendChild(option);
+            // Add event listeners for search functionality
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                if (query.length > 0) {
+                    showFilteredPokemon(query);
+                } else {
+                    hideDropdown();
+                    if (currentFilter) {
+                        currentFilter = '';
+                        applyFilters();
+                    }
+                }
             });
             
-            // Add event listener for filtering
-            dropdown.addEventListener('change', function() {
-                filterDensByPokemon(this.value);
+            searchInput.addEventListener('blur', function() {
+                // Delay hiding dropdown to allow for clicks
+                setTimeout(() => hideDropdown(), 150);
+            });
+            
+            searchInput.addEventListener('focus', function() {
+                const query = this.value.toLowerCase().trim();
+                showFilteredPokemon(query);
+            });
+            
+            // Add clear button functionality
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    this.value = '';
+                    hideDropdown();
+                    if (currentFilter) {
+                        currentFilter = '';
+                        applyFilters();
+                    }
+                }
             });
         }
         
-        function filterDensByPokemon(selectedPokemonId) {
-            const filterLegend = document.getElementById('filterLegend');
+        function capitalizePokemonName(name) {
+            return name.split(' ').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+            ).join(' ');
+        }
+        
+        function showFilteredPokemon(query) {
+            const dropdown = document.getElementById('pokemonDropdown');
+            let filteredPokemon;
             
-            if (!selectedPokemonId) {
+            if (query.length === 0) {
+                // Show all Pokemon when no query
+                filteredPokemon = pokemonList;
+            } else {
+                // Filter when user types
+                filteredPokemon = pokemonList.filter(pokemon => 
+                    pokemon.searchText.includes(query) || 
+                    pokemon.id.toString() === query
+                );
+            }
+            
+            if (filteredPokemon.length > 0) {
+                dropdown.innerHTML = filteredPokemon.map(pokemon => {
+                    const capitalizedName = capitalizePokemonName(pokemon.name);
+                    return `<div class="pokemon-search-item" onclick="selectPokemon(${pokemon.id}, '${pokemon.name.replace(/'/g, "\\'")}')">
+                        ${capitalizedName}
+                    </div>`;
+                }).join('');
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.innerHTML = '<div class="pokemon-search-item">No Pokemon found</div>';
+                dropdown.style.display = 'block';
+            }
+        }
+        
+        function hideDropdown() {
+            document.getElementById('pokemonDropdown').style.display = 'none';
+        }
+        
+        function selectPokemon(pokemonId, pokemonName) {
+            const searchInput = document.getElementById('pokemonSearch');
+            searchInput.value = capitalizePokemonName(pokemonName);
+            hideDropdown();
+            currentFilter = pokemonId.toString();
+            applyFilters();
+        }
+        
+        function clearFilter() {
+            currentFilter = '';
+            filterDensByPokemon('');
+        }
+        
+        // Star filter functions
+        function toggleStarFilter(star) {
+            const button = document.querySelector(`[data-star="${star}"]`);
+            
+            if (selectedStars.has(star)) {
+                selectedStars.delete(star);
+                button.classList.remove('active');
+            } else {
+                selectedStars.add(star);
+                button.classList.add('active');
+            }
+            
+            applyFilters();
+        }
+        
+        function clearStarFilters() {
+            selectedStars.clear();
+            document.querySelectorAll('.star-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            applyFilters();
+        }
+        
+        function applyFilters() {
+            // Apply both Pokemon name filter and star filter
+            filterDensByFilters();
+        }
+        
+        function filterDensByFilters() {
+            const pokemonId = currentFilter ? parseInt(currentFilter) : null;
+            const hasStarFilter = selectedStars.size > 0;
+            
+            if (!pokemonId && !hasStarFilter) {
                 // Show all markers with original styling
                 allMarkers.forEach(marker => {
                     marker.setStyle({
@@ -645,41 +1222,60 @@
                         weight: 2
                     });
                 });
-                filterLegend.style.display = 'none';
-                updateFilterStatus(allMarkers.length, allMarkers.length);
+                updateFilterStatus({total: allMarkers.length}, allMarkers.length);
                 return;
             }
             
-            // Show filter legend when filtering is active
-            filterLegend.style.display = 'block';
-            
-            const pokemonId = parseInt(selectedPokemonId);
             let counts = { common: 0, rare: 0, both: 0, total: 0 };
+            const pokemonName = pokemonId ? pokemonNames[pokemonId] : null;
             
             allMarkers.forEach(marker => {
                 const den = marker.denData;
-                const result = denContainsPokemon(den, pokemonId);
+                let denMatches = false;
+                let pokemonResult = null;
                 
-                if (result.hasPokemon) {
+                if (pokemonId && hasStarFilter) {
+                    // Both Pokemon and star filters active - check if specific Pokemon has the selected ranks
+                    denMatches = denContainsPokemonAtStarRanks(den, pokemonId, selectedStars);
+                    if (denMatches) {
+                        pokemonResult = denContainsPokemon(den, pokemonId); // For color coding
+                    }
+                } else if (pokemonId && !hasStarFilter) {
+                    // Only Pokemon filter
+                    pokemonResult = denContainsPokemon(den, pokemonId);
+                    denMatches = pokemonResult.hasPokemon;
+                } else if (!pokemonId && hasStarFilter) {
+                    // Only star filter - any Pokemon at selected ranks
+                    denMatches = denContainsStarRanks(den, selectedStars);
+                }
+                
+                if (denMatches) {
                     counts.total++;
                     let fillColor, borderColor;
                     
-                    switch (result.poolType) {
-                        case 'common':
-                            fillColor = '#ff0000'; // Red for common
-                            borderColor = '#cc0000';
-                            counts.common++;
-                            break;
-                        case 'rare':
-                            fillColor = '#8b00ff'; // Purple for rare
-                            borderColor = '#6600cc';
-                            counts.rare++;
-                            break;
-                        case 'both':
-                            fillColor = '#ff0000'; // Red center (common)
-                            borderColor = '#8b00ff'; // Purple border (rare)
-                            counts.both++;
-                            break;
+                    if (pokemonResult && pokemonResult.hasPokemon) {
+                        // Show Pokemon pool colors
+                        switch (pokemonResult.poolType) {
+                            case 'common':
+                                fillColor = '#ff0000';
+                                borderColor = '#cc0000';
+                                counts.common++;
+                                break;
+                            case 'rare':
+                                fillColor = '#8b00ff';
+                                borderColor = '#6600cc';
+                                counts.rare++;
+                                break;
+                            case 'both':
+                                fillColor = '#ff0000';
+                                borderColor = '#8b00ff';
+                                counts.both++;
+                                break;
+                        }
+                    } else {
+                        // Default styling for star-only filter
+                        fillColor = '#ff0000';
+                        borderColor = '#cc0000';
                     }
                     
                     marker.setStyle({
@@ -701,38 +1297,146 @@
                 }
             });
             
-            const pokemonName = pokemonNames[pokemonId];
-            updateFilterStatus(counts, allMarkers.length, pokemonName);
+            updateFilterStatus(counts, allMarkers.length, pokemonName, selectedStars);
         }
         
-        function updateFilterStatus(counts, total, pokemonName = null) {
-            const dropdown = document.getElementById('pokemonFilter');
-            const container = dropdown.parentElement;
+        function denContainsPokemonAtStarRanks(den, pokemonId, starSet) {
+            const commonPokemon = getPokemonFromBothVersions(den.common_pool);
+            const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
+            const allPokemon = [...commonPokemon, ...rarePokemon];
+            
+            // Convert stars to ranks for comparison
+            const selectedRanks = Array.from(starSet).map(star => star - 1);
+            
+            // Find the specific Pokemon in this den
+            const targetPokemon = allPokemon.filter(pokemon => pokemon.species === pokemonId);
+            
+            if (targetPokemon.length === 0) {
+                return false; // Pokemon not in this den
+            }
+            
+            // Check if any instance of this Pokemon has the selected ranks
+            for (let pokemon of targetPokemon) {
+                let pokemonRanks = [];
+                
+                // Get all ranks this Pokemon can appear at
+                if (pokemon.swordRanks && typeof pokemon.swordRanks === 'object') {
+                    for (let rank = pokemon.swordRanks.min; rank <= pokemon.swordRanks.max; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
+                }
+                if (pokemon.shieldRanks && typeof pokemon.shieldRanks === 'object') {
+                    for (let rank = pokemon.shieldRanks.min; rank <= pokemon.shieldRanks.max; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
+                }
+                
+                // Fallback: direct minRank/maxRank
+                if (pokemon.minRank !== undefined && pokemon.maxRank !== undefined) {
+                    for (let rank = pokemon.minRank; rank <= pokemon.maxRank; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
+                }
+                
+                // Check if this Pokemon instance has any of the selected ranks
+                const hasMatch = selectedRanks.some(selectedRank => pokemonRanks.includes(selectedRank));
+                
+                if (hasMatch) {
+                    return true;
+                }
+            }
+            
+            return false; // Pokemon found but not at selected ranks
+        }
+        
+        function denContainsStarRanks(den, starSet) {
+            const commonPokemon = getPokemonFromBothVersions(den.common_pool);
+            const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
+            const allPokemon = [...commonPokemon, ...rarePokemon];
+            
+            // Convert stars to ranks for comparison
+            const selectedRanks = Array.from(starSet).map(star => star - 1);
+            
+            // Check if ANY Pokemon in the den has the selected ranks
+            for (let pokemon of allPokemon) {
+                let pokemonRanks = [];
+                
+                if (pokemon.swordRanks && typeof pokemon.swordRanks === 'object') {
+                    for (let rank = pokemon.swordRanks.min; rank <= pokemon.swordRanks.max; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
+                }
+                if (pokemon.shieldRanks && typeof pokemon.shieldRanks === 'object') {
+                    for (let rank = pokemon.shieldRanks.min; rank <= pokemon.shieldRanks.max; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
+                }
+                
+                if (pokemon.minRank !== undefined && pokemon.maxRank !== undefined) {
+                    for (let rank = pokemon.minRank; rank <= pokemon.maxRank; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
+                }
+                
+                const hasMatch = selectedRanks.some(selectedRank => pokemonRanks.includes(selectedRank));
+                if (hasMatch) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        function filterDensByPokemon(selectedPokemonId) {
+            currentFilter = selectedPokemonId;
+            applyFilters();
+        }
+        
+        function updateFilterStatus(counts, total, pokemonName = null, starSet = null) {
+            const filterContainer = document.querySelector('.filter-container');
             
             // Remove existing status
-            const existingStatus = container.querySelector('.filter-status');
+            const existingStatus = filterContainer.querySelector('.filter-status');
             if (existingStatus) {
                 existingStatus.remove();
             }
             
             // Add new status if filtering
-            if (pokemonName) {
+            if (pokemonName || (starSet && starSet.size > 0)) {
                 const status = document.createElement('div');
                 status.className = 'filter-status';
                 
-                if (typeof counts === 'object' && counts.total !== undefined) {
-                    status.innerHTML = `
-                        Showing ${counts.total} of ${total} dens with <strong>${pokemonName}</strong><br>
-                        <span style="color: #ff0000;">●</span> Common only: ${counts.common} | 
-                        <span style="color: #8b00ff;">●</span> Rare only: ${counts.rare} | 
-                        <span style="color: #ff0000; text-shadow: 0 0 0 2px #8b00ff;">●</span> Both pools: ${counts.both}
-                    `;
-                } else {
-                    // Fallback for old calling format
-                    status.textContent = `Showing ${counts} of ${total} dens with ${pokemonName}`;
+                // Handle counts properly - extract total from object or use counts directly
+                const totalCount = (typeof counts === 'object' && counts.total !== undefined) ? counts.total : counts;
+                let statusText = `Showing ${totalCount} of ${total} dens`;
+                
+                const filters = [];
+                if (pokemonName) {
+                    filters.push(`<strong>${pokemonName}</strong>`);
+                }
+                if (starSet && starSet.size > 0) {
+                    const starText = Array.from(starSet).sort((a, b) => a - b).map(s => `${s}☆`).join(', ');
+                    filters.push(`<strong>${starText}</strong>`);
                 }
                 
-                container.appendChild(status);
+                if (filters.length > 0) {
+                    statusText += ` with ${filters.join(' and ')}`;
+                }
+                
+                status.innerHTML = statusText;
+                filterContainer.appendChild(status);
             }
         }
         
@@ -751,6 +1455,9 @@
             };
         }
 
+        // Store map instances for resizing
+        let mapInstances = [];
+
         // Initialize maps
         function initMap(mapId, imagePath, denLocations) {
             const map = L.map(mapId, {
@@ -758,6 +1465,9 @@
                 minZoom: -1,
                 maxZoom: 3
             });
+
+            // Store map instance for later use
+            mapInstances.push(map);
 
             // Create image overlay with proper bounds
             const img = new Image();
@@ -768,6 +1478,11 @@
                 
                 L.imageOverlay(imagePath, imageBounds).addTo(map);
                 map.fitBounds(imageBounds);
+                
+                // Force map to recalculate size after image loads
+                setTimeout(() => {
+                    map.invalidateSize();
+                }, 100);
                 
                 // Add den markers after image loads
                 denLocations.forEach((den, index) => {
@@ -789,7 +1504,7 @@
                     allMarkers.push(marker);
                     
                     marker.on('click', function() {
-                        openModal(createDenPopup(den, index));
+                        openModal(createDenPopup(den, index), `Den #${index + 1}`);
                     });
                 });
             };
@@ -808,6 +1523,91 @@
             const map1 = initMap('map1', 'images/map.png', wildAreaDens);
             const map2 = initMap('map2', 'images/map_ioa.png', ioaDens);
             const map3 = initMap('map3', 'images/map_tc.png', ctDens);
+
+            // Add resize handler for mobile layout changes
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(function() {
+                    mapInstances.forEach(map => {
+                        map.invalidateSize();
+                    });
+                }, 250);
+            });
+
+            // Handle orientation change specifically for mobile
+            window.addEventListener('orientationchange', function() {
+                setTimeout(function() {
+                    mapInstances.forEach(map => {
+                        map.invalidateSize();
+                    });
+                }, 500);
+            });
+
+            // Additional resize check after DOM is fully loaded
+            setTimeout(function() {
+                mapInstances.forEach(map => {
+                    map.invalidateSize();
+                });
+            }, 1000);
+
+            // Media query change handler for mobile/desktop transitions
+            if (window.matchMedia) {
+                const mediaQuery = window.matchMedia('(max-width: 768px)');
+                mediaQuery.addListener(function(mq) {
+                    setTimeout(function() {
+                        mapInstances.forEach(map => {
+                            map.invalidateSize();
+                        });
+                    }, 300);
+                });
+            }
+
+            // Intersection Observer to resize maps when they become visible
+            if (window.IntersectionObserver) {
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const mapElement = entry.target.querySelector('.map');
+                            if (mapElement) {
+                                const mapId = mapElement.id;
+                                const mapInstance = mapInstances.find(map => 
+                                    map.getContainer().id === mapId
+                                );
+                                if (mapInstance) {
+                                    setTimeout(() => {
+                                        mapInstance.invalidateSize();
+                                    }, 100);
+                                }
+                            }
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                document.querySelectorAll('.map-container').forEach(function(container) {
+                    observer.observe(container);
+                });
+            }
+
+            // Fallback: Force map refresh if mobile layout issues persist
+            setTimeout(function() {
+                if (window.innerWidth <= 768) {
+                    mapInstances.forEach(map => {
+                        try {
+                            map.invalidateSize();
+                            // Force a re-fit to bounds if map seems empty
+                            const bounds = map.getBounds();
+                            if (bounds) {
+                                map.fitBounds(bounds);
+                            }
+                        } catch (e) {
+                            console.log('Map resize fallback attempted');
+                        }
+                    });
+                }
+            }, 2000);
         }
     </script>
 </body>
