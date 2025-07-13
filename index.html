@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon Raid Map</title>
+    <title>Pokemon Raid Map - Composite View</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="styles/spritesheet.css" />
     <style>
@@ -24,6 +24,7 @@
             margin: 10px 0 15px 0;
             font-size: 28px;
         }
+        
         .filter-container {
             margin: 15px 0;
             padding: 12px;
@@ -111,6 +112,7 @@
             background-color: #e9ecef;
             border-color: #adb5bd;
         }
+        
         .filter-status {
             margin-top: 10px;
             font-size: 14px;
@@ -118,31 +120,30 @@
             font-style: italic;
             text-align: center;
         }
-        .container {
-            display: flex;
-            gap: 20px;
-            height: 75vh;
-        }
+        
         .map-container {
-            flex: 1;
-            position: relative;
-        }
-        .map-wrapper {
-            position: relative;
+            height: 80vh;
             width: 100%;
-            height: 100%;
+            margin: 20px 0;
         }
+        
         .map {
             height: 100%;
+            width: 100%;
             border: 2px solid #333;
             position: relative;
             background-color: #f0f0f0;
         }
-        h2 {
+        
+        .area-labels {
             position: absolute;
-            bottom: 10px;
+            top: 10px;
             left: 10px;
-            margin: 0;
+            z-index: 1000;
+            pointer-events: none;
+        }
+        
+        .area-label {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 8px 12px;
             border-radius: 6px;
@@ -150,9 +151,9 @@
             font-size: 16px;
             font-weight: bold;
             color: #333;
-            z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            pointer-events: none;
+            margin-bottom: 5px;
+            display: block;
         }
 
         .pokemon-sprite-container {
@@ -162,6 +163,7 @@
             min-width: 0;
             width: 100%;
         }
+        
         .pokemon-sprite {
             display: block;
             border: 1px solid #ddd;
@@ -174,28 +176,34 @@
             max-width: 100%;
             box-sizing: border-box;
         }
+        
         .pokemon-sprite:hover {
             border-color: #007cba;
             background-color: #e7f3ff;
             transform: scale(1.05);
             box-shadow: 0 2px 8px rgba(0, 124, 186, 0.3);
         }
+        
         .pokemon-sprite.sword-exclusive {
             background-color: #0075BE;
             border-color: #005a9a;
         }
+        
         .pokemon-sprite.sword-exclusive:hover {
             background-color: #0084d1;
             border-color: #0075BE;
         }
+        
         .pokemon-sprite.shield-exclusive {
             background-color: #C62D42;
             border-color: #a02435;
         }
+        
         .pokemon-sprite.shield-exclusive:hover {
             background-color: #d63851;
             border-color: #C62D42;
         }
+        
         .rank-display {
             font-size: 10px;
             font-weight: bold;
@@ -216,6 +224,7 @@
             box-shadow: 0 2px 4px rgba(34, 197, 94, 0.4);
             font-weight: bold;
         }
+        
         .popup-section {
             margin-bottom: 10px;
         }
@@ -300,166 +309,6 @@
             padding: 0 4px;
         }
         
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                flex-direction: column;
-                height: auto;
-                gap: 15px;
-            }
-            .map-container {
-                height: 70vh;
-                min-height: 350px;
-                max-height: 700px;
-                width: 100%;
-                flex-shrink: 0;
-            }
-            .map {
-                height: 100% !important;
-                width: 100% !important;
-                min-height: 280px;
-            }
-
-            .filter-container {
-                padding: 10px;
-                margin: 10px 0;
-            }
-            
-            .filter-main-row {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .pokemon-filter-section,
-            .star-filter-section {
-                min-width: auto;
-                width: 100%;
-                align-items: center;
-            }
-            
-            .filter-container label {
-                text-align: center;
-                margin-bottom: 8px;
-            }
-            
-            .pokemon-search-container {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            .filter-container select,
-            .filter-container input {
-                width: 100%;
-                box-sizing: border-box;
-            }
-            
-            .star-filter-container {
-                justify-content: center;
-                gap: 6px;
-            }
-            
-            .star-button {
-                min-width: 50px;
-                padding: 6px 8px;
-                font-size: 12px;
-            }
-            .pokemon-grid {
-                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
-                gap: 6px;
-                padding: 0 8px;
-            }
-            .modal-content {
-                margin: 10px;
-                max-height: 85vh;
-            }
-            
-            .modal-header {
-                padding: 12px 15px;
-            }
-            
-            .modal-title {
-                font-size: 16px;
-            }
-            
-            .modal-scroll-container {
-                padding: 15px;
-                max-height: 65vh;
-                -webkit-overflow-scrolling: touch;
-            }
-            .pokemon-sprite-container {
-                margin: 0;
-                width: 100%;
-            }
-            .rank-display {
-                font-size: 9px;
-                padding: 1px 2px;
-            }
-            
-            .rank-display.filter-match {
-                background-color: #22c55e;
-                color: white;
-                box-shadow: 0 1px 3px rgba(34, 197, 94, 0.4);
-            }
-            h1 {
-                font-size: 22px;
-                margin: 8px 0 12px 0;
-            }
-            h2 {
-                font-size: 14px;
-                bottom: 8px;
-                left: 8px;
-                padding: 6px 10px;
-            }
-        }
-        
-        /* Additional mobile improvements */
-        @media (max-width: 480px) {
-            .pokemon-grid {
-                grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
-                gap: 5px;
-                padding: 0 6px;
-            }
-            .modal-content {
-                margin: 5px;
-                max-height: 90vh;
-            }
-            
-            .modal-header {
-                padding: 10px 12px;
-            }
-            
-            .modal-title {
-                font-size: 15px;
-            }
-            
-            .modal-scroll-container {
-                padding: 12px;
-                max-height: 60vh;
-                -webkit-overflow-scrolling: touch;
-            }
-            .rank-display {
-                font-size: 8px;
-                min-height: 10px;
-                line-height: 10px;
-            }
-            
-            .rank-display.filter-match {
-                background-color: #22c55e;
-                color: white;
-                box-shadow: 0 1px 2px rgba(34, 197, 94, 0.4);
-            }
-            
-            h2 {
-                font-size: 12px;
-                bottom: 6px;
-                left: 6px;
-                padding: 4px 8px;
-            }
-        }
-        
         /* Pokemon search input styles */
         .pokemon-search-container {
             position: relative;
@@ -533,16 +382,6 @@
             min-width: 300px;
         }
         
-        @media (max-width: 768px) {
-            .pokemon-detail-content {
-                margin: 15px;
-                min-width: auto;
-                max-height: 75vh;
-            }
-        }
-        
-
-        
         .pokemon-detail-sprite {
             width: 96px;
             height: 96px;
@@ -556,13 +395,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 10px;
             margin-top: 15px;
-        }
-        
-        @media (max-width: 480px) {
-            .pokemon-detail-info {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
         }
         
         .pokemon-detail-section {
@@ -593,10 +425,48 @@
         .clickable-sprite:active {
             transform: scale(0.95);
         }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .map-container {
+                height: 70vh;
+            }
+            
+            .filter-container {
+                padding: 10px;
+                margin: 10px 0;
+            }
+            
+            .filter-main-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .pokemon-filter-section,
+            .star-filter-section {
+                min-width: auto;
+                width: 100%;
+                align-items: center;
+            }
+            
+            .pokemon-grid {
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 6px;
+                padding: 0 8px;
+            }
+            
+            .pokemon-detail-info {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Pokemon Raid Den Locations</h1>
+    <h1>Pokemon Raid Den Locations - Composite Map</h1>
     
     <div class="filter-container">
         <div class="filter-main-row">
@@ -632,27 +502,9 @@
         </div>
     </div>
     
+        <div class="map-container">
+        <div id="compositeMap" class="map"></div>
 
-    
-    <div class="container">
-        <div class="map-container">
-            <div class="map-wrapper">
-            <div id="map1" class="map"></div>
-                <h2>Wild Area</h2>
-            </div>
-        </div>
-        <div class="map-container">
-            <div class="map-wrapper">
-            <div id="map2" class="map"></div>
-                <h2>Isle of Armor</h2>
-            </div>
-        </div>
-        <div class="map-container">
-            <div class="map-wrapper">
-            <div id="map3" class="map"></div>
-                <h2>Crown Tundra</h2>
-            </div>
-        </div>
     </div>
 
     <!-- Modal for den information -->
@@ -671,7 +523,34 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Load den, raid table, pokemon names, and gmax mapping data
+        // Composite layout configuration
+        const COMPOSITE_LAYOUT = {
+            "composite": {
+                "width": 2759,
+                "height": 4559
+            },
+            "wild_area": {
+                "x": 444,
+                "y": 0,
+                "width": 1032,
+                "height": 2399
+            },
+            "isle_of_armor": {
+                "x": 1576,
+                "y": 0,
+                "width": 1183,
+                "height": 1183
+            },
+            "crown_tundra": {
+                "x": 0,
+                "y": 2499,
+                "width": 1920,
+                "height": 2060
+            },
+            "spacing": 100
+        };
+
+        // Load data
         let denData = [];
         let raidTables = [];
         let pokemonNames = {};
@@ -680,23 +559,23 @@
         
         function checkDataLoaded() {
             if (dataLoaded === 4) {
-                // Ensure DOM is ready before initializing maps
                 if (document.readyState === 'loading') {
                     document.addEventListener('DOMContentLoaded', function() {
                         setTimeout(() => {
-                initializeMaps();
+                            initializeCompositeMap();
                 setupPokemonFilter();
                         }, 100);
                     });
                 } else {
                     setTimeout(() => {
-                        initializeMaps();
+                        initializeCompositeMap();
                         setupPokemonFilter();
                     }, 100);
                 }
             }
         }
         
+        // Load all data files
         fetch('data/den_locations.json')
             .then(response => response.json())
             .then(data => {
@@ -753,7 +632,42 @@
                 checkDataLoaded();
             });
 
-        // Helper functions for raid data
+        // Coordinate transformation functions
+        function transformDenCoordinates(den) {
+            const location = den.location;
+            const compositeHeight = COMPOSITE_LAYOUT.composite.height;
+            let areaConfig, transformedX, transformedY;
+            
+            if (location < 17) {
+                // Wild Area
+                areaConfig = COMPOSITE_LAYOUT.wild_area;
+                transformedX = areaConfig.x + den.MapX;
+                // Convert to Leaflet coordinates: position within composite, then invert for Leaflet
+                transformedY = compositeHeight - (areaConfig.y + den.MapY);
+            } else if (location >= 17 && location < 32) {
+                // Isle of Armor
+                areaConfig = COMPOSITE_LAYOUT.isle_of_armor;
+                transformedX = areaConfig.x + den.MapX;
+                // Convert to Leaflet coordinates: position within composite, then invert for Leaflet
+                transformedY = compositeHeight - (areaConfig.y + den.MapY);
+            } else {
+                // Crown Tundra
+                areaConfig = COMPOSITE_LAYOUT.crown_tundra;
+                transformedX = areaConfig.x + den.MapX;
+                // Convert to Leaflet coordinates: position within composite, then invert for Leaflet
+                transformedY = compositeHeight - (areaConfig.y + den.MapY);
+            }
+            
+            return { x: transformedX, y: transformedY };
+        }
+        
+        function getAreaName(location) {
+            if (location < 17) return "Wild Area";
+            if (location >= 17 && location < 32) return "Isle of Armor";
+            return "Crown Tundra";
+        }
+
+        // Helper functions for raid data (keeping all existing functions)
         function getPokemonFromBothVersions(poolId) {
             const swordPool = raidTables.find(pool => pool.pool_id === poolId && pool.version === 1);
             const shieldPool = raidTables.find(pool => pool.pool_id === poolId && pool.version === 2);
@@ -767,12 +681,10 @@
         function deduplicatePokemon(swordPokemon, shieldPokemon) {
             const pokemonMap = new Map();
             
-            // Create a unique key that includes all Pokemon attributes except probabilities
             function createPokemonKey(pokemon) {
                 return `${pokemon.species}-${pokemon.altForm}-${pokemon.ability}-${pokemon.gender}-${pokemon.gigantamax}-${pokemon.flawlessIVs}-${pokemon.minRank}-${pokemon.maxRank}`;
             }
             
-            // Add Sword Pokemon
             swordPokemon.forEach(pokemon => {
                 const key = createPokemonKey(pokemon);
                 pokemonMap.set(key, {
@@ -786,17 +698,14 @@
                 });
             });
             
-            // Add Shield Pokemon, checking for duplicates
             shieldPokemon.forEach(pokemon => {
                 const key = createPokemonKey(pokemon);
                 if (pokemonMap.has(key)) {
-                    // Pokemon exists in both versions with identical attributes (except probabilities)
                     const existing = pokemonMap.get(key);
                     existing.versions.push(2);
                     existing.shieldRanks = { min: pokemon.minRank, max: pokemon.maxRank };
                     existing.shieldProbabilities = pokemon.Probabilities || pokemon.probabilities;
                 } else {
-                    // Pokemon only in Shield or has different attributes
                     pokemonMap.set(key, {
                         ...pokemon,
                         versions: [2],
@@ -809,7 +718,6 @@
                 }
             });
             
-            // Mark Sword exclusives
             pokemonMap.forEach((pokemon, key) => {
                 if (pokemon.versions.length === 1 && pokemon.versions[0] === 1) {
                     pokemon.exclusiveVersion = 1;
@@ -817,7 +725,6 @@
             });
             
             return Array.from(pokemonMap.values()).sort((a, b) => {
-                // Get the highest max rank for each Pokemon (considering both versions)
                 const aMaxRank = Math.max(
                     a.swordRanks ? a.swordRanks.max : -1,
                     a.shieldRanks ? a.shieldRanks.max : -1
@@ -827,7 +734,6 @@
                     b.shieldRanks ? b.shieldRanks.max : -1
                 );
                 
-                // Get the lowest min rank for each Pokemon (considering both versions)
                 const aMinRank = Math.min(
                     a.swordRanks ? a.swordRanks.min : Infinity,
                     a.shieldRanks ? a.shieldRanks.min : Infinity
@@ -837,7 +743,6 @@
                     b.shieldRanks ? b.shieldRanks.min : Infinity
                 );
                 
-                // Sort by max rank first, then min rank, then species ID
                 if (aMaxRank !== bMaxRank) {
                     return aMaxRank - bMaxRank;
                 }
@@ -848,62 +753,88 @@
             });
         }
         
-        function pokemonMatchesCurrentFilters(pokemon) {
-            const hasFilters = currentFilter || selectedStars.size > 0;
-            if (!hasFilters) {
-                return false; // No highlighting when no filters active
-            }
+        // Store variables for filtering
+        let allMarkers = [];
+        let pokemonList = [];
+        let currentFilter = '';
+        let selectedStars = new Set();
+        let compositeMap;
+        let currentModalDen = null;
+        let currentModalIndex = null;
+        
+        // Initialize composite map
+        function initializeCompositeMap() {
+            compositeMap = L.map('compositeMap', {
+                crs: L.CRS.Simple,
+                minZoom: -3,
+                maxZoom: 2
+            });
             
-            const pokemonId = currentFilter ? parseInt(currentFilter) : null;
-            const hasStarFilter = selectedStars.size > 0;
+            const compositeWidth = COMPOSITE_LAYOUT.composite.width;
+            const compositeHeight = COMPOSITE_LAYOUT.composite.height;
+            const compositeBounds = [[0, 0], [compositeHeight, compositeWidth]];
             
-            // Check Pokemon species match
-            let pokemonMatches = true;
-            if (pokemonId) {
-                pokemonMatches = pokemon.species === pokemonId;
-            }
+            // Add image overlays for each area (inverted Y coordinates for Leaflet)
+            const wildAreaBounds = [
+                [compositeHeight - (COMPOSITE_LAYOUT.wild_area.y + COMPOSITE_LAYOUT.wild_area.height), COMPOSITE_LAYOUT.wild_area.x],
+                [compositeHeight - COMPOSITE_LAYOUT.wild_area.y, 
+                 COMPOSITE_LAYOUT.wild_area.x + COMPOSITE_LAYOUT.wild_area.width]
+            ];
             
-            // Check star rank match
-            let starMatches = true;
-            if (hasStarFilter) {
-                const selectedRanks = Array.from(selectedStars).map(star => star - 1);
-                let pokemonRanks = [];
+            const ioaBounds = [
+                [compositeHeight - (COMPOSITE_LAYOUT.isle_of_armor.y + COMPOSITE_LAYOUT.isle_of_armor.height), COMPOSITE_LAYOUT.isle_of_armor.x],
+                [compositeHeight - COMPOSITE_LAYOUT.isle_of_armor.y,
+                 COMPOSITE_LAYOUT.isle_of_armor.x + COMPOSITE_LAYOUT.isle_of_armor.width]
+            ];
+            
+            const ctBounds = [
+                [compositeHeight - (COMPOSITE_LAYOUT.crown_tundra.y + COMPOSITE_LAYOUT.crown_tundra.height), COMPOSITE_LAYOUT.crown_tundra.x],
+                [compositeHeight - COMPOSITE_LAYOUT.crown_tundra.y,
+                 COMPOSITE_LAYOUT.crown_tundra.x + COMPOSITE_LAYOUT.crown_tundra.width]
+            ];
+            
+            // Add overlays
+            L.imageOverlay('images/map.png', wildAreaBounds).addTo(compositeMap);
+            L.imageOverlay('images/map_ioa.png', ioaBounds).addTo(compositeMap);
+            L.imageOverlay('images/map_tc.png', ctBounds).addTo(compositeMap);
+            
+            // Fit map to composite bounds
+            compositeMap.fitBounds(compositeBounds);
+            
+            // Add markers for all dens
+            denData.forEach((den, index) => {
+                const coords = transformDenCoordinates(den);
+                const areaName = getAreaName(den.location);
                 
-                // Get all ranks this Pokemon can appear at
-                if (pokemon.swordRanks && typeof pokemon.swordRanks === 'object') {
-                    for (let rank = pokemon.swordRanks.min; rank <= pokemon.swordRanks.max; rank++) {
-                        if (!pokemonRanks.includes(rank)) {
-                            pokemonRanks.push(rank);
-                        }
-                    }
-                }
-                if (pokemon.shieldRanks && typeof pokemon.shieldRanks === 'object') {
-                    for (let rank = pokemon.shieldRanks.min; rank <= pokemon.shieldRanks.max; rank++) {
-                        if (!pokemonRanks.includes(rank)) {
-                            pokemonRanks.push(rank);
-                        }
-                    }
-                }
+                const marker = L.circleMarker([coords.y, coords.x], {
+                    radius: 8,
+                    fillColor: '#ff0000',
+                    color: '#ffffff',
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                }).addTo(compositeMap);
                 
-                // Fallback: direct minRank/maxRank
-                if (pokemon.minRank !== undefined && pokemon.maxRank !== undefined) {
-                    for (let rank = pokemon.minRank; rank <= pokemon.maxRank; rank++) {
-                        if (!pokemonRanks.includes(rank)) {
-                            pokemonRanks.push(rank);
-                        }
-                    }
-                }
+                marker.denData = den;
+                marker.areaName = areaName;
+                allMarkers.push(marker);
                 
-                starMatches = selectedRanks.some(selectedRank => pokemonRanks.includes(selectedRank));
-            }
+                marker.on('click', function() {
+                    const denNumber = den.denNumber || (index + 1);
+                    openModal(createDenPopup(den, index), `Den #${denNumber} (${areaName})`, den, index);
+                });
+            });
             
-            return pokemonMatches && starMatches;
+            // Force map resize after initialization
+            setTimeout(() => {
+                compositeMap.invalidateSize();
+            }, 100);
         }
         
+        // Keep all existing modal, filtering, and Pokemon functions
         function createPokemonSprite(pokemon) {
             const speciesId = pokemon.species;
             
-            // Determine sprite number - use Gmax mapping if this is a Gigantamax form
             let spriteNumber = speciesId;
             if (pokemon.gigantamax && gmaxMapping[speciesId]) {
                 spriteNumber = gmaxMapping[speciesId];
@@ -912,7 +843,6 @@
             const exclusiveClass = pokemon.exclusiveVersion === 1 ? 'sword-exclusive' : 
                                  pokemon.exclusiveVersion === 2 ? 'shield-exclusive' : '';
             
-            // Format rank display (add 1 since data is 0-indexed but game is 1-indexed)
             function formatRanks(minRank, maxRank) {
                 const displayMin = minRank + 1;
                 const displayMax = maxRank + 1;
@@ -922,30 +852,23 @@
             let rankDisplay = '';
             
             if (pokemon.swordRanks && pokemon.shieldRanks) {
-                // Pokemon in both versions
                 const swordRanksStr = formatRanks(pokemon.swordRanks.min, pokemon.swordRanks.max);
                 const shieldRanksStr = formatRanks(pokemon.shieldRanks.min, pokemon.shieldRanks.max);
                 
                 if (swordRanksStr === shieldRanksStr) {
-                    // Same ranks in both versions
                     rankDisplay = swordRanksStr;
                 } else {
-                    // Different ranks
                     rankDisplay = `S:${swordRanksStr} Sh:${shieldRanksStr}`;
                 }
             } else if (pokemon.swordRanks) {
-                // Sword only
                 rankDisplay = formatRanks(pokemon.swordRanks.min, pokemon.swordRanks.max);
             } else if (pokemon.shieldRanks) {
-                // Shield only
                 rankDisplay = formatRanks(pokemon.shieldRanks.min, pokemon.shieldRanks.max);
             }
             
-            // Check if this Pokemon matches the current filters
             const matchesFilter = pokemonMatchesCurrentFilters(pokemon);
             const highlightClass = matchesFilter ? 'filter-match' : '';
             
-            // Create unique ID for this pokemon instance
             const pokemonInstanceId = `pokemon-${speciesId}-${pokemon.altForm || 0}-${pokemon.gigantamax ? 'gmax' : 'normal'}-${Date.now()}-${Math.random()}`;
             
             return `
@@ -987,10 +910,6 @@
             `;
         }
         
-        // Store current modal data for refreshing when filters change
-        let currentModalDen = null;
-        let currentModalIndex = null;
-        
         // Modal functions
         function openModal(content, title = 'Raid Den', den = null, index = null) {
             currentModalDen = den;
@@ -1016,27 +935,6 @@
             currentModalIndex = null;
         }
         
-        function refreshModalIfOpen() {
-            if (currentModalDen && currentModalIndex !== null && 
-                document.getElementById('denModal').style.display === 'flex') {
-                // Regenerate content with current filters
-                const content = createDenPopup(currentModalDen, currentModalIndex);
-                const title = `Den #${currentModalIndex + 1}`;
-                
-                // Update modal content without changing the open state
-                document.getElementById('modalContent').innerHTML = `
-                    <div class="modal-header">
-                        <h3 class="modal-title">${title}</h3>
-                        <button class="modal-close" onclick="closeModal()">&times;</button>
-                    </div>
-                    <div class="modal-scroll-container">
-                        ${content}
-                    </div>
-                `;
-            }
-        }
-        
-        // Pokemon detail modal functions
         function openPokemonDetailModal(pokemon) {
             const speciesId = pokemon.species;
             const pokemonName = capitalizePokemonName(pokemonNames[speciesId] || `Pokemon #${speciesId}`);
@@ -1063,27 +961,17 @@
         function createPokemonDetailContent(pokemon) {
             const speciesId = pokemon.species;
             
-            // Determine sprite number - use Gmax mapping if this is a Gigantamax form
             let spriteNumber = speciesId;
             if (pokemon.gigantamax && gmaxMapping[speciesId]) {
                 spriteNumber = gmaxMapping[speciesId];
             }
             
-            // Version info
             const versionText = pokemon.exclusiveVersion === 1 ? 'Sword Only' : 
                               pokemon.exclusiveVersion === 2 ? 'Shield Only' : 
                               'Both Versions';
             const versionColor = pokemon.exclusiveVersion === 1 ? '#0075BE' : 
                                pokemon.exclusiveVersion === 2 ? '#C62D42' : '#666';
             
-            // Format rank display
-            function formatRanks(minRank, maxRank) {
-                const displayMin = minRank + 1;
-                const displayMax = maxRank + 1;
-                return displayMin === displayMax ? `${displayMin}☆` : `${displayMin}☆-${displayMax}☆`;
-            }
-            
-            // Format probability information
             function formatProbabilities(probArray, versionName) {
                 if (!probArray || !Array.isArray(probArray)) return '';
                 const probText = probArray
@@ -1094,10 +982,8 @@
                 return probText ? `<strong>${versionName}:</strong> ${probText}` : '';
             }
             
-            // Build sections
             let sections = [];
             
-            // Basic info section
             let basicInfo = [];
             if (pokemon.altForm && pokemon.altForm > 0) {
                 basicInfo.push(`<p>Alternative Form: ${pokemon.altForm}</p>`);
@@ -1125,9 +1011,6 @@
                 `);
             }
             
-
-            
-            // Probability information
             let probInfo = [];
             const swordProbs = formatProbabilities(pokemon.swordProbabilities, 'Sword');
             const shieldProbs = formatProbabilities(pokemon.shieldProbabilities, 'Shield');
@@ -1156,59 +1039,67 @@
             `;
         }
         
-        // Close modal when clicking outside of it
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('denModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeModal();
-                }
-            });
+        function pokemonMatchesCurrentFilters(pokemon) {
+            const hasFilters = currentFilter || selectedStars.size > 0;
+            if (!hasFilters) {
+                return false;
+            }
             
-            document.getElementById('pokemonDetailModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closePokemonDetailModal();
-                }
-            });
+            const pokemonId = currentFilter ? parseInt(currentFilter) : null;
+            const hasStarFilter = selectedStars.size > 0;
             
-            // Close modal with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeModal();
-                    closePokemonDetailModal();
-                }
-            });
+            let pokemonMatches = true;
+            if (pokemonId) {
+                pokemonMatches = pokemon.species === pokemonId;
+            }
             
-            // Prevent modal content from propagating clicks to overlay
-            document.addEventListener('click', function(e) {
-                const modalContent = e.target.closest('.modal-content');
-                const pokemonContent = e.target.closest('.pokemon-detail-content');
-                if (modalContent || pokemonContent) {
-                    e.stopPropagation();
+            let starMatches = true;
+            if (hasStarFilter) {
+                const selectedRanks = Array.from(selectedStars).map(star => star - 1);
+                let pokemonRanks = [];
+                
+                if (pokemon.swordRanks && typeof pokemon.swordRanks === 'object') {
+                    for (let rank = pokemon.swordRanks.min; rank <= pokemon.swordRanks.max; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
                 }
-            });
-        });
-
-        // Pokemon filter setup
-        let allMarkers = []; // Store all markers for filtering
-        let pokemonList = []; // Store Pokemon list for search
-        let currentFilter = ''; // Store current filter value
-        let selectedStars = new Set(); // Store selected star filters
+                if (pokemon.shieldRanks && typeof pokemon.shieldRanks === 'object') {
+                    for (let rank = pokemon.shieldRanks.min; rank <= pokemon.shieldRanks.max; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
+                }
+                
+                if (pokemon.minRank !== undefined && pokemon.maxRank !== undefined) {
+                    for (let rank = pokemon.minRank; rank <= pokemon.maxRank; rank++) {
+                        if (!pokemonRanks.includes(rank)) {
+                            pokemonRanks.push(rank);
+                        }
+                    }
+                }
+                
+                starMatches = selectedRanks.some(selectedRank => pokemonRanks.includes(selectedRank));
+            }
+            
+            return pokemonMatches && starMatches;
+        }
         
+        // Pokemon filter setup
         function setupPokemonFilter() {
             const searchInput = document.getElementById('pokemonSearch');
             const dropdown = document.getElementById('pokemonDropdown');
             
-            // Create array of pokemon with names for sorting
             pokemonList = Object.entries(pokemonNames).map(([id, name]) => ({
                 id: parseInt(id),
                 name: name,
                 searchText: `${name.toLowerCase()}`
             }));
             
-            // Sort alphabetically by name
             pokemonList.sort((a, b) => a.name.localeCompare(b.name));
             
-            // Add event listeners for search functionality
             searchInput.addEventListener('input', function() {
                 const query = this.value.toLowerCase().trim();
                 if (query.length > 0) {
@@ -1223,7 +1114,6 @@
             });
             
             searchInput.addEventListener('blur', function() {
-                // Delay hiding dropdown to allow for clicks
                 setTimeout(() => hideDropdown(), 150);
             });
             
@@ -1232,7 +1122,6 @@
                 showFilteredPokemon(query);
             });
             
-            // Add clear button functionality
             searchInput.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     this.value = '';
@@ -1256,10 +1145,8 @@
             let filteredPokemon;
             
             if (query.length === 0) {
-                // Show all Pokemon when no query
                 filteredPokemon = pokemonList;
             } else {
-                // Filter when user types
                 filteredPokemon = pokemonList.filter(pokemon => 
                     pokemon.searchText.includes(query) || 
                     pokemon.id.toString() === query
@@ -1292,11 +1179,6 @@
             applyFilters();
         }
         
-        function clearFilter() {
-            currentFilter = '';
-            filterDensByPokemon('');
-        }
-        
         // Star filter functions
         function toggleStarFilter(star) {
             const button = document.querySelector(`[data-star="${star}"]`);
@@ -1321,10 +1203,7 @@
         }
         
         function applyFilters() {
-            // Apply both Pokemon name filter and star filter
             filterDensByFilters();
-            
-            // Refresh modal content if it's currently open
             refreshModalIfOpen();
         }
         
@@ -1333,7 +1212,6 @@
             const hasStarFilter = selectedStars.size > 0;
             
             if (!pokemonId && !hasStarFilter) {
-                // Show all markers with original styling
                 allMarkers.forEach(marker => {
                     marker.setStyle({
                         fillColor: '#ff0000',
@@ -1356,17 +1234,14 @@
                 let pokemonResult = null;
                 
                 if (pokemonId && hasStarFilter) {
-                    // Both Pokemon and star filters active - check if specific Pokemon has the selected ranks
                     denMatches = denContainsPokemonAtStarRanks(den, pokemonId, selectedStars);
                     if (denMatches) {
-                        pokemonResult = denContainsPokemon(den, pokemonId); // For color coding
+                        pokemonResult = denContainsPokemon(den, pokemonId);
                     }
                 } else if (pokemonId && !hasStarFilter) {
-                    // Only Pokemon filter
                     pokemonResult = denContainsPokemon(den, pokemonId);
                     denMatches = pokemonResult.hasPokemon;
                 } else if (!pokemonId && hasStarFilter) {
-                    // Only star filter - any Pokemon at selected ranks
                     denMatches = denContainsStarRanks(den, selectedStars);
                 }
                 
@@ -1375,7 +1250,6 @@
                     let fillColor, borderColor;
                     
                     if (pokemonResult && pokemonResult.hasPokemon) {
-                        // Show Pokemon pool colors
                         switch (pokemonResult.poolType) {
                         case 'common':
                                 fillColor = '#ff0000';
@@ -1394,7 +1268,6 @@
                             break;
                         }
                     } else {
-                        // Default styling for star-only filter
                         fillColor = '#ff0000';
                         borderColor = '#cc0000';
                     }
@@ -1407,7 +1280,6 @@
                         weight: 3
                     });
                 } else {
-                    // Faded styling for non-matching dens
                     marker.setStyle({
                         fillColor: '#cccccc',
                         color: '#999999',
@@ -1421,26 +1293,37 @@
             updateFilterStatus(counts, allMarkers.length, pokemonName, selectedStars);
         }
         
+        function denContainsPokemon(den, pokemonId) {
+            const commonPokemon = getPokemonFromBothVersions(den.common_pool);
+            const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
+            
+            const inCommon = commonPokemon.some(pokemon => pokemon.species === pokemonId);
+            const inRare = rarePokemon.some(pokemon => pokemon.species === pokemonId);
+            
+            return {
+                hasPokemon: inCommon || inRare,
+                inCommon: inCommon,
+                inRare: inRare,
+                poolType: inCommon && inRare ? 'both' : (inCommon ? 'common' : (inRare ? 'rare' : 'none'))
+            };
+        }
+        
         function denContainsPokemonAtStarRanks(den, pokemonId, starSet) {
             const commonPokemon = getPokemonFromBothVersions(den.common_pool);
             const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
             const allPokemon = [...commonPokemon, ...rarePokemon];
             
-            // Convert stars to ranks for comparison
             const selectedRanks = Array.from(starSet).map(star => star - 1);
             
-            // Find the specific Pokemon in this den
             const targetPokemon = allPokemon.filter(pokemon => pokemon.species === pokemonId);
             
             if (targetPokemon.length === 0) {
-                return false; // Pokemon not in this den
+                return false;
             }
             
-            // Check if any instance of this Pokemon has the selected ranks
             for (let pokemon of targetPokemon) {
                 let pokemonRanks = [];
                 
-                // Get all ranks this Pokemon can appear at
                 if (pokemon.swordRanks && typeof pokemon.swordRanks === 'object') {
                     for (let rank = pokemon.swordRanks.min; rank <= pokemon.swordRanks.max; rank++) {
                         if (!pokemonRanks.includes(rank)) {
@@ -1456,7 +1339,6 @@
                     }
                 }
                 
-                // Fallback: direct minRank/maxRank
                 if (pokemon.minRank !== undefined && pokemon.maxRank !== undefined) {
                     for (let rank = pokemon.minRank; rank <= pokemon.maxRank; rank++) {
                         if (!pokemonRanks.includes(rank)) {
@@ -1465,7 +1347,6 @@
                     }
                 }
                 
-                // Check if this Pokemon instance has any of the selected ranks
                 const hasMatch = selectedRanks.some(selectedRank => pokemonRanks.includes(selectedRank));
                 
                 if (hasMatch) {
@@ -1473,7 +1354,7 @@
                 }
             }
             
-            return false; // Pokemon found but not at selected ranks
+            return false;
         }
         
         function denContainsStarRanks(den, starSet) {
@@ -1481,10 +1362,8 @@
             const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
             const allPokemon = [...commonPokemon, ...rarePokemon];
             
-            // Convert stars to ranks for comparison
             const selectedRanks = Array.from(starSet).map(star => star - 1);
             
-            // Check if ANY Pokemon in the den has the selected ranks
             for (let pokemon of allPokemon) {
                 let pokemonRanks = [];
                 
@@ -1520,26 +1399,18 @@
             return false;
         }
         
-        function filterDensByPokemon(selectedPokemonId) {
-            currentFilter = selectedPokemonId;
-            applyFilters();
-        }
-        
         function updateFilterStatus(counts, total, pokemonName = null, starSet = null) {
             const filterContainer = document.querySelector('.filter-container');
             
-            // Remove existing status
             const existingStatus = filterContainer.querySelector('.filter-status');
             if (existingStatus) {
                 existingStatus.remove();
             }
             
-            // Add new status if filtering
             if (pokemonName || (starSet && starSet.size > 0)) {
                 const status = document.createElement('div');
                 status.className = 'filter-status';
                 
-                // Handle counts properly - extract total from object or use counts directly
                 const totalCount = (typeof counts === 'object' && counts.total !== undefined) ? counts.total : counts;
                 let statusText = `Showing ${totalCount} of ${total} dens`;
                 
@@ -1561,175 +1432,64 @@
             }
         }
         
-        function denContainsPokemon(den, pokemonId) {
-            const commonPokemon = getPokemonFromBothVersions(den.common_pool);
-            const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
-            
-            const inCommon = commonPokemon.some(pokemon => pokemon.species === pokemonId);
-            const inRare = rarePokemon.some(pokemon => pokemon.species === pokemonId);
-            
-            return {
-                hasPokemon: inCommon || inRare,
-                inCommon: inCommon,
-                inRare: inRare,
-                poolType: inCommon && inRare ? 'both' : (inCommon ? 'common' : (inRare ? 'rare' : 'none'))
-            };
-        }
-
-        // Store map instances for resizing
-        let mapInstances = [];
-
-        // Initialize maps
-        function initMap(mapId, imagePath, denLocations) {
-            const map = L.map(mapId, {
-                crs: L.CRS.Simple,
-                minZoom: -2,
-                maxZoom: 3
-            });
-
-            // Store map instance for later use
-            mapInstances.push(map);
-
-            // Create image overlay with proper bounds
-            const img = new Image();
-            img.onload = function() {
-                const imageWidth = this.width;
-                const imageHeight = this.height;
-                const imageBounds = [[0, 0], [imageHeight, imageWidth]];
+        function refreshModalIfOpen() {
+            if (currentModalDen && currentModalIndex !== null && 
+                document.getElementById('denModal').style.display === 'flex') {
+                const content = createDenPopup(currentModalDen, currentModalIndex);
+                const areaName = getAreaName(currentModalDen.location);
+                const denNumber = currentModalDen.denNumber || (currentModalIndex + 1);
+                const title = `Den #${denNumber} (${areaName})`;
                 
-                L.imageOverlay(imagePath, imageBounds).addTo(map);
-                map.fitBounds(imageBounds);
-                
-                // Force map to recalculate size after image loads
-                setTimeout(() => {
-                    map.invalidateSize();
-                }, 100);
-                
-                // Add den markers after image loads
-                denLocations.forEach((den, index) => {
-                    // Convert coordinates (Y is inverted for Leaflet)
-                    const lat = imageHeight - den.MapY;
-                    const lng = den.MapX;
-                    
-                    const marker = L.circleMarker([lat, lng], {
-                        radius: 8,
-                        fillColor: '#ff0000',
-                        color: '#ffffff',
-                        weight: 2,
-                        opacity: 1,
-                        fillOpacity: 0.8
-                    }).addTo(map);
-                    
-                    // Store den data with marker for filtering
-                    marker.denData = den;
-                    allMarkers.push(marker);
-                    
-                    marker.on('click', function() {
-                        openModal(createDenPopup(den, index), `Den #${index + 1}`, den, index);
-                    });
-                });
-            };
-            img.src = imagePath;
-
-            return map;
-        }
-
-        function initializeMaps() {
-            // Separate den data by location
-            const wildAreaDens = denData.filter(den => den.location < 17);
-            const ioaDens = denData.filter(den => den.location >= 17 && den.location < 32);
-            const ctDens = denData.filter(den => den.location >= 32);
-
-            // Initialize all three maps
-            const map1 = initMap('map1', 'images/map.png', wildAreaDens);
-            const map2 = initMap('map2', 'images/map_ioa.png', ioaDens);
-            const map3 = initMap('map3', 'images/map_tc.png', ctDens);
-
-            // Add resize handler for mobile layout changes
-            let resizeTimeout;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(function() {
-                    mapInstances.forEach(map => {
-                        map.invalidateSize();
-                    });
-                }, 250);
-            });
-
-            // Handle orientation change specifically for mobile
-            window.addEventListener('orientationchange', function() {
-                setTimeout(function() {
-                    mapInstances.forEach(map => {
-                        map.invalidateSize();
-                    });
-                }, 500);
-            });
-
-            // Additional resize check after DOM is fully loaded
-            setTimeout(function() {
-                mapInstances.forEach(map => {
-                    map.invalidateSize();
-                });
-            }, 1000);
-
-            // Media query change handler for mobile/desktop transitions
-            if (window.matchMedia) {
-                const mediaQuery = window.matchMedia('(max-width: 768px)');
-                mediaQuery.addListener(function(mq) {
-                    setTimeout(function() {
-                        mapInstances.forEach(map => {
-                            map.invalidateSize();
-                        });
-                    }, 300);
-                });
+                document.getElementById('modalContent').innerHTML = `
+                    <div class="modal-header">
+                        <h3 class="modal-title">${title}</h3>
+                        <button class="modal-close" onclick="closeModal()">&times;</button>
+                    </div>
+                    <div class="modal-scroll-container">
+                        ${content}
+                    </div>
+                `;
             }
-
-            // Intersection Observer to resize maps when they become visible
-            if (window.IntersectionObserver) {
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(function(entry) {
-                        if (entry.isIntersecting) {
-                            const mapElement = entry.target.querySelector('.map');
-                            if (mapElement) {
-                                const mapId = mapElement.id;
-                                const mapInstance = mapInstances.find(map => 
-                                    map.getContainer().id === mapId
-                                );
-                                if (mapInstance) {
-                                    setTimeout(() => {
-                                        mapInstance.invalidateSize();
-                                    }, 100);
-                                }
-                            }
-                        }
-                    });
-                }, {
-                    threshold: 0.1
-                });
-
-                document.querySelectorAll('.map-container').forEach(function(container) {
-                    observer.observe(container);
-                });
-            }
-
-            // Fallback: Force map refresh if mobile layout issues persist
-            setTimeout(function() {
-                if (window.innerWidth <= 768) {
-                    mapInstances.forEach(map => {
-                        try {
-                            map.invalidateSize();
-                            // Force a re-fit to bounds if map seems empty
-                            const bounds = map.getBounds();
-                            if (bounds) {
-                                map.fitBounds(bounds);
-                            }
-                        } catch (e) {
-                            console.log('Map resize fallback attempted');
-                        }
-                    });
+        }
+        
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('denModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
                 }
-            }, 2000);
-        }
+            });
+            
+            document.getElementById('pokemonDetailModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closePokemonDetailModal();
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                    closePokemonDetailModal();
+                }
+            });
+            
+            document.addEventListener('click', function(e) {
+                const modalContent = e.target.closest('.modal-content');
+                const pokemonContent = e.target.closest('.pokemon-detail-content');
+                if (modalContent || pokemonContent) {
+                    e.stopPropagation();
+                }
+            });
+        });
+        
+        // Window resize handler
+        window.addEventListener('resize', function() {
+            if (compositeMap) {
+                                    setTimeout(() => {
+                    compositeMap.invalidateSize();
+                                    }, 100);
+            }
+        });
     </script>
 </body>
 </html> 
