@@ -25,53 +25,109 @@
             font-size: 28px;
         }
         
-        .filter-container {
-            margin: 15px 0;
-            padding: 12px;
-            background-color: #f5f5f5;
+        .map-container {
+            height: 85vh;
+            width: 100%;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .map {
+            height: 100%;
+            width: 100%;
+            border: 2px solid #333;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+        
+        /* Floating Filter Window */
+        .floating-filter-window {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            border: 2px solid #333;
             border-radius: 8px;
-            border: 1px solid #ddd;
-        }
-        
-        .filter-main-row {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-        
-        .pokemon-filter-section,
-        .star-filter-section {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            flex: 1;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
             min-width: 300px;
+            max-width: 350px;
+            transition: all 0.3s ease;
         }
         
-        .filter-container label {
+        .filter-window-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            padding: 12px 15px;
+            border-radius: 6px 6px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .filter-window-title {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .filter-window-toggle {
+            font-size: 18px;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-window-toggle.collapsed {
+            transform: rotate(180deg);
+        }
+        
+        .filter-window-content {
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-window-content.collapsed {
+            max-height: 0;
+            padding: 0 15px;
+            overflow: hidden;
+        }
+        
+        .filter-section {
+            margin-bottom: 20px;
+        }
+        
+        .filter-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .filter-section label {
             font-weight: bold;
             color: #333;
             font-size: 14px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            display: block;
         }
         
         .star-filter-container {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             align-items: center;
             flex-wrap: wrap;
         }
         
         .star-button {
-            padding: 8px 12px;
+            padding: 6px 10px;
             border: 2px solid #ddd;
             border-radius: 6px;
             background-color: white;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 14px;
-            min-width: 60px;
+            font-size: 12px;
+            min-width: 50px;
             text-align: center;
         }
         
@@ -98,13 +154,13 @@
         }
         
         .clear-stars-button {
-            padding: 8px 12px;
+            padding: 6px 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             background-color: #f8f9fa;
             cursor: pointer;
             color: #666;
-            font-size: 12px;
+            font-size: 11px;
             transition: all 0.2s ease;
         }
         
@@ -114,25 +170,15 @@
         }
         
         .filter-status {
-            margin-top: 10px;
-            font-size: 14px;
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 12px;
             color: #666;
             font-style: italic;
             text-align: center;
-        }
-        
-        .map-container {
-            height: 80vh;
-            width: 100%;
-            margin: 20px 0;
-        }
-        
-        .map {
-            height: 100%;
-            width: 100%;
-            border: 2px solid #333;
-            position: relative;
-            background-color: #f0f0f0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
         }
         
         .area-labels {
@@ -314,7 +360,6 @@
             position: relative;
             display: inline-block;
             width: 100%;
-            max-width: 300px;
         }
         
         .pokemon-search-input {
@@ -432,24 +477,18 @@
             }
             
             .map-container {
-                height: 70vh;
+                height: 75vh;
             }
             
-            .filter-container {
-                padding: 10px;
-                margin: 10px 0;
+            .floating-filter-window {
+                min-width: 280px;
+                max-width: 300px;
+                bottom: 15px;
+                left: 15px;
             }
             
-            .filter-main-row {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .pokemon-filter-section,
-            .star-filter-section {
-                min-width: auto;
-                width: 100%;
-                align-items: center;
+            .filter-window-content {
+                max-height: 300px;
             }
             
             .pokemon-grid {
@@ -466,45 +505,51 @@
     </style>
 </head>
 <body>
-    <h1>Pokemon Raid Den Locations - Composite Map</h1>
+    <h1>Pokemon Raid Den Locations</h1>
     
-    <div class="filter-container">
-        <div class="filter-main-row">
-            <div class="pokemon-filter-section">
-                <label for="pokemonSearch">Filter by Pokemon:</label>
-                <div class="pokemon-search-container">
-                    <input type="text" id="pokemonSearch" class="pokemon-search-input" placeholder="Type Pokemon name...">
-                    <div id="pokemonDropdown" class="pokemon-search-dropdown"></div>
-                </div>
-    </div>
-    
-            <div class="star-filter-section">
-                <label>Filter by Stars:</label>
-                <div class="star-filter-container">
-                    <button class="star-button" data-star="1" onclick="toggleStarFilter(1)">
-                        <span class="star-icon">★</span>
-                    </button>
-                    <button class="star-button" data-star="2" onclick="toggleStarFilter(2)">
-                        <span class="star-icon">★★</span>
-                    </button>
-                    <button class="star-button" data-star="3" onclick="toggleStarFilter(3)">
-                        <span class="star-icon">★★★</span>
-                    </button>
-                    <button class="star-button" data-star="4" onclick="toggleStarFilter(4)">
-                        <span class="star-icon">★★★★</span>
-                    </button>
-                    <button class="star-button" data-star="5" onclick="toggleStarFilter(5)">
-                        <span class="star-icon">★★★★★</span>
-                    </button>
-                    <button class="clear-stars-button" onclick="clearStarFilters()">Clear</button>
-        </div>
-        </div>
-        </div>
-    </div>
-    
-        <div class="map-container">
+    <div class="map-container">
         <div id="compositeMap" class="map"></div>
-
+        
+        <!-- Floating Filter Window -->
+        <div class="floating-filter-window">
+            <div class="filter-window-header" onclick="toggleFilterWindow()">
+                <div class="filter-window-title">Filters</div>
+                <div class="filter-window-toggle" id="filterToggle">▼</div>
+            </div>
+            <div class="filter-window-content" id="filterContent">
+                <div class="filter-section">
+                    <label for="pokemonSearch">Filter by Pokemon:</label>
+                    <div class="pokemon-search-container">
+                        <input type="text" id="pokemonSearch" class="pokemon-search-input" placeholder="Type Pokemon name...">
+                        <div id="pokemonDropdown" class="pokemon-search-dropdown"></div>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <label>Filter by Stars:</label>
+                    <div class="star-filter-container">
+                        <button class="star-button" data-star="1" onclick="toggleStarFilter(1)">
+                            <span class="star-icon">★</span>
+                        </button>
+                        <button class="star-button" data-star="2" onclick="toggleStarFilter(2)">
+                            <span class="star-icon">★★</span>
+                        </button>
+                        <button class="star-button" data-star="3" onclick="toggleStarFilter(3)">
+                            <span class="star-icon">★★★</span>
+                        </button>
+                        <button class="star-button" data-star="4" onclick="toggleStarFilter(4)">
+                            <span class="star-icon">★★★★</span>
+                        </button>
+                        <button class="star-button" data-star="5" onclick="toggleStarFilter(5)">
+                            <span class="star-icon">★★★★★</span>
+                        </button>
+                        <button class="clear-stars-button" onclick="clearStarFilters()">Clear</button>
+                    </div>
+                </div>
+                
+                <div id="filterStatus" class="filter-status" style="display: none;"></div>
+            </div>
+        </div>
     </div>
 
     <!-- Modal for den information -->
@@ -563,7 +608,7 @@
                     document.addEventListener('DOMContentLoaded', function() {
                         setTimeout(() => {
                             initializeCompositeMap();
-                setupPokemonFilter();
+                            setupPokemonFilter();
                         }, 100);
                     });
                 } else {
@@ -631,6 +676,20 @@
                 dataLoaded++;
                 checkDataLoaded();
             });
+
+        // Filter window toggle functionality
+        function toggleFilterWindow() {
+            const content = document.getElementById('filterContent');
+            const toggle = document.getElementById('filterToggle');
+            
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                toggle.classList.remove('collapsed');
+            } else {
+                content.classList.add('collapsed');
+                toggle.classList.add('collapsed');
+            }
+        }
 
         // Coordinate transformation functions
         function transformDenCoordinates(den) {
@@ -820,7 +879,7 @@
                 allMarkers.push(marker);
                 
                 marker.on('click', function() {
-                    const denNumber = den.denNumber || (index + 1);
+                    const denNumber = den.den_number || (index + 1);
                     openModal(createDenPopup(den, index), `Den #${denNumber} (${areaName})`, den, index);
                 });
             });
@@ -1400,17 +1459,9 @@
         }
         
         function updateFilterStatus(counts, total, pokemonName = null, starSet = null) {
-            const filterContainer = document.querySelector('.filter-container');
-            
-            const existingStatus = filterContainer.querySelector('.filter-status');
-            if (existingStatus) {
-                existingStatus.remove();
-            }
+            const statusElement = document.getElementById('filterStatus');
             
             if (pokemonName || (starSet && starSet.size > 0)) {
-                const status = document.createElement('div');
-                status.className = 'filter-status';
-                
                 const totalCount = (typeof counts === 'object' && counts.total !== undefined) ? counts.total : counts;
                 let statusText = `Showing ${totalCount} of ${total} dens`;
                 
@@ -1427,8 +1478,10 @@
                     statusText += ` with ${filters.join(' and ')}`;
                 }
                 
-                status.innerHTML = statusText;
-                filterContainer.appendChild(status);
+                statusElement.innerHTML = statusText;
+                statusElement.style.display = 'block';
+            } else {
+                statusElement.style.display = 'none';
             }
         }
         
