@@ -6,7 +6,8 @@
     "rare_hash": "0xba8745671015cb90",
     "location": 0,
     "MapX": 186,
-    "MapY": 816
+    "MapY": 816,
+    "den_number": 1
   },
   {
     "common_pool": 4,
@@ -15,7 +16,8 @@
     "rare_hash": "0x45041fd99cf87f5b",
     "location": 1,
     "MapX": 342,
-    "MapY": 312
+    "MapY": 312,
+    "den_number": 2
   },
   {
     "common_pool": 5,
@@ -24,7 +26,8 @@
     "rare_hash": "0xba805767100fcb78",
     "location": 1,
     "MapX": 340,
-    "MapY": 269
+    "MapY": 269,
+    "den_number": 3
   },
   {
     "common_pool": 8,
@@ -33,7 +36,8 @@
     "rare_hash": "0xba805d67100fd5aa",
     "location": 1,
     "MapX": 328,
-    "MapY": 330
+    "MapY": 330,
+    "den_number": 4
   },
   {
     "common_pool": 13,
@@ -42,7 +46,8 @@
     "rare_hash": "0x450424d99cf887da",
     "location": 1,
     "MapX": 274,
-    "MapY": 321
+    "MapY": 321,
+    "den_number": 5
   },
   {
     "common_pool": 16,
@@ -51,7 +56,8 @@
     "rare_hash": "0xba83e1671012ebcd",
     "location": 1,
     "MapX": 370,
-    "MapY": 452
+    "MapY": 452,
+    "den_number": 6
   },
   {
     "common_pool": 27,
@@ -60,7 +66,8 @@
     "rare_hash": "0xba83da671012dfe8",
     "location": 1,
     "MapX": 334,
-    "MapY": 368
+    "MapY": 368,
+    "den_number": 7
   },
   {
     "common_pool": 34,
@@ -69,7 +76,8 @@
     "rare_hash": "0x45009dd99cf56c9e",
     "location": 1,
     "MapX": 193,
-    "MapY": 295
+    "MapY": 295,
+    "den_number": 8
   },
   {
     "common_pool": 36,
@@ -78,7 +86,8 @@
     "rare_hash": "0xba8748671015d0a9",
     "location": 1,
     "MapX": 305,
-    "MapY": 323
+    "MapY": 323,
+    "den_number": 9
   },
   {
     "common_pool": 40,
@@ -87,7 +96,8 @@
     "rare_hash": "0xba8746671015cd43",
     "location": 1,
     "MapX": 224,
-    "MapY": 282
+    "MapY": 282,
+    "den_number": 10
   },
   {
     "common_pool": 4,
@@ -96,7 +106,8 @@
     "rare_hash": "0x45041fd99cf87f5b",
     "location": 2,
     "MapX": 20,
-    "MapY": 913
+    "MapY": 913,
+    "den_number": 11
   },
   {
     "common_pool": 26,
@@ -105,7 +116,8 @@
     "rare_hash": "0xba83db671012e19b",
     "location": 2,
     "MapX": 12,
-    "MapY": 861
+    "MapY": 861,
+    "den_number": 12
   },
   {
     "common_pool": 26,
@@ -114,7 +126,8 @@
     "rare_hash": "0xba83da671012dfe8",
     "location": 2,
     "MapX": 30,
-    "MapY": 927
+    "MapY": 927,
+    "den_number": 13
   },
   {
     "common_pool": 26,
@@ -123,7 +136,8 @@
     "rare_hash": "0xba83da671012dfe8",
     "location": 2,
     "MapX": 40,
-    "MapY": 878
+    "MapY": 878,
+    "den_number": 14
   },
   {
     "common_pool": 28,
@@ -132,7 +146,8 @@
     "rare_hash": "0x4500a2d99cf5751d",
     "location": 2,
     "MapX": 12,
-    "MapY": 851
+    "MapY": 851,
+    "den_number": 15
   },
   {
     "common_pool": 9,
@@ -141,7 +156,8 @@
     "rare_hash": "0xba8a4e67101810b2",
     "location": 3,
     "MapX": 219,
-    "MapY": 99
+    "MapY": 99,
+    "den_number": 16
   },
   {
     "common_pool": 10,
@@ -150,7 +166,8 @@
     "rare_hash": "0xba805967100fcede",
     "location": 3,
     "MapX": 262,
-    "MapY": 174
+    "MapY": 174,
+    "den_number": 17
   },
   {
     "common_pool": 11,
@@ -159,7 +176,8 @@
     "rare_hash": "0xba805a67100fd091",
     "location": 3,
     "MapX": 243,
-    "MapY": 120
+    "MapY": 120,
+    "den_number": 18
   },
   {
     "common_pool": 15,
@@ -168,7 +186,8 @@
     "rare_hash": "0x45041ed99cf87da8",
     "location": 3,
     "MapX": 331,
-    "MapY": 84
+    "MapY": 84,
+    "den_number": 19
   },
   {
     "common_pool": 17,
@@ -177,7 +196,8 @@
     "rare_hash": "0xba83e1671012ebcd",
     "location": 3,
     "MapX": 307,
-    "MapY": 93
+    "MapY": 93,
+    "den_number": 20
   },
   {
     "common_pool": 17,
@@ -186,7 +206,8 @@
     "rare_hash": "0x45041ed99cf87da8",
     "location": 3,
     "MapX": 265,
-    "MapY": 139
+    "MapY": 139,
+    "den_number": 21
   },
   {
     "common_pool": 20,
@@ -195,7 +216,8 @@
     "rare_hash": "0xba83df671012e867",
     "location": 3,
     "MapX": 304,
-    "MapY": 112
+    "MapY": 112,
+    "den_number": 22
   },
   {
     "common_pool": 21,
@@ -204,7 +226,8 @@
     "rare_hash": "0xba83de671012e6b4",
     "location": 3,
     "MapX": 283,
-    "MapY": 98
+    "MapY": 98,
+    "den_number": 23
   },
   {
     "common_pool": 36,
@@ -213,7 +236,8 @@
     "rare_hash": "0x450423d99cf88627",
     "location": 3,
     "MapX": 214,
-    "MapY": 168
+    "MapY": 168,
+    "den_number": 24
   },
   {
     "common_pool": 7,
@@ -222,7 +246,8 @@
     "rare_hash": "0xba805d67100fd5aa",
     "location": 4,
     "MapX": 217,
-    "MapY": 913
+    "MapY": 913,
+    "den_number": 25
   },
   {
     "common_pool": 29,
@@ -231,7 +256,8 @@
     "rare_hash": "0x450425d99cf8898d",
     "location": 4,
     "MapX": 310,
-    "MapY": 654
+    "MapY": 654,
+    "den_number": 26
   },
   {
     "common_pool": 31,
@@ -240,7 +266,8 @@
     "rare_hash": "0xba83d8671012dc82",
     "location": 4,
     "MapX": 220,
-    "MapY": 759
+    "MapY": 759,
+    "den_number": 27
   },
   {
     "common_pool": 31,
@@ -249,7 +276,8 @@
     "rare_hash": "0xba83d8671012dc82",
     "location": 4,
     "MapX": 248,
-    "MapY": 852
+    "MapY": 852,
+    "den_number": 28
   },
   {
     "common_pool": 39,
@@ -258,7 +286,8 @@
     "rare_hash": "0xba8746671015cd43",
     "location": 4,
     "MapX": 158,
-    "MapY": 705
+    "MapY": 705,
+    "den_number": 29
   },
   {
     "common_pool": 18,
@@ -267,7 +296,8 @@
     "rare_hash": "0xba8750671015de41",
     "location": 5,
     "MapX": 193,
-    "MapY": 173
+    "MapY": 173,
+    "den_number": 30
   },
   {
     "common_pool": 23,
@@ -276,7 +306,8 @@
     "rare_hash": "0xba83de671012e6b4",
     "location": 5,
     "MapX": 199,
-    "MapY": 145
+    "MapY": 145,
+    "den_number": 31
   },
   {
     "common_pool": 24,
@@ -285,7 +316,8 @@
     "rare_hash": "0x4500a1d99cf5736a",
     "location": 5,
     "MapX": 185,
-    "MapY": 135
+    "MapY": 135,
+    "den_number": 32
   },
   {
     "common_pool": 30,
@@ -294,7 +326,8 @@
     "rare_hash": "0xba83d9671012de35",
     "location": 5,
     "MapX": 181,
-    "MapY": 185
+    "MapY": 185,
+    "den_number": 33
   },
   {
     "common_pool": 32,
@@ -303,7 +336,8 @@
     "rare_hash": "0x450422d99cf88474",
     "location": 5,
     "MapX": 202,
-    "MapY": 95
+    "MapY": 95,
+    "den_number": 34
   },
   {
     "common_pool": 25,
@@ -312,7 +346,8 @@
     "rare_hash": "0xba8a4d6710180eff",
     "location": 6,
     "MapX": 338,
-    "MapY": 122
+    "MapY": 122,
+    "den_number": 35
   },
   {
     "common_pool": 27,
@@ -321,7 +356,8 @@
     "rare_hash": "0xba874f671015dc8e",
     "location": 6,
     "MapX": 363,
-    "MapY": 88
+    "MapY": 88,
+    "den_number": 36
   },
   {
     "common_pool": 28,
@@ -330,7 +366,8 @@
     "rare_hash": "0xba805c67100fd3f7",
     "location": 6,
     "MapX": 306,
-    "MapY": 145
+    "MapY": 145,
+    "den_number": 37
   },
   {
     "common_pool": 36,
@@ -339,7 +376,8 @@
     "rare_hash": "0xba874a671015d40f",
     "location": 6,
     "MapX": 347,
-    "MapY": 103
+    "MapY": 103,
+    "den_number": 38
   },
   {
     "common_pool": 42,
@@ -348,7 +386,8 @@
     "rare_hash": "0xba874c671015d775",
     "location": 6,
     "MapX": 334,
-    "MapY": 145
+    "MapY": 145,
+    "den_number": 39
   },
   {
     "common_pool": 11,
@@ -357,7 +396,8 @@
     "rare_hash": "0xba805a67100fd091",
     "location": 7,
     "MapX": 443,
-    "MapY": 830
+    "MapY": 830,
+    "den_number": 40
   },
   {
     "common_pool": 11,
@@ -366,7 +406,8 @@
     "rare_hash": "0x450097d99cf5626c",
     "location": 7,
     "MapX": 447,
-    "MapY": 815
+    "MapY": 815,
+    "den_number": 41
   },
   {
     "common_pool": 12,
@@ -375,7 +416,8 @@
     "rare_hash": "0xba805e67100fd75d",
     "location": 7,
     "MapX": 388,
-    "MapY": 817
+    "MapY": 817,
+    "den_number": 42
   },
   {
     "common_pool": 15,
@@ -384,7 +426,8 @@
     "rare_hash": "0xba805467100fc65f",
     "location": 7,
     "MapX": 443,
-    "MapY": 895
+    "MapY": 895,
+    "den_number": 43
   },
   {
     "common_pool": 15,
@@ -393,7 +436,8 @@
     "rare_hash": "0x45009ed99cf56e51",
     "location": 7,
     "MapX": 410,
-    "MapY": 952
+    "MapY": 952,
+    "den_number": 44
   },
   {
     "common_pool": 12,
@@ -402,7 +446,8 @@
     "rare_hash": "0xba805e67100fd75d",
     "location": 8,
     "MapX": 339,
-    "MapY": 35
+    "MapY": 35,
+    "den_number": 45
   },
   {
     "common_pool": 14,
@@ -411,7 +456,8 @@
     "rare_hash": "0xba8749671015d25c",
     "location": 8,
     "MapX": 354,
-    "MapY": 60
+    "MapY": 60,
+    "den_number": 46
   },
   {
     "common_pool": 19,
@@ -420,7 +466,8 @@
     "rare_hash": "0xba83e0671012ea1a",
     "location": 8,
     "MapX": 237,
-    "MapY": 67
+    "MapY": 67,
+    "den_number": 47
   },
   {
     "common_pool": 23,
@@ -429,7 +476,8 @@
     "rare_hash": "0xba8a4c6710180d4c",
     "location": 8,
     "MapX": 183,
-    "MapY": 47
+    "MapY": 47,
+    "den_number": 48
   },
   {
     "common_pool": 30,
@@ -438,7 +486,8 @@
     "rare_hash": "0xba83dc671012e34e",
     "location": 8,
     "MapX": 202,
-    "MapY": 34
+    "MapY": 34,
+    "den_number": 49
   },
   {
     "common_pool": 32,
@@ -447,7 +496,8 @@
     "rare_hash": "0xba83d8671012dc82",
     "location": 8,
     "MapX": 310,
-    "MapY": 65
+    "MapY": 65,
+    "den_number": 50
   },
   {
     "common_pool": 33,
@@ -456,7 +506,8 @@
     "rare_hash": "0xba8747671015cef6",
     "location": 8,
     "MapX": 221,
-    "MapY": 50
+    "MapY": 50,
+    "den_number": 51
   },
   {
     "common_pool": 8,
@@ -465,7 +516,8 @@
     "rare_hash": "0xba805d67100fd5aa",
     "location": 9,
     "MapX": 161,
-    "MapY": 80
+    "MapY": 80,
+    "den_number": 52
   },
   {
     "common_pool": 18,
@@ -474,7 +526,8 @@
     "rare_hash": "0x4500a0d99cf571b7",
     "location": 9,
     "MapX": 128,
-    "MapY": 58
+    "MapY": 58,
+    "den_number": 53
   },
   {
     "common_pool": 25,
@@ -483,7 +536,8 @@
     "rare_hash": "0xba83dd671012e501",
     "location": 9,
     "MapX": 170,
-    "MapY": 35
+    "MapY": 35,
+    "den_number": 54
   },
   {
     "common_pool": 34,
@@ -492,7 +546,8 @@
     "rare_hash": "0xba8a4f6710181265",
     "location": 9,
     "MapX": 143,
-    "MapY": 39
+    "MapY": 39,
+    "den_number": 55
   },
   {
     "common_pool": 14,
@@ -501,7 +556,8 @@
     "rare_hash": "0xba805367100fc4ac",
     "location": 10,
     "MapX": 412,
-    "MapY": 533
+    "MapY": 533,
+    "den_number": 56
   },
   {
     "common_pool": 24,
@@ -510,7 +566,8 @@
     "rare_hash": "0xba83dd671012e501",
     "location": 10,
     "MapX": 365,
-    "MapY": 559
+    "MapY": 559,
+    "den_number": 57
   },
   {
     "common_pool": 30,
@@ -519,7 +576,8 @@
     "rare_hash": "0xba83d9671012de35",
     "location": 10,
     "MapX": 345,
-    "MapY": 537
+    "MapY": 537,
+    "den_number": 58
   },
   {
     "common_pool": 40,
@@ -528,7 +586,8 @@
     "rare_hash": "0xba8746671015cd43",
     "location": 10,
     "MapX": 408,
-    "MapY": 570
+    "MapY": 570,
+    "den_number": 59
   },
   {
     "common_pool": 10,
@@ -537,7 +596,8 @@
     "rare_hash": "0xba805967100fcede",
     "location": 11,
     "MapX": 393,
-    "MapY": 781
+    "MapY": 731,
+    "den_number": 60
   },
   {
     "common_pool": 10,
@@ -546,7 +606,8 @@
     "rare_hash": "0xba805967100fcede",
     "location": 11,
     "MapX": 443,
-    "MapY": 792
+    "MapY": 792,
+    "den_number": 61
   },
   {
     "common_pool": 29,
@@ -555,7 +616,8 @@
     "rare_hash": "0xba83d9671012de35",
     "location": 11,
     "MapX": 440,
-    "MapY": 658
+    "MapY": 658,
+    "den_number": 62
   },
   {
     "common_pool": 29,
@@ -563,8 +625,9 @@
     "common_hash": "0x17490756dc6655f0",
     "rare_hash": "0xba83d9671012de35",
     "location": 11,
-    "MapX": 440,
-    "MapY": 703
+    "MapX": 380,
+    "MapY": 690,
+    "den_number": 63
   },
   {
     "common_pool": 41,
@@ -573,7 +636,8 @@
     "rare_hash": "0xba8a496710180833",
     "location": 11,
     "MapX": 314,
-    "MapY": 755
+    "MapY": 755,
+    "den_number": 64
   },
   {
     "common_pool": 41,
@@ -582,7 +646,8 @@
     "rare_hash": "0xba8a496710180833",
     "location": 11,
     "MapX": 281,
-    "MapY": 717
+    "MapY": 717,
+    "den_number": 65
   },
   {
     "common_pool": 1,
@@ -591,7 +656,8 @@
     "rare_hash": "0xba805967100fcede",
     "location": 12,
     "MapX": 136,
-    "MapY": 906
+    "MapY": 906,
+    "den_number": 66
   },
   {
     "common_pool": 3,
@@ -600,7 +666,8 @@
     "rare_hash": "0xba805467100fc65f",
     "location": 12,
     "MapX": 311,
-    "MapY": 998
+    "MapY": 998,
+    "den_number": 67
   },
   {
     "common_pool": 4,
@@ -609,7 +676,8 @@
     "rare_hash": "0xba805767100fcb78",
     "location": 12,
     "MapX": 233,
-    "MapY": 948
+    "MapY": 948,
+    "den_number": 68
   },
   {
     "common_pool": 16,
@@ -618,7 +686,8 @@
     "rare_hash": "0xba83e1671012ebcd",
     "location": 12,
     "MapX": 185,
-    "MapY": 977
+    "MapY": 977,
+    "den_number": 69
   },
   {
     "common_pool": 31,
@@ -627,7 +696,8 @@
     "rare_hash": "0x450421d99cf882c1",
     "location": 12,
     "MapX": 114,
-    "MapY": 936
+    "MapY": 936,
+    "den_number": 70
   },
   {
     "common_pool": 31,
@@ -636,7 +706,8 @@
     "rare_hash": "0x450421d99cf882c1",
     "location": 12,
     "MapX": 252,
-    "MapY": 905
+    "MapY": 905,
+    "den_number": 71
   },
   {
     "common_pool": 33,
@@ -645,7 +716,8 @@
     "rare_hash": "0xba8747671015cef6",
     "location": 12,
     "MapX": 337,
-    "MapY": 996
+    "MapY": 996,
+    "den_number": 72
   },
   {
     "common_pool": 37,
@@ -654,7 +726,8 @@
     "rare_hash": "0xba8745671015cb90",
     "location": 12,
     "MapX": 125,
-    "MapY": 1005
+    "MapY": 1005,
+    "den_number": 73
   },
   {
     "common_pool": 39,
@@ -663,7 +736,8 @@
     "rare_hash": "0xba8746671015cd43",
     "location": 12,
     "MapX": 209,
-    "MapY": 976
+    "MapY": 976,
+    "den_number": 74
   },
   {
     "common_pool": 1,
@@ -672,7 +746,8 @@
     "rare_hash": "0xba805c67100fd3f7",
     "location": 13,
     "MapX": 352,
-    "MapY": 765
+    "MapY": 765,
+    "den_number": 75
   },
   {
     "common_pool": 5,
@@ -681,7 +756,8 @@
     "rare_hash": "0xba805767100fcb78",
     "location": 13,
     "MapX": 328,
-    "MapY": 761
+    "MapY": 761,
+    "den_number": 76
   },
   {
     "common_pool": 8,
@@ -690,7 +766,8 @@
     "rare_hash": "0x450420d99cf8810e",
     "location": 13,
     "MapX": 310,
-    "MapY": 824
+    "MapY": 824,
+    "den_number": 77
   },
   {
     "common_pool": 41,
@@ -699,7 +776,8 @@
     "rare_hash": "0xba8a496710180833",
     "location": 13,
     "MapX": 359,
-    "MapY": 980
+    "MapY": 980,
+    "den_number": 78
   },
   {
     "common_pool": 41,
@@ -708,7 +786,8 @@
     "rare_hash": "0xba8a496710180833",
     "location": 13,
     "MapX": 393,
-    "MapY": 962
+    "MapY": 962,
+    "den_number": 79
   },
   {
     "common_pool": 1,
@@ -717,7 +796,8 @@
     "rare_hash": "0x45009cd99cf56aeb",
     "location": 14,
     "MapX": 348,
-    "MapY": 195
+    "MapY": 195,
+    "den_number": 80
   },
   {
     "common_pool": 2,
@@ -726,7 +806,8 @@
     "rare_hash": "0xba805367100fc4ac",
     "location": 14,
     "MapX": 211,
-    "MapY": 205
+    "MapY": 205,
+    "den_number": 81
   },
   {
     "common_pool": 3,
@@ -735,7 +816,8 @@
     "rare_hash": "0xba805467100fc65f",
     "location": 14,
     "MapX": 200,
-    "MapY": 244
+    "MapY": 244,
+    "den_number": 82
   },
   {
     "common_pool": 6,
@@ -744,7 +826,8 @@
     "rare_hash": "0xba805c67100fd3f7",
     "location": 14,
     "MapX": 348,
-    "MapY": 180
+    "MapY": 180,
+    "den_number": 83
   },
   {
     "common_pool": 12,
@@ -753,7 +836,8 @@
     "rare_hash": "0x450098d99cf5641f",
     "location": 14,
     "MapX": 303,
-    "MapY": 242
+    "MapY": 242,
+    "den_number": 84
   },
   {
     "common_pool": 14,
@@ -762,7 +846,8 @@
     "rare_hash": "0xba805367100fc4ac",
     "location": 14,
     "MapX": 326,
-    "MapY": 219
+    "MapY": 219,
+    "den_number": 85
   },
   {
     "common_pool": 18,
@@ -771,7 +856,8 @@
     "rare_hash": "0xba83df671012e867",
     "location": 14,
     "MapX": 330,
-    "MapY": 215
+    "MapY": 215,
+    "den_number": 86
   },
   {
     "common_pool": 19,
@@ -780,7 +866,8 @@
     "rare_hash": "0x45009bd99cf56938",
     "location": 14,
     "MapX": 305,
-    "MapY": 183
+    "MapY": 183,
+    "den_number": 87
   },
   {
     "common_pool": 22,
@@ -789,7 +876,8 @@
     "rare_hash": "0xba83de671012e6b4",
     "location": 14,
     "MapX": 324,
-    "MapY": 209
+    "MapY": 209,
+    "den_number": 88
   },
   {
     "common_pool": 27,
@@ -798,7 +886,8 @@
     "rare_hash": "0xba83da671012dfe8",
     "location": 14,
     "MapX": 260,
-    "MapY": 199
+    "MapY": 199,
+    "den_number": 89
   },
   {
     "common_pool": 35,
@@ -807,7 +896,8 @@
     "rare_hash": "0xba8748671015d0a9",
     "location": 14,
     "MapX": 282,
-    "MapY": 195
+    "MapY": 195,
+    "den_number": 90
   },
   {
     "common_pool": 40,
@@ -816,7 +906,8 @@
     "rare_hash": "0xba874b671015d5c2",
     "location": 14,
     "MapX": 343,
-    "MapY": 222
+    "MapY": 222,
+    "den_number": 91
   },
   {
     "common_pool": 2,
@@ -825,7 +916,8 @@
     "rare_hash": "0xba805367100fc4ac",
     "location": 15,
     "MapX": 52,
-    "MapY": 776
+    "MapY": 776,
+    "den_number": 92
   },
   {
     "common_pool": 6,
@@ -834,7 +926,8 @@
     "rare_hash": "0xba805867100fcd2b",
     "location": 15,
     "MapX": 68,
-    "MapY": 652
+    "MapY": 652,
+    "den_number": 93
   },
   {
     "common_pool": 7,
@@ -843,7 +936,8 @@
     "rare_hash": "0xba805d67100fd5aa",
     "location": 16,
     "MapX": 50,
-    "MapY": 909
+    "MapY": 909,
+    "den_number": 94
   },
   {
     "common_pool": 9,
@@ -852,7 +946,8 @@
     "rare_hash": "0xba8a4e67101810b2",
     "location": 16,
     "MapX": 129,
-    "MapY": 818
+    "MapY": 818,
+    "den_number": 95
   },
   {
     "common_pool": 9,
@@ -861,7 +956,8 @@
     "rare_hash": "0xba8a4e67101810b2",
     "location": 16,
     "MapX": 131,
-    "MapY": 735
+    "MapY": 735,
+    "den_number": 96
   },
   {
     "common_pool": 9,
@@ -870,7 +966,8 @@
     "rare_hash": "0x450420d99cf8810e",
     "location": 16,
     "MapX": 98,
-    "MapY": 750
+    "MapY": 750,
+    "den_number": 97
   },
   {
     "common_pool": 35,
@@ -879,7 +976,8 @@
     "rare_hash": "0xba8748671015d0a9",
     "location": 16,
     "MapX": 107,
-    "MapY": 652
+    "MapY": 652,
+    "den_number": 98
   },
   {
     "common_pool": 42,
@@ -888,7 +986,8 @@
     "rare_hash": "0xba805d67100fd5aa",
     "location": 16,
     "MapX": 105,
-    "MapY": 907
+    "MapY": 907,
+    "den_number": 99
   },
   {
     "common_pool": 99,
@@ -897,7 +996,8 @@
     "rare_hash": "0xd8f100cde5822516",
     "location": 17,
     "MapX": 661,
-    "MapY": 838
+    "MapY": 838,
+    "den_number": 100
   },
   {
     "common_pool": 105,
@@ -906,7 +1006,8 @@
     "rare_hash": "0x1c1962488c012ee8",
     "location": 17,
     "MapX": 683,
-    "MapY": 792
+    "MapY": 792,
+    "den_number": 101
   },
   {
     "common_pool": 109,
@@ -915,7 +1016,8 @@
     "rare_hash": "0x53441b80e563ef1f",
     "location": 17,
     "MapX": 723,
-    "MapY": 812
+    "MapY": 812,
+    "den_number": 102
   },
   {
     "common_pool": 111,
@@ -924,7 +1026,8 @@
     "rare_hash": "0xae57b2a84974c3a1",
     "location": 17,
     "MapX": 673,
-    "MapY": 766
+    "MapY": 766,
+    "den_number": 103
   },
   {
     "common_pool": 113,
@@ -933,7 +1036,8 @@
     "rare_hash": "0x316e6b5e74bc7aa3",
     "location": 17,
     "MapX": 882,
-    "MapY": 745
+    "MapY": 745,
+    "den_number": 104
   },
   {
     "common_pool": 115,
@@ -942,7 +1046,8 @@
     "rare_hash": "0xc8ea8c1618ab0a58",
     "location": 17,
     "MapX": 643,
-    "MapY": 822
+    "MapY": 822,
+    "den_number": 105
   },
   {
     "common_pool": 123,
@@ -951,7 +1056,8 @@
     "rare_hash": "0x6f948f09933cdfc",
     "location": 17,
     "MapX": 831,
-    "MapY": 770
+    "MapY": 770,
+    "den_number": 106
   },
   {
     "common_pool": 125,
@@ -960,7 +1066,8 @@
     "rare_hash": "0x89955cc3a594e51a",
     "location": 17,
     "MapX": 770,
-    "MapY": 794
+    "MapY": 794,
+    "den_number": 107
   },
   {
     "common_pool": 133,
@@ -969,7 +1076,8 @@
     "rare_hash": "0xfe9697f9799c65be",
     "location": 17,
     "MapX": 862,
-    "MapY": 770
+    "MapY": 770,
+    "den_number": 108
   },
   {
     "common_pool": 137,
@@ -978,7 +1086,8 @@
     "rare_hash": "0xfe9695f9799c6258",
     "location": 17,
     "MapX": 727,
-    "MapY": 779
+    "MapY": 779,
+    "den_number": 109
   },
   {
     "common_pool": 99,
@@ -987,7 +1096,8 @@
     "rare_hash": "0xd8f100cde5822516",
     "location": 18,
     "MapX": 609,
-    "MapY": 668
+    "MapY": 668,
+    "den_number": 110
   },
   {
     "common_pool": 101,
@@ -996,7 +1106,8 @@
     "rare_hash": "0xd8f0ffcde5822363",
     "location": 18,
     "MapX": 667,
-    "MapY": 614
+    "MapY": 614,
+    "den_number": 111
   },
   {
     "common_pool": 111,
@@ -1005,7 +1116,8 @@
     "rare_hash": "0xae57b2a84974c3a1",
     "location": 18,
     "MapX": 741,
-    "MapY": 680
+    "MapY": 680,
+    "den_number": 112
   },
   {
     "common_pool": 117,
@@ -1014,7 +1126,8 @@
     "rare_hash": "0xdf017f3fefba2704",
     "location": 18,
     "MapX": 603,
-    "MapY": 591
+    "MapY": 591,
+    "den_number": 113
   },
   {
     "common_pool": 119,
@@ -1023,7 +1136,8 @@
     "rare_hash": "0xf9222e1acdf486e8",
     "location": 18,
     "MapX": 634,
-    "MapY": 623
+    "MapY": 623,
+    "den_number": 114
   },
   {
     "common_pool": 121,
@@ -1032,7 +1146,8 @@
     "rare_hash": "0x6aebee2a2d6d8470",
     "location": 18,
     "MapX": 732,
-    "MapY": 631
+    "MapY": 631,
+    "den_number": 115
   },
   {
     "common_pool": 125,
@@ -1041,7 +1156,8 @@
     "rare_hash": "0x89955cc3a594e51a",
     "location": 18,
     "MapX": 697,
-    "MapY": 645
+    "MapY": 645,
+    "den_number": 116
   },
   {
     "common_pool": 133,
@@ -1050,7 +1166,8 @@
     "rare_hash": "0xfe9697f9799c65be",
     "location": 18,
     "MapX": 554,
-    "MapY": 577
+    "MapY": 577,
+    "den_number": 117
   },
   {
     "common_pool": 135,
@@ -1059,7 +1176,8 @@
     "rare_hash": "0xfe9696f9799c640b",
     "location": 18,
     "MapX": 662,
-    "MapY": 681
+    "MapY": 681,
+    "den_number": 118
   },
   {
     "common_pool": 105,
@@ -1068,7 +1186,8 @@
     "rare_hash": "0x1c1962488c012ee8",
     "location": 19,
     "MapX": 622,
-    "MapY": 521
+    "MapY": 521,
+    "den_number": 119
   },
   {
     "common_pool": 109,
@@ -1077,7 +1196,8 @@
     "rare_hash": "0x53441b80e563ef1f",
     "location": 19,
     "MapX": 533,
-    "MapY": 524
+    "MapY": 524,
+    "den_number": 120
   },
   {
     "common_pool": 119,
@@ -1086,7 +1206,8 @@
     "rare_hash": "0xf9222e1acdf486e8",
     "location": 19,
     "MapX": 636,
-    "MapY": 492
+    "MapY": 492,
+    "den_number": 121
   },
   {
     "common_pool": 125,
@@ -1095,7 +1216,8 @@
     "rare_hash": "0x89955cc3a594e51a",
     "location": 19,
     "MapX": 578,
-    "MapY": 512
+    "MapY": 512,
+    "den_number": 122
   },
   {
     "common_pool": 135,
@@ -1104,7 +1226,8 @@
     "rare_hash": "0xfe9696f9799c640b",
     "location": 19,
     "MapX": 553,
-    "MapY": 529
+    "MapY": 529,
+    "den_number": 123
   },
   {
     "common_pool": 154,
@@ -1113,7 +1236,8 @@
     "rare_hash": "0x4f1e561dd73ed3d8",
     "location": 19,
     "MapX": 687,
-    "MapY": 535
+    "MapY": 535,
+    "den_number": 124
   },
   {
     "common_pool": 103,
@@ -1122,7 +1246,8 @@
     "rare_hash": "0xdf017f3fefba2704",
     "location": 20,
     "MapX": 442,
-    "MapY": 609
+    "MapY": 609,
+    "den_number": 125
   },
   {
     "common_pool": 105,
@@ -1131,7 +1256,8 @@
     "rare_hash": "0x1c1962488c012ee8",
     "location": 20,
     "MapX": 465,
-    "MapY": 605
+    "MapY": 605,
+    "den_number": 126
   },
   {
     "common_pool": 113,
@@ -1140,7 +1266,8 @@
     "rare_hash": "0x316e6b5e74bc7aa3",
     "location": 20,
     "MapX": 488,
-    "MapY": 480
+    "MapY": 480,
+    "den_number": 127
   },
   {
     "common_pool": 117,
@@ -1149,7 +1276,8 @@
     "rare_hash": "0xc80756327d5de060",
     "location": 20,
     "MapX": 453,
-    "MapY": 561
+    "MapY": 561,
+    "den_number": 128
   },
   {
     "common_pool": 123,
@@ -1158,7 +1286,8 @@
     "rare_hash": "0x6f948f09933cdfc",
     "location": 20,
     "MapX": 446,
-    "MapY": 649
+    "MapY": 649,
+    "den_number": 129
   },
   {
     "common_pool": 127,
@@ -1167,7 +1296,8 @@
     "rare_hash": "0x7288f0346fd3cdd8",
     "location": 20,
     "MapX": 412,
-    "MapY": 566
+    "MapY": 566,
+    "den_number": 130
   },
   {
     "common_pool": 135,
@@ -1176,7 +1306,8 @@
     "rare_hash": "0xfe9696f9799c640b",
     "location": 20,
     "MapX": 483,
-    "MapY": 556
+    "MapY": 556,
+    "den_number": 131
   },
   {
     "common_pool": 137,
@@ -1185,7 +1316,8 @@
     "rare_hash": "0xfe9695f9799c6258",
     "location": 20,
     "MapX": 320,
-    "MapY": 526
+    "MapY": 526,
+    "den_number": 132
   },
   {
     "common_pool": 129,
@@ -1194,7 +1326,8 @@
     "rare_hash": "0xf9280759d6cc62a3",
     "location": 21,
     "MapX": 947,
-    "MapY": 506
+    "MapY": 506,
+    "den_number": 133
   },
   {
     "common_pool": 107,
@@ -1203,7 +1336,8 @@
     "rare_hash": "0xf4a830850f51d034",
     "location": 22,
     "MapX": 913,
-    "MapY": 408
+    "MapY": 408,
+    "den_number": 134
   },
   {
     "common_pool": 121,
@@ -1212,7 +1346,8 @@
     "rare_hash": "0x6aebee2a2d6d8470",
     "location": 22,
     "MapX": 895,
-    "MapY": 365
+    "MapY": 365,
+    "den_number": 135
   },
   {
     "common_pool": 123,
@@ -1221,7 +1356,8 @@
     "rare_hash": "0x6f948f09933cdfc",
     "location": 22,
     "MapX": 912,
-    "MapY": 467
+    "MapY": 467,
+    "den_number": 136
   },
   {
     "common_pool": 156,
@@ -1230,7 +1366,8 @@
     "rare_hash": "0x55846e1f1e54c41a",
     "location": 22,
     "MapX": 925,
-    "MapY": 433
+    "MapY": 433,
+    "den_number": 137
   },
   {
     "common_pool": 101,
@@ -1239,7 +1376,8 @@
     "rare_hash": "0xd8f0ffcde5822363",
     "location": 23,
     "MapX": 528,
-    "MapY": 695
+    "MapY": 695,
+    "den_number": 138
   },
   {
     "common_pool": 103,
@@ -1248,7 +1386,8 @@
     "rare_hash": "0xc80756327d5de060",
     "location": 23,
     "MapX": 526,
-    "MapY": 650
+    "MapY": 650,
+    "den_number": 139
   },
   {
     "common_pool": 127,
@@ -1257,7 +1396,8 @@
     "rare_hash": "0x7288f0346fd3cdd8",
     "location": 23,
     "MapX": 565,
-    "MapY": 726
+    "MapY": 726,
+    "den_number": 140
   },
   {
     "common_pool": 129,
@@ -1266,7 +1406,8 @@
     "rare_hash": "0xf9280759d6cc62a3",
     "location": 23,
     "MapX": 586,
-    "MapY": 726
+    "MapY": 726,
+    "den_number": 141
   },
   {
     "common_pool": 133,
@@ -1275,7 +1416,8 @@
     "rare_hash": "0xfe9697f9799c65be",
     "location": 23,
     "MapX": 621,
-    "MapY": 749
+    "MapY": 749,
+    "den_number": 142
   },
   {
     "common_pool": 135,
@@ -1284,7 +1426,8 @@
     "rare_hash": "0x4f1e5b1dd73edc57",
     "location": 23,
     "MapX": 576,
-    "MapY": 714
+    "MapY": 714,
+    "den_number": 143
   },
   {
     "common_pool": 107,
@@ -1293,7 +1436,8 @@
     "rare_hash": "0xf4a830850f51d034",
     "location": 24,
     "MapX": 327,
-    "MapY": 787
+    "MapY": 787,
+    "den_number": 144
   },
   {
     "common_pool": 113,
@@ -1302,7 +1446,8 @@
     "rare_hash": "0x316e6b5e74bc7aa3",
     "location": 24,
     "MapX": 408,
-    "MapY": 809
+    "MapY": 809,
+    "den_number": 145
   },
   {
     "common_pool": 131,
@@ -1311,7 +1456,8 @@
     "rare_hash": "0x4f1e5c1dd73ede0a",
     "location": 24,
     "MapX": 426,
-    "MapY": 790
+    "MapY": 790,
+    "den_number": 146
   },
   {
     "common_pool": 137,
@@ -1320,7 +1466,8 @@
     "rare_hash": "0xfe9695f9799c6258",
     "location": 24,
     "MapX": 360,
-    "MapY": 850
+    "MapY": 850,
+    "den_number": 147
   },
   {
     "common_pool": 101,
@@ -1329,7 +1476,8 @@
     "rare_hash": "0xd8f0ffcde5822363",
     "location": 25,
     "MapX": 659,
-    "MapY": 397
+    "MapY": 397,
+    "den_number": 148
   },
   {
     "common_pool": 109,
@@ -1338,7 +1486,8 @@
     "rare_hash": "0x4f1e5a1dd73edaa4",
     "location": 25,
     "MapX": 719,
-    "MapY": 377
+    "MapY": 377,
+    "den_number": 149
   },
   {
     "common_pool": 111,
@@ -1347,7 +1496,8 @@
     "rare_hash": "0xae57b2a84974c3a1",
     "location": 25,
     "MapX": 758,
-    "MapY": 338
+    "MapY": 338,
+    "den_number": 150
   },
   {
     "common_pool": 115,
@@ -1356,7 +1506,8 @@
     "rare_hash": "0xc8ea8c1618ab0a58",
     "location": 25,
     "MapX": 666,
-    "MapY": 334
+    "MapY": 334,
+    "den_number": 151
   },
   {
     "common_pool": 117,
@@ -1365,7 +1516,8 @@
     "rare_hash": "0xdf017f3fefba2704",
     "location": 25,
     "MapX": 591,
-    "MapY": 430
+    "MapY": 430,
+    "den_number": 152
   },
   {
     "common_pool": 119,
@@ -1374,7 +1526,8 @@
     "rare_hash": "0xf9222e1acdf486e8",
     "location": 25,
     "MapX": 707,
-    "MapY": 421
+    "MapY": 421,
+    "den_number": 153
   },
   {
     "common_pool": 154,
@@ -1383,7 +1536,8 @@
     "rare_hash": "0x4f1e561dd73ed3d8",
     "location": 25,
     "MapX": 832,
-    "MapY": 398
+    "MapY": 398,
+    "den_number": 154
   },
   {
     "common_pool": 103,
@@ -1392,7 +1546,8 @@
     "rare_hash": "0x4f1e5d1dd73edfbd",
     "location": 26,
     "MapX": 665,
-    "MapY": 243
+    "MapY": 243,
+    "den_number": 155
   },
   {
     "common_pool": 113,
@@ -1401,7 +1556,8 @@
     "rare_hash": "0x316e6b5e74bc7aa3",
     "location": 26,
     "MapX": 784,
-    "MapY": 212
+    "MapY": 212,
+    "den_number": 156
   },
   {
     "common_pool": 115,
@@ -1410,7 +1566,8 @@
     "rare_hash": "0xc8ea8c1618ab0a58",
     "location": 26,
     "MapX": 881,
-    "MapY": 235
+    "MapY": 235,
+    "den_number": 157
   },
   {
     "common_pool": 107,
@@ -1419,7 +1576,8 @@
     "rare_hash": "0xf4a830850f51d034",
     "location": 27,
     "MapX": 558,
-    "MapY": 1082
+    "MapY": 1082,
+    "den_number": 158
   },
   {
     "common_pool": 109,
@@ -1428,7 +1586,8 @@
     "rare_hash": "0x53441b80e563ef1f",
     "location": 27,
     "MapX": 759,
-    "MapY": 1015
+    "MapY": 1015,
+    "den_number": 159
   },
   {
     "common_pool": 121,
@@ -1437,7 +1596,8 @@
     "rare_hash": "0x6aebee2a2d6d8470",
     "location": 27,
     "MapX": 970,
-    "MapY": 701
+    "MapY": 701,
+    "den_number": 160
   },
   {
     "common_pool": 131,
@@ -1446,7 +1606,8 @@
     "rare_hash": "0x3d6f1fcb3898d356",
     "location": 27,
     "MapX": 523,
-    "MapY": 993
+    "MapY": 993,
+    "den_number": 161
   },
   {
     "common_pool": 139,
@@ -1455,7 +1616,8 @@
     "rare_hash": "0xfe969cf9799c6e3d",
     "location": 27,
     "MapX": 782,
-    "MapY": 962
+    "MapY": 962,
+    "den_number": 162
   },
   {
     "common_pool": 152,
@@ -1464,7 +1626,8 @@
     "rare_hash": "0x9fdf11a0cde96b2e",
     "location": 27,
     "MapX": 1040,
-    "MapY": 752
+    "MapY": 752,
+    "den_number": 163
   },
   {
     "common_pool": 155,
@@ -1473,7 +1636,8 @@
     "rare_hash": "0x4f1e591dd73ed8f1",
     "location": 27,
     "MapX": 321,
-    "MapY": 1004
+    "MapY": 1004,
+    "den_number": 164
   },
   {
     "common_pool": 99,
@@ -1482,7 +1646,8 @@
     "rare_hash": "0xd8f100cde5822516",
     "location": 28,
     "MapX": 258,
-    "MapY": 654
+    "MapY": 654,
+    "den_number": 165
   },
   {
     "common_pool": 103,
@@ -1491,7 +1656,8 @@
     "rare_hash": "0xc80756327d5de060",
     "location": 28,
     "MapX": 129,
-    "MapY": 797
+    "MapY": 797,
+    "den_number": 166
   },
   {
     "common_pool": 107,
@@ -1500,7 +1666,8 @@
     "rare_hash": "0xf4a830850f51d034",
     "location": 28,
     "MapX": 162,
-    "MapY": 763
+    "MapY": 763,
+    "den_number": 167
   },
   {
     "common_pool": 117,
@@ -1509,7 +1676,8 @@
     "rare_hash": "0xdf017f3fefba2704",
     "location": 28,
     "MapX": 75,
-    "MapY": 658
+    "MapY": 658,
+    "den_number": 168
   },
   {
     "common_pool": 119,
@@ -1518,7 +1686,8 @@
     "rare_hash": "0xf9222e1acdf486e8",
     "location": 28,
     "MapX": 120,
-    "MapY": 547
+    "MapY": 547,
+    "den_number": 169
   },
   {
     "common_pool": 127,
@@ -1527,7 +1696,8 @@
     "rare_hash": "0x7288f0346fd3cdd8",
     "location": 28,
     "MapX": 174,
-    "MapY": 852
+    "MapY": 852,
+    "den_number": 170
   },
   {
     "common_pool": 129,
@@ -1536,7 +1706,8 @@
     "rare_hash": "0xf9280759d6cc62a3",
     "location": 28,
     "MapX": 287,
-    "MapY": 559
+    "MapY": 559,
+    "den_number": 171
   },
   {
     "common_pool": 139,
@@ -1545,7 +1716,8 @@
     "rare_hash": "0xfe969cf9799c6e3d",
     "location": 28,
     "MapX": 162,
-    "MapY": 808
+    "MapY": 808,
+    "den_number": 172
   },
   {
     "common_pool": 155,
@@ -1554,7 +1726,8 @@
     "rare_hash": "0x4f1e591dd73ed8f1",
     "location": 28,
     "MapX": 120,
-    "MapY": 523
+    "MapY": 523,
+    "den_number": 173
   },
   {
     "common_pool": 99,
@@ -1563,7 +1736,8 @@
     "rare_hash": "0xd8f100cde5822516",
     "location": 29,
     "MapX": 214,
-    "MapY": 349
+    "MapY": 349,
+    "den_number": 174
   },
   {
     "common_pool": 111,
@@ -1572,7 +1746,8 @@
     "rare_hash": "0xae57b2a84974c3a1",
     "location": 29,
     "MapX": 185,
-    "MapY": 302
+    "MapY": 302,
+    "den_number": 175
   },
   {
     "common_pool": 125,
@@ -1581,7 +1756,8 @@
     "rare_hash": "0x89955cc3a594e51a",
     "location": 29,
     "MapX": 299,
-    "MapY": 356
+    "MapY": 356,
+    "den_number": 176
   },
   {
     "common_pool": 137,
@@ -1590,7 +1766,8 @@
     "rare_hash": "0x4f1e581dd73ed73e",
     "location": 29,
     "MapX": 271,
-    "MapY": 273
+    "MapY": 273,
+    "den_number": 177
   },
   {
     "common_pool": 139,
@@ -1599,7 +1776,8 @@
     "rare_hash": "0xfe969cf9799c6e3d",
     "location": 29,
     "MapX": 247,
-    "MapY": 298
+    "MapY": 298,
+    "den_number": 178
   },
   {
     "common_pool": 105,
@@ -1608,7 +1786,8 @@
     "rare_hash": "0x1c1962488c012ee8",
     "location": 30,
     "MapX": 597,
-    "MapY": 105
+    "MapY": 105,
+    "den_number": 179
   },
   {
     "common_pool": 121,
@@ -1617,7 +1796,8 @@
     "rare_hash": "0x6aebee2a2d6d8470",
     "location": 30,
     "MapX": 672,
-    "MapY": 120
+    "MapY": 120,
+    "den_number": 180
   },
   {
     "common_pool": 123,
@@ -1626,7 +1806,8 @@
     "rare_hash": "0x6f948f09933cdfc",
     "location": 30,
     "MapX": 605,
-    "MapY": 166
+    "MapY": 166,
+    "den_number": 181
   },
   {
     "common_pool": 131,
@@ -1635,7 +1816,8 @@
     "rare_hash": "0x3d6f1fcb3898d356",
     "location": 30,
     "MapX": 468,
-    "MapY": 451
+    "MapY": 451,
+    "den_number": 182
   },
   {
     "common_pool": 139,
@@ -1644,7 +1826,8 @@
     "rare_hash": "0xfe969cf9799c6e3d",
     "location": 30,
     "MapX": 716,
-    "MapY": 91
+    "MapY": 91,
+    "den_number": 183
   },
   {
     "common_pool": 143,
@@ -1653,7 +1836,8 @@
     "rare_hash": "0x3ea9df3b7b2b5990",
     "location": 31,
     "MapX": 471,
-    "MapY": 152
+    "MapY": 152,
+    "den_number": 184
   },
   {
     "common_pool": 143,
@@ -1662,7 +1846,8 @@
     "rare_hash": "0x3ea9df3b7b2b5990",
     "location": 31,
     "MapX": 490,
-    "MapY": 194
+    "MapY": 194,
+    "den_number": 185
   },
   {
     "common_pool": 143,
@@ -1671,7 +1856,8 @@
     "rare_hash": "0x3ea9df3b7b2b5990",
     "location": 31,
     "MapX": 464,
-    "MapY": 237
+    "MapY": 237,
+    "den_number": 186
   },
   {
     "common_pool": 143,
@@ -1680,7 +1866,8 @@
     "rare_hash": "0x3ea9df3b7b2b5990",
     "location": 31,
     "MapX": 413,
-    "MapY": 237
+    "MapY": 237,
+    "den_number": 187
   },
   {
     "common_pool": 143,
@@ -1689,7 +1876,8 @@
     "rare_hash": "0x3ea9df3b7b2b5990",
     "location": 31,
     "MapX": 386,
-    "MapY": 195
+    "MapY": 195,
+    "den_number": 188
   },
   {
     "common_pool": 143,
@@ -1698,7 +1886,8 @@
     "rare_hash": "0x3ea9df3b7b2b5990",
     "location": 31,
     "MapX": 414,
-    "MapY": 148
+    "MapY": 148,
+    "den_number": 189
   },
   {
     "common_pool": 158,
@@ -1707,7 +1896,8 @@
     "rare_hash": "0x422f95fb66a95706",
     "location": 32,
     "MapX": 684,
-    "MapY": 815
+    "MapY": 815,
+    "den_number": 190
   },
   {
     "common_pool": 166,
@@ -1716,7 +1906,8 @@
     "rare_hash": "0x93a637943a964e41",
     "location": 32,
     "MapX": 500,
-    "MapY": 798
+    "MapY": 798,
+    "den_number": 191
   },
   {
     "common_pool": 168,
@@ -1725,7 +1916,8 @@
     "rare_hash": "0x2cd8cf9a88739f98",
     "location": 32,
     "MapX": 560,
-    "MapY": 760
+    "MapY": 760,
+    "den_number": 192
   },
   {
     "common_pool": 168,
@@ -1734,7 +1926,8 @@
     "rare_hash": "0x2cd8cf9a88739f98",
     "location": 32,
     "MapX": 598,
-    "MapY": 813
+    "MapY": 813,
+    "den_number": 193
   },
   {
     "common_pool": 180,
@@ -1743,7 +1936,8 @@
     "rare_hash": "0xa5696e4aa8d625a",
     "location": 32,
     "MapX": 528,
-    "MapY": 740
+    "MapY": 740,
+    "den_number": 194
   },
   {
     "common_pool": 182,
@@ -1752,7 +1946,8 @@
     "rare_hash": "0xa23ec426e4e9430a",
     "location": 32,
     "MapX": 714,
-    "MapY": 791
+    "MapY": 791,
+    "den_number": 195
   },
   {
     "common_pool": 164,
@@ -1761,7 +1956,8 @@
     "rare_hash": "0x3b3c0865d15b0aca",
     "location": 33,
     "MapX": 611,
-    "MapY": 1031
+    "MapY": 1031,
+    "den_number": 196
   },
   {
     "common_pool": 172,
@@ -1770,7 +1966,8 @@
     "rare_hash": "0x314acb827c75109",
     "location": 33,
     "MapX": 466,
-    "MapY": 1022
+    "MapY": 1022,
+    "den_number": 197
   },
   {
     "common_pool": 176,
@@ -1779,7 +1976,8 @@
     "rare_hash": "0x9d415f6a7a841dd9",
     "location": 33,
     "MapX": 505,
-    "MapY": 1010
+    "MapY": 1010,
+    "den_number": 198
   },
   {
     "common_pool": 186,
@@ -1788,7 +1986,8 @@
     "rare_hash": "0x1928030ad989ad02",
     "location": 33,
     "MapX": 487,
-    "MapY": 1043
+    "MapY": 1043,
+    "den_number": 199
   },
   {
     "common_pool": 190,
@@ -1797,7 +1996,8 @@
     "rare_hash": "0x72f9d87337338120",
     "location": 33,
     "MapX": 438,
-    "MapY": 990
+    "MapY": 990,
+    "den_number": 200
   },
   {
     "common_pool": 158,
@@ -1806,7 +2006,8 @@
     "rare_hash": "0x422f95fb66a95706",
     "location": 34,
     "MapX": 910,
-    "MapY": 1103
+    "MapY": 1103,
+    "den_number": 201
   },
   {
     "common_pool": 160,
@@ -1815,7 +2016,8 @@
     "rare_hash": "0x6c364ecc3616af63",
     "location": 34,
     "MapX": 549,
-    "MapY": 1206
+    "MapY": 1206,
+    "den_number": 202
   },
   {
     "common_pool": 160,
@@ -1824,7 +2026,8 @@
     "rare_hash": "0x6c364ecc3616af63",
     "location": 34,
     "MapX": 1423,
-    "MapY": 1102
+    "MapY": 1102,
+    "den_number": 203
   },
   {
     "common_pool": 162,
@@ -1833,7 +2036,8 @@
     "rare_hash": "0x277effbe0b116e4a",
     "location": 34,
     "MapX": 898,
-    "MapY": 1155
+    "MapY": 1155,
+    "den_number": 204
   },
   {
     "common_pool": 162,
@@ -1842,7 +2046,8 @@
     "rare_hash": "0x277effbe0b116e4a",
     "location": 34,
     "MapX": 960,
-    "MapY": 1411
+    "MapY": 1411,
+    "den_number": 205
   },
   {
     "common_pool": 164,
@@ -1851,7 +2056,8 @@
     "rare_hash": "0x3b3c0865d15b0aca",
     "location": 34,
     "MapX": 1036,
-    "MapY": 1327
+    "MapY": 1327,
+    "den_number": 206
   },
   {
     "common_pool": 166,
@@ -1860,7 +2066,8 @@
     "rare_hash": "0x93a637943a964e41",
     "location": 34,
     "MapX": 1155,
-    "MapY": 1151
+    "MapY": 1151,
+    "den_number": 207
   },
   {
     "common_pool": 170,
@@ -1869,7 +2076,8 @@
     "rare_hash": "0x12ad4e9a799417a5",
     "location": 34,
     "MapX": 968,
-    "MapY": 1095
+    "MapY": 1095,
+    "den_number": 208
   },
   {
     "common_pool": 170,
@@ -1878,7 +2086,8 @@
     "rare_hash": "0x12ad4e9a799417a5",
     "location": 34,
     "MapX": 787,
-    "MapY": 1418
+    "MapY": 1418,
+    "den_number": 209
   },
   {
     "common_pool": 172,
@@ -1887,7 +2096,8 @@
     "rare_hash": "0x314acb827c75109",
     "location": 34,
     "MapX": 1082,
-    "MapY": 1071
+    "MapY": 1071,
+    "den_number": 210
   },
   {
     "common_pool": 174,
@@ -1896,7 +2106,8 @@
     "rare_hash": "0xc88b8a5990a8ea5c",
     "location": 34,
     "MapX": 840,
-    "MapY": 1157
+    "MapY": 1157,
+    "den_number": 211
   },
   {
     "common_pool": 174,
@@ -1905,7 +2116,8 @@
     "rare_hash": "0xc88b8a5990a8ea5c",
     "location": 34,
     "MapX": 671,
-    "MapY": 1306
+    "MapY": 1306,
+    "den_number": 212
   },
   {
     "common_pool": 176,
@@ -1914,7 +2126,8 @@
     "rare_hash": "0x9d415f6a7a841dd9",
     "location": 34,
     "MapX": 1166,
-    "MapY": 1361
+    "MapY": 1361,
+    "den_number": 213
   },
   {
     "common_pool": 178,
@@ -1923,7 +2136,8 @@
     "rare_hash": "0xb20a5ed251cd0456",
     "location": 34,
     "MapX": 1078,
-    "MapY": 1235
+    "MapY": 1235,
+    "den_number": 214
   },
   {
     "common_pool": 180,
@@ -1932,7 +2146,8 @@
     "rare_hash": "0xa5696e4aa8d625a",
     "location": 34,
     "MapX": 642,
-    "MapY": 1197
+    "MapY": 1197,
+    "den_number": 215
   },
   {
     "common_pool": 180,
@@ -1941,7 +2156,8 @@
     "rare_hash": "0xa5696e4aa8d625a",
     "location": 34,
     "MapX": 1217,
-    "MapY": 1287
+    "MapY": 1287,
+    "den_number": 216
   },
   {
     "common_pool": 184,
@@ -1950,7 +2166,8 @@
     "rare_hash": "0xf9d3242b837d627e",
     "location": 34,
     "MapX": 1002,
-    "MapY": 1069
+    "MapY": 1069,
+    "den_number": 217
   },
   {
     "common_pool": 186,
@@ -1959,7 +2176,8 @@
     "rare_hash": "0x1928030ad989ad02",
     "location": 34,
     "MapX": 748,
-    "MapY": 1204
+    "MapY": 1204,
+    "den_number": 218
   },
   {
     "common_pool": 188,
@@ -1968,7 +2186,8 @@
     "rare_hash": "0xe0236c3b91edbebb",
     "location": 34,
     "MapX": 461,
-    "MapY": 1206
+    "MapY": 1206,
+    "den_number": 219
   },
   {
     "common_pool": 190,
@@ -1977,7 +2196,8 @@
     "rare_hash": "0x72f9d87337338120",
     "location": 34,
     "MapX": 1080,
-    "MapY": 1299
+    "MapY": 1299,
+    "den_number": 220
   },
   {
     "common_pool": 192,
@@ -1986,7 +2206,8 @@
     "rare_hash": "0x8b5a3178ae3f236b",
     "location": 34,
     "MapX": 795,
-    "MapY": 1077
+    "MapY": 1077,
+    "den_number": 221
   },
   {
     "common_pool": 182,
@@ -1995,7 +2216,8 @@
     "rare_hash": "0xa23ec426e4e9430a",
     "location": 35,
     "MapX": 819,
-    "MapY": 1256
+    "MapY": 1256,
+    "den_number": 222
   },
   {
     "common_pool": 192,
@@ -2004,7 +2226,8 @@
     "rare_hash": "0x8b5a3178ae3f236b",
     "location": 35,
     "MapX": 968,
-    "MapY": 1263
+    "MapY": 1263,
+    "den_number": 223
   },
   {
     "common_pool": 160,
@@ -2013,7 +2236,8 @@
     "rare_hash": "0x6c364ecc3616af63",
     "location": 36,
     "MapX": 1007,
-    "MapY": 623
+    "MapY": 623,
+    "den_number": 224
   },
   {
     "common_pool": 168,
@@ -2022,7 +2246,8 @@
     "rare_hash": "0x2cd8cf9a88739f98",
     "location": 36,
     "MapX": 940,
-    "MapY": 796
+    "MapY": 796,
+    "den_number": 225
   },
   {
     "common_pool": 172,
@@ -2031,7 +2256,8 @@
     "rare_hash": "0x314acb827c75109",
     "location": 36,
     "MapX": 1011,
-    "MapY": 879
+    "MapY": 879,
+    "den_number": 226
   },
   {
     "common_pool": 178,
@@ -2040,7 +2266,8 @@
     "rare_hash": "0xb20a5ed251cd0456",
     "location": 36,
     "MapX": 951,
-    "MapY": 625
+    "MapY": 625,
+    "den_number": 227
   },
   {
     "common_pool": 180,
@@ -2049,7 +2276,8 @@
     "rare_hash": "0xa5696e4aa8d625a",
     "location": 36,
     "MapX": 1197,
-    "MapY": 939
+    "MapY": 939,
+    "den_number": 228
   },
   {
     "common_pool": 186,
@@ -2058,7 +2286,8 @@
     "rare_hash": "0x1928030ad989ad02",
     "location": 36,
     "MapX": 851,
-    "MapY": 831
+    "MapY": 831,
+    "den_number": 229
   },
   {
     "common_pool": 188,
@@ -2067,7 +2296,8 @@
     "rare_hash": "0xe0236c3b91edbebb",
     "location": 36,
     "MapX": 1043,
-    "MapY": 721
+    "MapY": 721,
+    "den_number": 230
   },
   {
     "common_pool": 190,
@@ -2076,7 +2306,8 @@
     "rare_hash": "0x72f9d87337338120",
     "location": 36,
     "MapX": 891,
-    "MapY": 799
+    "MapY": 799,
+    "den_number": 231
   },
   {
     "common_pool": 196,
@@ -2085,7 +2316,8 @@
     "rare_hash": "0xb4dbd8428706d1c2",
     "location": 36,
     "MapX": 1097,
-    "MapY": 655
+    "MapY": 655,
+    "den_number": 232
   },
   {
     "common_pool": 178,
@@ -2094,7 +2326,8 @@
     "rare_hash": "0xb20a5ed251cd0456",
     "location": 37,
     "MapX": 1022,
-    "MapY": 350
+    "MapY": 350,
+    "den_number": 233
   },
   {
     "common_pool": 184,
@@ -2103,7 +2336,8 @@
     "rare_hash": "0xf9d3242b837d627e",
     "location": 37,
     "MapX": 1071,
-    "MapY": 379
+    "MapY": 379,
+    "den_number": 234
   },
   {
     "common_pool": 188,
@@ -2112,7 +2346,8 @@
     "rare_hash": "0xe0236c3b91edbebb",
     "location": 37,
     "MapX": 1096,
-    "MapY": 355
+    "MapY": 355,
+    "den_number": 235
   },
   {
     "common_pool": 166,
@@ -2121,7 +2356,8 @@
     "rare_hash": "0x93a637943a964e41",
     "location": 38,
     "MapX": 925,
-    "MapY": 279
+    "MapY": 279,
+    "den_number": 236
   },
   {
     "common_pool": 158,
@@ -2130,7 +2366,8 @@
     "rare_hash": "0x422f95fb66a95706",
     "location": 39,
     "MapX": 1205,
-    "MapY": 1189
+    "MapY": 1189,
+    "den_number": 237
   },
   {
     "common_pool": 162,
@@ -2139,7 +2376,8 @@
     "rare_hash": "0x277effbe0b116e4a",
     "location": 39,
     "MapX": 1233,
-    "MapY": 1169
+    "MapY": 1169,
+    "den_number": 238
   },
   {
     "common_pool": 166,
@@ -2148,7 +2386,8 @@
     "rare_hash": "0x93a637943a964e41",
     "location": 39,
     "MapX": 1273,
-    "MapY": 1117
+    "MapY": 1117,
+    "den_number": 239
   },
   {
     "common_pool": 182,
@@ -2157,7 +2396,8 @@
     "rare_hash": "0xa23ec426e4e9430a",
     "location": 39,
     "MapX": 1319,
-    "MapY": 1155
+    "MapY": 1155,
+    "den_number": 240
   },
   {
     "common_pool": 186,
@@ -2166,7 +2406,8 @@
     "rare_hash": "0x1928030ad989ad02",
     "location": 39,
     "MapX": 1351,
-    "MapY": 1181
+    "MapY": 1181,
+    "den_number": 241
   },
   {
     "common_pool": 162,
@@ -2175,7 +2416,8 @@
     "rare_hash": "0x277effbe0b116e4a",
     "location": 40,
     "MapX": 1760,
-    "MapY": 811
+    "MapY": 811,
+    "den_number": 242
   },
   {
     "common_pool": 164,
@@ -2184,7 +2426,8 @@
     "rare_hash": "0x3b3c0865d15b0aca",
     "location": 40,
     "MapX": 1866,
-    "MapY": 741
+    "MapY": 741,
+    "den_number": 243
   },
   {
     "common_pool": 168,
@@ -2193,7 +2436,8 @@
     "rare_hash": "0x2cd8cf9a88739f98",
     "location": 40,
     "MapX": 1909,
-    "MapY": 938
+    "MapY": 938,
+    "den_number": 244
   },
   {
     "common_pool": 170,
@@ -2202,7 +2446,8 @@
     "rare_hash": "0x12ad4e9a799417a5",
     "location": 40,
     "MapX": 1451,
-    "MapY": 785
+    "MapY": 785,
+    "den_number": 245
   },
   {
     "common_pool": 170,
@@ -2211,7 +2456,8 @@
     "rare_hash": "0x12ad4e9a799417a5",
     "location": 40,
     "MapX": 1875,
-    "MapY": 877
+    "MapY": 877,
+    "den_number": 246
   },
   {
     "common_pool": 170,
@@ -2220,7 +2466,8 @@
     "rare_hash": "0x12ad4e9a799417a5",
     "location": 40,
     "MapX": 1872,
-    "MapY": 1035
+    "MapY": 1035,
+    "den_number": 247
   },
   {
     "common_pool": 172,
@@ -2229,7 +2476,8 @@
     "rare_hash": "0x314acb827c75109",
     "location": 40,
     "MapX": 1844,
-    "MapY": 935
+    "MapY": 935,
+    "den_number": 248
   },
   {
     "common_pool": 174,
@@ -2238,7 +2486,8 @@
     "rare_hash": "0xc88b8a5990a8ea5c",
     "location": 40,
     "MapX": 1691,
-    "MapY": 905
+    "MapY": 905,
+    "den_number": 249
   },
   {
     "common_pool": 176,
@@ -2247,7 +2496,8 @@
     "rare_hash": "0x9d415f6a7a841dd9",
     "location": 40,
     "MapX": 1726,
-    "MapY": 747
+    "MapY": 747,
+    "den_number": 250
   },
   {
     "common_pool": 182,
@@ -2256,7 +2506,8 @@
     "rare_hash": "0xa23ec426e4e9430a",
     "location": 40,
     "MapX": 1912,
-    "MapY": 883
+    "MapY": 883,
+    "den_number": 251
   },
   {
     "common_pool": 184,
@@ -2265,7 +2516,8 @@
     "rare_hash": "0xf9d3242b837d627e",
     "location": 40,
     "MapX": 1499,
-    "MapY": 730
+    "MapY": 730,
+    "den_number": 252
   },
   {
     "common_pool": 186,
@@ -2274,7 +2526,8 @@
     "rare_hash": "0x1928030ad989ad02",
     "location": 40,
     "MapX": 1690,
-    "MapY": 854
+    "MapY": 854,
+    "den_number": 253
   },
   {
     "common_pool": 188,
@@ -2283,7 +2536,8 @@
     "rare_hash": "0xe0236c3b91edbebb",
     "location": 40,
     "MapX": 1785,
-    "MapY": 847
+    "MapY": 847,
+    "den_number": 254
   },
   {
     "common_pool": 190,
@@ -2292,7 +2546,8 @@
     "rare_hash": "0x72f9d87337338120",
     "location": 40,
     "MapX": 1734,
-    "MapY": 849
+    "MapY": 849,
+    "den_number": 255
   },
   {
     "common_pool": 164,
@@ -2301,7 +2556,8 @@
     "rare_hash": "0x3b3c0865d15b0aca",
     "location": 41,
     "MapX": 1529,
-    "MapY": 1059
+    "MapY": 1059,
+    "den_number": 256
   },
   {
     "common_pool": 184,
@@ -2310,7 +2566,8 @@
     "rare_hash": "0xf9d3242b837d627e",
     "location": 41,
     "MapX": 1507,
-    "MapY": 1019
+    "MapY": 1019,
+    "den_number": 257
   },
   {
     "common_pool": 158,
@@ -2319,7 +2576,8 @@
     "rare_hash": "0x422f95fb66a95706",
     "location": 42,
     "MapX": 862,
-    "MapY": 1453
+    "MapY": 1453,
+    "den_number": 258
   },
   {
     "common_pool": 160,
@@ -2328,7 +2586,8 @@
     "rare_hash": "0x6c364ecc3616af63",
     "location": 42,
     "MapX": 1211,
-    "MapY": 1809
+    "MapY": 1809,
+    "den_number": 259
   },
   {
     "common_pool": 160,
@@ -2337,7 +2596,8 @@
     "rare_hash": "0x6c364ecc3616af63",
     "location": 42,
     "MapX": 1135,
-    "MapY": 1547
+    "MapY": 1547,
+    "den_number": 260
   },
   {
     "common_pool": 162,
@@ -2346,7 +2606,8 @@
     "rare_hash": "0x277effbe0b116e4a",
     "location": 42,
     "MapX": 1059,
-    "MapY": 1741
+    "MapY": 1741,
+    "den_number": 261
   },
   {
     "common_pool": 164,
@@ -2355,7 +2616,8 @@
     "rare_hash": "0x3b3c0865d15b0aca",
     "location": 42,
     "MapX": 990,
-    "MapY": 1825
+    "MapY": 1825,
+    "den_number": 262
   },
   {
     "common_pool": 166,
@@ -2364,7 +2626,8 @@
     "rare_hash": "0x93a637943a964e41",
     "location": 42,
     "MapX": 1285,
-    "MapY": 1753
+    "MapY": 1753,
+    "den_number": 263
   },
   {
     "common_pool": 172,
@@ -2373,7 +2636,8 @@
     "rare_hash": "0x314acb827c75109",
     "location": 42,
     "MapX": 866,
-    "MapY": 1821
+    "MapY": 1821,
+    "den_number": 264
   },
   {
     "common_pool": 174,
@@ -2382,7 +2646,8 @@
     "rare_hash": "0xc88b8a5990a8ea5c",
     "location": 42,
     "MapX": 1015,
-    "MapY": 1500
+    "MapY": 1500,
+    "den_number": 265
   },
   {
     "common_pool": 174,
@@ -2391,7 +2656,8 @@
     "rare_hash": "0xc88b8a5990a8ea5c",
     "location": 42,
     "MapX": 1034,
-    "MapY": 1807
+    "MapY": 1807,
+    "den_number": 266
   },
   {
     "common_pool": 176,
@@ -2400,7 +2666,8 @@
     "rare_hash": "0x9d415f6a7a841dd9",
     "location": 42,
     "MapX": 906,
-    "MapY": 1531
+    "MapY": 1531,
+    "den_number": 267
   },
   {
     "common_pool": 178,
@@ -2409,7 +2676,8 @@
     "rare_hash": "0xb20a5ed251cd0456",
     "location": 42,
     "MapX": 943,
-    "MapY": 1757
+    "MapY": 1757,
+    "den_number": 268
   },
   {
     "common_pool": 180,
@@ -2418,7 +2686,8 @@
     "rare_hash": "0xa5696e4aa8d625a",
     "location": 42,
     "MapX": 1105,
-    "MapY": 1501
+    "MapY": 1501,
+    "den_number": 269
   },
   {
     "common_pool": 182,
@@ -2427,7 +2696,8 @@
     "rare_hash": "0xa23ec426e4e9430a",
     "location": 42,
     "MapX": 889,
-    "MapY": 1657
+    "MapY": 1657,
+    "den_number": 270
   },
   {
     "common_pool": 184,
@@ -2436,7 +2706,8 @@
     "rare_hash": "0xf9d3242b837d627e",
     "location": 42,
     "MapX": 1089,
-    "MapY": 1621
+    "MapY": 1621,
+    "den_number": 271
   },
   {
     "common_pool": 190,
@@ -2445,7 +2716,8 @@
     "rare_hash": "0x72f9d87337338120",
     "location": 42,
     "MapX": 772,
-    "MapY": 1821
+    "MapY": 1821,
+    "den_number": 272
   },
   {
     "common_pool": 192,
@@ -2454,7 +2726,8 @@
     "rare_hash": "0x8b5a3178ae3f236b",
     "location": 42,
     "MapX": 761,
-    "MapY": 1786
+    "MapY": 1786,
+    "den_number": 273
   },
   {
     "common_pool": 194,
@@ -2463,7 +2736,8 @@
     "rare_hash": "0xbdf065bb6332909f",
     "location": 42,
     "MapX": 678,
-    "MapY": 1769
+    "MapY": 1769,
+    "den_number": 274
   },
   {
     "common_pool": 176,
@@ -2472,6 +2746,7 @@
     "rare_hash": "0x9d415f6a7a841dd9",
     "location": 43,
     "MapX": 990,
-    "MapY": 1711
+    "MapY": 1711,
+    "den_number": 275
   }
 ]
