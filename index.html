@@ -344,6 +344,307 @@
             padding: 20px;
             -webkit-overflow-scrolling: touch;
         }
+
+        /* Den images styles */
+        .den-images-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 20px;
+        }
+
+        .den-images-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .den-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .den-image-item {
+            text-align: center;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 10px;
+            background: #f8f9fa;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            aspect-ratio: 16/9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .den-image-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .den-image-direction {
+            font-weight: bold;
+            color: #495057;
+            margin-bottom: 4px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .den-image {
+            width: 100%;
+            height: auto;
+            max-width: none;
+            border-radius: 4px;
+            border: 1px solid #ced4da;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            object-fit: contain;
+        }
+
+        .den-image-missing {
+            width: 100%;
+            height: 100%;
+            background: #e9ecef;
+            border: 2px dashed #ced4da;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-style: italic;
+            font-size: 14px;
+            flex: 1;
+        }
+
+        .den-images-note {
+            text-align: center;
+            color: #6c757d;
+            font-size: 12px;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Tab styles */
+        .modal-tabs {
+            display: flex;
+            border-bottom: 2px solid #e9ecef;
+            margin: -20px -20px 20px -20px;
+            background: #f8f9fa;
+        }
+
+        .modal-tab {
+            flex: 1;
+            padding: 15px 20px;
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #6c757d;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .modal-tab:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .modal-tab.active {
+            color: #007bff;
+            border-bottom-color: #007bff;
+            background: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Compass layout styles */
+        .compass-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px 50px;
+        }
+
+        .compass-layout {
+            position: relative;
+            width: 800px;
+            height: 800px;
+            margin: 20px 0;
+        }
+
+        .compass-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .compass-direction {
+            position: absolute;
+            width: 320px;
+            height: 200px;
+            border-radius: 12px;
+            border: 2px solid #dee2e6;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .compass-direction:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border-color: #007bff;
+        }
+
+        .compass-direction.north {
+            top: 20px;
+            left: calc(50% - 160px);
+        }
+
+        .compass-direction.east {
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+        }
+
+        .compass-direction.south {
+            bottom: 20px;
+            left: calc(50% - 160px);
+        }
+
+        .compass-direction.west {
+            top: 50%;
+            left: -20px;
+            transform: translateY(-50%);
+        }
+
+        .compass-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-bottom: 1px solid #dee2e6;
+            flex: 1;
+        }
+
+        .compass-label {
+            padding: 4px 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: #495057;
+            background: #f8f9fa;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .compass-direction.missing {
+            border: 2px dashed #ced4da;
+            background: #f8f9fa;
+            opacity: 0.6;
+        }
+
+        .compass-direction.missing:hover {
+            transform: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #ced4da;
+        }
+
+        .compass-missing-content {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-style: italic;
+            font-size: 11px;
+            text-align: center;
+            padding: 8px;
+            flex: 1;
+        }
+
+
+
+        /* Image modal styles */
+        .image-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 20000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: default;
+        }
+
+        .image-modal-img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease;
+        }
+
+        .image-modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
         
         .pokemon-grid {
             display: grid;
@@ -492,14 +793,68 @@
             }
             
             .pokemon-grid {
-                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(96px, 96px));
                 gap: 6px;
                 padding: 0 8px;
+                justify-content: center;
+            }
+
+            .pokemon-sprite-container {
+                width: 96px;
+                height: auto;
+            }
+
+            .pokemon-sprite {
+                width: 96px;
+                height: 96px;
+                margin: 0 auto 2px auto;
             }
             
             .pokemon-detail-info {
                 grid-template-columns: 1fr;
                 gap: 8px;
+            }
+
+            /* Mobile image section scrolling */
+            .modal-content {
+                width: 100vw;
+                max-width: 100vw;
+                margin: 0;
+            }
+
+            .modal-scroll-container {
+                padding: 10px;
+            }
+
+            #tab-images {
+                overflow-x: auto;
+                margin: 0 -10px;
+                padding: 0 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .compass-container {
+                padding: 10px 0;
+                min-width: min-content;
+                width: max-content;
+            }
+
+            .compass-layout {
+                min-width: 800px;
+                width: 800px;
+            }
+
+            .den-images-section {
+                overflow-x: auto;
+                margin: 0 -10px;
+                padding: 0 10px 20px 10px;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .den-images-grid {
+                min-width: 700px;
+                width: max-content;
+                padding: 0;
             }
         }
     </style>
@@ -957,14 +1312,165 @@
             `;
         }
         
+        // Tab switching functionality
+        function switchTab(tabName, denNumber) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.modal-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            
+            // Add active class to selected tab
+            document.querySelector(`[onclick="switchTab('${tabName}', ${denNumber})"]`).classList.add('active');
+        }
+
+        // Compass layout functionality
+        function createCompassLayout(denNumber) {
+            const directions = [
+                { key: 'n', label: 'North', class: 'north', icon: '⬆️' },
+                { key: 'e', label: 'East', class: 'east', icon: '➡️' },
+                { key: 's', label: 'South', class: 'south', icon: '⬇️' },
+                { key: 'w', label: 'West', class: 'west', icon: '⬅️' }
+            ];
+
+            let compassHTML = '';
+            
+            directions.forEach(direction => {
+                const imagePath = `den_images/${denNumber}/${direction.key}.webp`;
+                compassHTML += `
+                    <div class="compass-direction ${direction.class}" onclick="openImageModal('${imagePath}', '${direction.label} view of Den ${denNumber}')">
+                        <img 
+                            src="${imagePath}" 
+                            alt="${direction.label} view of Den ${denNumber}"
+                            class="compass-image"
+                            onerror="this.parentElement.classList.add('missing'); this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            onload="this.parentElement.classList.remove('missing'); this.style.display='block'; this.nextElementSibling.style.display='none';"
+                        />
+                        <div class="compass-missing-content" style="display: none;">
+                            No Image Available
+                        </div>
+                        <div class="compass-label">
+                            ${direction.label}
+                        </div>
+                    </div>
+                `;
+            });
+
+            return `
+                <div class="compass-container">
+                    <div class="compass-layout">
+                        ${compassHTML}
+                        <div class="compass-center">🧭</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Image modal functionality
+        function openImageModal(imagePath, altText) {
+            const imageModal = document.createElement('div');
+            imageModal.className = 'image-modal-overlay';
+            imageModal.innerHTML = `
+                <div class="image-modal-content">
+                    <img src="${imagePath}" alt="${altText}" class="image-modal-img">
+                    <div class="image-modal-close" onclick="closeImageModal()">&times;</div>
+                </div>
+            `;
+            
+            imageModal.onclick = function(e) {
+                if (e.target === imageModal) {
+                    closeImageModal();
+                }
+            };
+            
+            document.body.appendChild(imageModal);
+            document.body.classList.add('modal-open');
+        }
+
+        function closeImageModal() {
+            const imageModal = document.querySelector('.image-modal-overlay');
+            if (imageModal) {
+                document.body.removeChild(imageModal);
+                document.body.classList.remove('modal-open');
+            }
+        }
+
+        // Den images functionality
+        function createDenImagesHTML(denNumber) {
+            const directions = [
+                { key: 'n', label: 'North', icon: '⬆️' },
+                { key: 'e', label: 'East', icon: '➡️' },
+                { key: 's', label: 'South', icon: '⬇️' },
+                { key: 'w', label: 'West', icon: '⬅️' }
+            ];
+
+            let imagesHTML = '';
+            
+            directions.forEach(direction => {
+                const imagePath = `den_images/${denNumber}/${direction.key}.webp`;
+                imagesHTML += `
+                    <div class="den-image-item">
+                        <div class="den-image-direction">
+                            ${direction.label}
+                        </div>
+                        <img 
+                            src="${imagePath}" 
+                            alt="${direction.label} view of Den ${denNumber}"
+                            class="den-image"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                            onload="this.style.display='block'; this.nextElementSibling.style.display='none';"
+                        />
+                        <div class="den-image-missing" style="display: none;">
+                            No ${direction.label.toLowerCase()} image
+                        </div>
+                    </div>
+                `;
+            });
+
+            return `
+                <div class="den-images-section">
+                    <div class="den-images-title">Den Images</div>
+                    <div class="den-images-grid">
+                        ${imagesHTML}
+                    </div>
+                    <div class="den-images-note">
+                        Images show different viewing angles of the den location
+                    </div>
+                </div>
+            `;
+        }
+
         function createDenPopup(den, index) {
             const commonPokemon = getPokemonFromBothVersions(den.common_pool);
             const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
+            const denNumber = den.den_number || (index + 1);
             
             return `
                 <div style="font-size: 16px;">
-                    ${createPokemonGrid(commonPokemon, `Common Pool (#${den.common_pool})`)}
-                    ${createPokemonGrid(rarePokemon, `Rare Pool (#${den.rare_pool})`)}
+                    <div class="modal-tabs">
+                        <button class="modal-tab active" onclick="switchTab('pokemon', ${denNumber})">
+                            Pokemon
+                        </button>
+                        <button class="modal-tab" onclick="switchTab('images', ${denNumber})">
+                            Images
+                        </button>
+                    </div>
+                    
+                    <div id="tab-pokemon" class="tab-content active">
+                        ${createPokemonGrid(commonPokemon, `Common Pool (#${den.common_pool})`)}
+                        ${createPokemonGrid(rarePokemon, `Rare Pool (#${den.rare_pool})`)}
+                    </div>
+                    
+                    <div id="tab-images" class="tab-content">
+                        ${createCompassLayout(denNumber)}
+                    </div>
                 </div>
             `;
         }
@@ -1521,6 +2027,7 @@
             
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
+                    closeImageModal();
                     closeModal();
                     closePokemonDetailModal();
                 }
