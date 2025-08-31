@@ -903,6 +903,14 @@
                 </div>
                 
                 <div id="filterStatus" class="filter-status" style="display: none;"></div>
+                <div class="filter-section" id="editingSection">
+                    <label>Editing:</label>
+                    <div class="star-filter-container">
+                        <button id="editToggleButton" class="star-button" onclick="toggleEditMode()">Enter Edit Mode</button>
+                        <button id="savePositionsButton" class="star-button" style="background-color:#22c55e;color:#fff;border-color:#16a34a;" onclick="saveUpdatedDenPositions()" disabled>Save Positions</button>
+                    </div>
+                    <div id="editStatus" class="filter-status" style="display: none; margin-top:10px;"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -1175,6 +1183,12 @@
         let compositeMap;
         let currentModalDen = null;
         let currentModalIndex = null;
+        let editMode = false;
+        let isDraggingPin = false;
+        let draggedMarker = null;
+        let unsavedChanges = false;
+        const params = new URLSearchParams(window.location.search);
+        const isDebug = params.has('debug');
         
         // Initialize composite map
         function initializeCompositeMap() {
@@ -1234,15 +1248,144 @@
                 allMarkers.push(marker);
                 
                 marker.on('click', function() {
+                    if (editMode) return;
                     const denNumber = den.den_number || (index + 1);
                     openModal(createDenPopup(den, index), `Den #${denNumber} (${areaName})`, den, index);
                 });
+                if (isDebug) {
+                    marker.on('mousedown', onMarkerMouseDown);
+                }
             });
             
             // Force map resize after initialization
             setTimeout(() => {
                 compositeMap.invalidateSize();
             }, 100);
+
+            // Map-level handlers for dragging pins
+            if (isDebug) {
+                compositeMap.on('mousemove', onMapMouseMove);
+                compositeMap.on('mouseup', onMapMouseUp);
+            }
+        }
+
+        // Edit Mode and dragging helpers
+        function computeAreaConfig(location) {
+            if (location < 17) return COMPOSITE_LAYOUT.wild_area;
+            if (location >= 17 && location < 32) return COMPOSITE_LAYOUT.isle_of_armor;
+            return COMPOSITE_LAYOUT.crown_tundra;
+        }
+
+        function inverseTransformCoordinates(latlng, location) {
+            const compositeHeight = COMPOSITE_LAYOUT.composite.height;
+            const area = computeAreaConfig(location);
+            const transformedX = latlng.lng;
+            const transformedY = latlng.lat;
+            let MapX = transformedX - area.x;
+            let MapY = (compositeHeight - transformedY) - area.y;
+            MapX = Math.round(MapX);
+            MapY = Math.round(MapY);
+            // Clamp within area bounds
+            MapX = Math.max(0, Math.min(MapX, area.width));
+            MapY = Math.max(0, Math.min(MapY, area.height));
+            return { MapX, MapY };
+        }
+
+        function toggleEditMode() {
+            if (!isDebug) return;
+            editMode = !editMode;
+            const btn = document.getElementById('editToggleButton');
+            btn.textContent = editMode ? 'Exit Edit Mode' : 'Enter Edit Mode';
+            if (!editMode) {
+                // Ensure any drag is ended
+                endPinDrag();
+            }
+            updateEditStatusVisibility();
+        }
+
+        function updateEditStatusVisibility() {
+            const status = document.getElementById('editStatus');
+            const saveBtn = document.getElementById('savePositionsButton');
+            if (editMode) {
+                status.style.display = 'block';
+                status.innerHTML = unsavedChanges ? 'Unsaved changes. Click Save when ready.' : 'Edit Mode: drag pins to reposition, then click Save.';
+            } else {
+                status.style.display = 'none';
+            }
+            saveBtn.disabled = !unsavedChanges;
+        }
+
+        function onMarkerMouseDown(e) {
+            if (!editMode) return;
+            isDraggingPin = true;
+            draggedMarker = e.target;
+            if (compositeMap && compositeMap.dragging && compositeMap.dragging.enabled()) {
+                compositeMap.dragging.disable();
+            }
+            if (e.originalEvent && typeof e.originalEvent.preventDefault === 'function') {
+                e.originalEvent.preventDefault();
+            }
+            document.body.style.cursor = 'grabbing';
+        }
+
+        function onMapMouseMove(e) {
+            if (!editMode || !isDraggingPin || !draggedMarker) return;
+            draggedMarker.setLatLng(e.latlng);
+        }
+
+        function endPinDrag() {
+            if (!isDraggingPin || !draggedMarker) {
+                // Re-enable map dragging if it was disabled
+                if (compositeMap && compositeMap.dragging && !compositeMap.dragging.enabled()) {
+                    compositeMap.dragging.enable();
+                }
+                document.body.style.cursor = '';
+                isDraggingPin = false;
+                draggedMarker = null;
+                return;
+            }
+            const den = draggedMarker.denData;
+            const latlng = draggedMarker.getLatLng();
+            const { MapX, MapY } = inverseTransformCoordinates(latlng, den.location);
+            den.MapX = MapX;
+            den.MapY = MapY;
+            unsavedChanges = true;
+            const denNumber = den.den_number || '?';
+            const status = document.getElementById('editStatus');
+            if (status) {
+                status.innerHTML = `Moved Den #${denNumber} to MapX ${MapX}, MapY ${MapY}`;
+            }
+            const saveBtn = document.getElementById('savePositionsButton');
+            if (saveBtn) saveBtn.disabled = false;
+            if (compositeMap && compositeMap.dragging && !compositeMap.dragging.enabled()) {
+                compositeMap.dragging.enable();
+            }
+            document.body.style.cursor = '';
+            isDraggingPin = false;
+            draggedMarker = null;
+        }
+
+        function onMapMouseUp(e) {
+            if (!editMode) return;
+            endPinDrag();
+        }
+
+        function saveUpdatedDenPositions() {
+            try {
+                const dataStr = JSON.stringify(denData, null, 2);
+                const blob = new Blob([dataStr], { type: 'application/json' });
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                a.download = 'den_locations.json';
+                document.body.appendChild(a);
+                a.click();
+                URL.revokeObjectURL(a.href);
+                document.body.removeChild(a);
+                unsavedChanges = false;
+                updateEditStatusVisibility();
+            } catch (err) {
+                console.error('Failed to save positions:', err);
+            }
         }
         
         // Keep all existing modal, filtering, and Pokemon functions
@@ -2013,6 +2156,11 @@
         
         // Event listeners
         document.addEventListener('DOMContentLoaded', function() {
+            // Hide editing UI unless debug param present
+            const editingSection = document.getElementById('editingSection');
+            if (editingSection && !isDebug) {
+                editingSection.style.display = 'none';
+            }
             document.getElementById('denModal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeModal();
@@ -2040,6 +2188,14 @@
                     e.stopPropagation();
                 }
             });
+            // End pin drag if mouse released outside map
+            if (isDebug) {
+                document.addEventListener('mouseup', function() {
+                    if (editMode) {
+                        endPinDrag();
+                    }
+                });
+            }
         });
         
         // Window resize handler
