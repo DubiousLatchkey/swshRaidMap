@@ -1,0 +1,5656 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-31T17:56:10.908004+00:00",
+    "forms_collapsed_to_species": true,
+    "versions_are_separate_manipulations": true,
+    "common_and_rare_are_separate_manipulations": true,
+    "progression_tiers_are_separate_manipulations": true,
+    "manipulation_setup_minutes": 45,
+    "catch_minutes_per_target": 5,
+    "optimization": "step 1 minimum Gen VIII pools plus maximum incidental older coverage; step 2 minimum added setup time for remaining older targets"
+  },
+  "summary": {
+    "baseline_generation_8_manipulations": 25,
+    "selected_manipulations": 94,
+    "additional_manipulations": 69,
+    "reachable_generation_8_species": 73,
+    "covered_generation_8_species": 73,
+    "reachable_older_species": 470,
+    "credited_older_species": 470,
+    "incidental_older_species_from_gen8_baseline": 180,
+    "remaining_older_species_after_baseline": 290,
+    "uncovered_reachable_older_species": 0,
+    "reachable_generation_9_evolutions": 0,
+    "covered_generation_9_evolutions": 0,
+    "older_incremental_minutes_after_gen8": 5455,
+    "total_plan_minutes": 6945
+  },
+  "generation_8_species": [
+    819,
+    820,
+    821,
+    822,
+    823,
+    824,
+    825,
+    826,
+    827,
+    828,
+    829,
+    830,
+    831,
+    832,
+    833,
+    834,
+    835,
+    836,
+    837,
+    838,
+    839,
+    840,
+    841,
+    842,
+    843,
+    844,
+    845,
+    846,
+    847,
+    848,
+    849,
+    850,
+    851,
+    852,
+    853,
+    854,
+    855,
+    856,
+    857,
+    858,
+    859,
+    860,
+    861,
+    862,
+    863,
+    864,
+    865,
+    866,
+    867,
+    868,
+    869,
+    870,
+    871,
+    872,
+    873,
+    874,
+    875,
+    876,
+    877,
+    878,
+    879,
+    880,
+    881,
+    882,
+    883,
+    884,
+    885,
+    886,
+    887,
+    900,
+    902,
+    903,
+    904
+  ],
+  "credited_older_species": [
+    3,
+    4,
+    5,
+    6,
+    9,
+    10,
+    11,
+    12,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    72,
+    73,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    98,
+    99,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    147,
+    148,
+    149,
+    163,
+    164,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    182,
+    183,
+    184,
+    185,
+    186,
+    194,
+    195,
+    196,
+    197,
+    199,
+    202,
+    206,
+    208,
+    211,
+    212,
+    213,
+    214,
+    215,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    230,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    246,
+    247,
+    248,
+    263,
+    264,
+    270,
+    271,
+    272,
+    273,
+    274,
+    275,
+    278,
+    279,
+    280,
+    281,
+    282,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    298,
+    302,
+    303,
+    304,
+    305,
+    306,
+    309,
+    310,
+    315,
+    318,
+    319,
+    320,
+    321,
+    324,
+    328,
+    329,
+    330,
+    333,
+    334,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    355,
+    356,
+    359,
+    360,
+    361,
+    362,
+    363,
+    364,
+    365,
+    369,
+    371,
+    372,
+    373,
+    374,
+    375,
+    376,
+    403,
+    404,
+    405,
+    406,
+    407,
+    415,
+    416,
+    420,
+    421,
+    422,
+    423,
+    425,
+    426,
+    427,
+    428,
+    434,
+    435,
+    436,
+    437,
+    438,
+    439,
+    443,
+    444,
+    445,
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    459,
+    460,
+    461,
+    462,
+    463,
+    464,
+    465,
+    466,
+    467,
+    468,
+    470,
+    471,
+    473,
+    475,
+    477,
+    478,
+    479,
+    506,
+    507,
+    508,
+    509,
+    510,
+    517,
+    518,
+    519,
+    520,
+    521,
+    524,
+    525,
+    526,
+    527,
+    528,
+    529,
+    530,
+    531,
+    532,
+    533,
+    534,
+    535,
+    536,
+    537,
+    538,
+    539,
+    543,
+    544,
+    545,
+    546,
+    547,
+    548,
+    549,
+    550,
+    551,
+    552,
+    553,
+    554,
+    555,
+    556,
+    557,
+    558,
+    559,
+    560,
+    561,
+    562,
+    563,
+    568,
+    569,
+    570,
+    571,
+    572,
+    573,
+    574,
+    575,
+    576,
+    577,
+    578,
+    579,
+    582,
+    583,
+    584,
+    587,
+    588,
+    589,
+    590,
+    591,
+    592,
+    593,
+    595,
+    596,
+    597,
+    598,
+    599,
+    600,
+    601,
+    605,
+    606,
+    607,
+    608,
+    609,
+    610,
+    611,
+    612,
+    613,
+    614,
+    615,
+    616,
+    617,
+    618,
+    619,
+    620,
+    621,
+    622,
+    623,
+    624,
+    625,
+    626,
+    627,
+    628,
+    629,
+    630,
+    631,
+    632,
+    633,
+    634,
+    635,
+    636,
+    637,
+    659,
+    660,
+    661,
+    662,
+    663,
+    674,
+    675,
+    677,
+    678,
+    679,
+    680,
+    681,
+    682,
+    683,
+    684,
+    685,
+    686,
+    687,
+    688,
+    689,
+    690,
+    691,
+    692,
+    693,
+    694,
+    695,
+    696,
+    697,
+    698,
+    699,
+    700,
+    701,
+    702,
+    703,
+    704,
+    705,
+    706,
+    707,
+    708,
+    709,
+    710,
+    711,
+    712,
+    713,
+    714,
+    715,
+    736,
+    737,
+    738,
+    742,
+    743,
+    744,
+    745,
+    746,
+    747,
+    748,
+    749,
+    750,
+    751,
+    752,
+    753,
+    754,
+    755,
+    756,
+    757,
+    758,
+    759,
+    760,
+    761,
+    762,
+    763,
+    764,
+    765,
+    766,
+    767,
+    768,
+    769,
+    770,
+    771,
+    776,
+    777,
+    778,
+    780,
+    781,
+    782,
+    783,
+    784
+  ],
+  "uncovered_reachable_older_species": [],
+  "generation_9_evolutions": [],
+  "selected_pools": [
+    {
+      "pool_key": "sword-common-early-ea986c274444",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 9,
+          "raid_table_index": 8
+        }
+      ],
+      "direct_species": [
+        90,
+        194,
+        341,
+        535,
+        536,
+        833
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 833,
+          "source": 833
+        },
+        {
+          "target": 834,
+          "source": 833
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 90,
+          "source": 90
+        },
+        {
+          "target": 91,
+          "source": 90
+        },
+        {
+          "target": 194,
+          "source": 194
+        },
+        {
+          "target": 195,
+          "source": 194
+        },
+        {
+          "target": 341,
+          "source": 341
+        },
+        {
+          "target": 342,
+          "source": 341
+        },
+        {
+          "target": 535,
+          "source": 535
+        },
+        {
+          "target": 536,
+          "source": 535
+        },
+        {
+          "target": 537,
+          "source": 535
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 2,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-7bf419e73a71",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 10,
+          "raid_table_index": 9
+        }
+      ],
+      "direct_species": [
+        83,
+        236,
+        539,
+        674,
+        759,
+        852
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 852,
+          "source": 852
+        },
+        {
+          "target": 853,
+          "source": 852
+        },
+        {
+          "target": 865,
+          "source": 83
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 83,
+          "source": 83
+        },
+        {
+          "target": 106,
+          "source": 236
+        },
+        {
+          "target": 107,
+          "source": 236
+        },
+        {
+          "target": 236,
+          "source": 236
+        },
+        {
+          "target": 237,
+          "source": 236
+        },
+        {
+          "target": 539,
+          "source": 539
+        },
+        {
+          "target": 674,
+          "source": 674
+        },
+        {
+          "target": 675,
+          "source": 674
+        },
+        {
+          "target": 759,
+          "source": 759
+        },
+        {
+          "target": 760,
+          "source": 759
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 10,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 10,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-d27a2e291dd8",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 23,
+          "raid_table_index": 22
+        }
+      ],
+      "direct_species": [
+        122,
+        215,
+        361,
+        459,
+        554,
+        872
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 872,
+          "source": 872
+        },
+        {
+          "target": 873,
+          "source": 872
+        },
+        {
+          "target": 903,
+          "source": 215
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 215,
+          "source": 215
+        },
+        {
+          "target": 361,
+          "source": 361
+        },
+        {
+          "target": 362,
+          "source": 361
+        },
+        {
+          "target": 459,
+          "source": 459
+        },
+        {
+          "target": 460,
+          "source": 459
+        },
+        {
+          "target": 461,
+          "source": 215
+        },
+        {
+          "target": 478,
+          "source": 361
+        },
+        {
+          "target": 554,
+          "source": 554
+        },
+        {
+          "target": 555,
+          "source": 554
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-3e86b004d8f1",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 25,
+          "raid_table_index": 24
+        }
+      ],
+      "direct_species": [
+        25,
+        170,
+        171,
+        694,
+        835,
+        848
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 835,
+          "source": 835
+        },
+        {
+          "target": 836,
+          "source": 835
+        },
+        {
+          "target": 848,
+          "source": 848
+        },
+        {
+          "target": 849,
+          "source": 848
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 25,
+          "source": 25
+        },
+        {
+          "target": 26,
+          "source": 25
+        },
+        {
+          "target": 170,
+          "source": 170
+        },
+        {
+          "target": 171,
+          "source": 170
+        },
+        {
+          "target": 694,
+          "source": 694
+        },
+        {
+          "target": 695,
+          "source": 694
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 4,
+      "older_slot_count": 6,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 6,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-b41a2c6f4d43",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 26,
+          "raid_table_index": 25
+        }
+      ],
+      "direct_species": [
+        43,
+        273,
+        274,
+        315,
+        406,
+        761
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 43,
+          "source": 43
+        },
+        {
+          "target": 44,
+          "source": 43
+        },
+        {
+          "target": 45,
+          "source": 43
+        },
+        {
+          "target": 182,
+          "source": 43
+        },
+        {
+          "target": 273,
+          "source": 273
+        },
+        {
+          "target": 274,
+          "source": 273
+        },
+        {
+          "target": 275,
+          "source": 273
+        },
+        {
+          "target": 315,
+          "source": 406
+        },
+        {
+          "target": 406,
+          "source": 406
+        },
+        {
+          "target": 407,
+          "source": 406
+        },
+        {
+          "target": 761,
+          "source": 761
+        },
+        {
+          "target": 762,
+          "source": 761
+        },
+        {
+          "target": 763,
+          "source": 761
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 13,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 13,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-589ac53409f6",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 32,
+          "raid_table_index": 31
+        }
+      ],
+      "direct_species": [
+        177,
+        278,
+        425,
+        714,
+        821,
+        822
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 821,
+          "source": 821
+        },
+        {
+          "target": 822,
+          "source": 821
+        },
+        {
+          "target": 823,
+          "source": 821
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 278,
+          "source": 278
+        },
+        {
+          "target": 279,
+          "source": 278
+        },
+        {
+          "target": 425,
+          "source": 425
+        },
+        {
+          "target": 426,
+          "source": 425
+        },
+        {
+          "target": 714,
+          "source": 714
+        },
+        {
+          "target": 715,
+          "source": 714
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 6,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 6,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-0d3acfbe4eb2",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 33,
+          "raid_table_index": 32
+        }
+      ],
+      "direct_species": [
+        35,
+        173,
+        175,
+        684,
+        742,
+        755
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 173,
+          "source": 173
+        },
+        {
+          "target": 175,
+          "source": 175
+        },
+        {
+          "target": 176,
+          "source": 175
+        },
+        {
+          "target": 468,
+          "source": 175
+        },
+        {
+          "target": 684,
+          "source": 684
+        },
+        {
+          "target": 685,
+          "source": 684
+        },
+        {
+          "target": 742,
+          "source": 742
+        },
+        {
+          "target": 743,
+          "source": 742
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 8,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 8,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-e77b564f7b9f",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 34,
+          "raid_table_index": 33
+        }
+      ],
+      "direct_species": [
+        35,
+        280,
+        281,
+        439,
+        859,
+        868
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 859,
+          "source": 859
+        },
+        {
+          "target": 860,
+          "source": 859
+        },
+        {
+          "target": 861,
+          "source": 859
+        },
+        {
+          "target": 866,
+          "source": 439
+        },
+        {
+          "target": 868,
+          "source": 868
+        },
+        {
+          "target": 869,
+          "source": 868
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 35,
+          "source": 35
+        },
+        {
+          "target": 36,
+          "source": 35
+        },
+        {
+          "target": 122,
+          "source": 439
+        },
+        {
+          "target": 280,
+          "source": 280
+        },
+        {
+          "target": 281,
+          "source": 280
+        },
+        {
+          "target": 282,
+          "source": 280
+        },
+        {
+          "target": 439,
+          "source": 439
+        },
+        {
+          "target": 475,
+          "source": 280
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 6,
+      "older_slot_count": 8,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 8,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-e1d3bcfb5fad",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 36,
+          "raid_table_index": 35
+        }
+      ],
+      "direct_species": [
+        263,
+        509,
+        633,
+        827,
+        828,
+        859
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 827,
+          "source": 827
+        },
+        {
+          "target": 828,
+          "source": 827
+        },
+        {
+          "target": 862,
+          "source": 263
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 263,
+          "source": 263
+        },
+        {
+          "target": 264,
+          "source": 263
+        },
+        {
+          "target": 509,
+          "source": 509
+        },
+        {
+          "target": 510,
+          "source": 509
+        },
+        {
+          "target": 633,
+          "source": 633
+        },
+        {
+          "target": 634,
+          "source": 633
+        },
+        {
+          "target": 635,
+          "source": 633
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 7,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 7,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-early-0ea2c681f740",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 107,
+          "raid_table_index": 108
+        }
+      ],
+      "direct_species": [
+        527,
+        587,
+        627,
+        661
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 527,
+          "source": 527
+        },
+        {
+          "target": 528,
+          "source": 527
+        },
+        {
+          "target": 587,
+          "source": 587
+        },
+        {
+          "target": 627,
+          "source": 627
+        },
+        {
+          "target": 628,
+          "source": 627
+        },
+        {
+          "target": 661,
+          "source": 661
+        },
+        {
+          "target": 662,
+          "source": 661
+        },
+        {
+          "target": 663,
+          "source": 661
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 8,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 8,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-late-f59e3ae7caea",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 2,
+          "raid_table_index": 1
+        }
+      ],
+      "direct_species": [
+        281,
+        282,
+        338,
+        518,
+        575,
+        576,
+        678
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 338,
+          "source": 338
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-late-a301644f9d95",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 105,
+          "raid_table_index": 106
+        }
+      ],
+      "direct_species": [
+        82,
+        113,
+        403,
+        404,
+        405,
+        462,
+        702,
+        871,
+        877
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 871,
+          "source": 871
+        },
+        {
+          "target": 877,
+          "source": 877
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 82,
+          "source": 82
+        },
+        {
+          "target": 113,
+          "source": 113
+        },
+        {
+          "target": 242,
+          "source": 113
+        },
+        {
+          "target": 403,
+          "source": 403
+        },
+        {
+          "target": 404,
+          "source": 403
+        },
+        {
+          "target": 405,
+          "source": 403
+        },
+        {
+          "target": 462,
+          "source": 82
+        },
+        {
+          "target": 702,
+          "source": 702
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 2,
+      "older_slot_count": 8,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 8,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-late-223897ddb6a7",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 123,
+          "raid_table_index": 126
+        }
+      ],
+      "direct_species": [
+        113,
+        559,
+        560,
+        619,
+        620,
+        766,
+        853
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 619,
+          "source": 619
+        },
+        {
+          "target": 620,
+          "source": 619
+        },
+        {
+          "target": 766,
+          "source": 766
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-late-dbc7b5abe903",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 139,
+          "raid_table_index": 142
+        }
+      ],
+      "direct_species": [
+        113,
+        120,
+        121,
+        171,
+        319,
+        320,
+        321,
+        692,
+        693,
+        746
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 120,
+          "source": 120
+        },
+        {
+          "target": 121,
+          "source": 120
+        },
+        {
+          "target": 692,
+          "source": 692
+        },
+        {
+          "target": 693,
+          "source": 692
+        },
+        {
+          "target": 746,
+          "source": 746
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 5,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 5,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-late-63e88db25fe1",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 162,
+          "raid_table_index": 165
+        }
+      ],
+      "direct_species": [
+        130,
+        138,
+        139,
+        340,
+        349,
+        350,
+        369,
+        531,
+        550
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 138,
+          "source": 138
+        },
+        {
+          "target": 139,
+          "source": 138
+        },
+        {
+          "target": 349,
+          "source": 349
+        },
+        {
+          "target": 350,
+          "source": 349
+        },
+        {
+          "target": 369,
+          "source": 369
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 5,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 5,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-late-e01fa3b95f59",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 180,
+          "raid_table_index": 183
+        }
+      ],
+      "direct_species": [
+        303,
+        304,
+        305,
+        306,
+        531,
+        703,
+        839,
+        874
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 874,
+          "source": 874
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 303,
+          "source": 303
+        },
+        {
+          "target": 304,
+          "source": 304
+        },
+        {
+          "target": 305,
+          "source": 304
+        },
+        {
+          "target": 306,
+          "source": 304
+        },
+        {
+          "target": 703,
+          "source": 703
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 1,
+      "older_slot_count": 5,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 5,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-common-late-0cb9b39b2293",
+      "version": "sword",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 184,
+          "raid_table_index": 187
+        }
+      ],
+      "direct_species": [
+        147,
+        371,
+        372,
+        373,
+        531,
+        621,
+        696,
+        697
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 147,
+          "source": 147
+        },
+        {
+          "target": 148,
+          "source": 147
+        },
+        {
+          "target": 371,
+          "source": 371
+        },
+        {
+          "target": 621,
+          "source": 621
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-rare-early-a8b07cc88a0f",
+      "version": "sword",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 48,
+          "raid_table_index": 47
+        }
+      ],
+      "direct_species": [
+        66,
+        447,
+        559,
+        759,
+        760,
+        870
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 870,
+          "source": 870
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 66,
+          "source": 66
+        },
+        {
+          "target": 67,
+          "source": 66
+        },
+        {
+          "target": 68,
+          "source": 66
+        },
+        {
+          "target": 447,
+          "source": 447
+        },
+        {
+          "target": 448,
+          "source": 447
+        },
+        {
+          "target": 559,
+          "source": 559
+        },
+        {
+          "target": 560,
+          "source": 559
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 1,
+      "older_slot_count": 7,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 7,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-rare-early-1735aaa518a0",
+      "version": "sword",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 54,
+          "raid_table_index": 53
+        },
+        {
+          "pool_id": 80,
+          "raid_table_index": 79
+        }
+      ],
+      "direct_species": [
+        37,
+        607,
+        608,
+        757,
+        838,
+        850
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 37,
+          "source": 37
+        },
+        {
+          "target": 38,
+          "source": 37
+        },
+        {
+          "target": 757,
+          "source": 757
+        },
+        {
+          "target": 758,
+          "source": 757
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-rare-early-ea20517d1b07",
+      "version": "sword",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 60,
+          "raid_table_index": 59
+        },
+        {
+          "pool_id": 86,
+          "raid_table_index": 85
+        }
+      ],
+      "direct_species": [
+        109,
+        434,
+        451,
+        568,
+        747,
+        848
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 109,
+          "source": 109
+        },
+        {
+          "target": 110,
+          "source": 109
+        },
+        {
+          "target": 434,
+          "source": 434
+        },
+        {
+          "target": 435,
+          "source": 434
+        },
+        {
+          "target": 451,
+          "source": 451
+        },
+        {
+          "target": 452,
+          "source": 451
+        },
+        {
+          "target": 568,
+          "source": 568
+        },
+        {
+          "target": 569,
+          "source": 568
+        },
+        {
+          "target": 747,
+          "source": 747
+        },
+        {
+          "target": 748,
+          "source": 747
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 10,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 10,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-rare-early-04399c386919",
+      "version": "sword",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 64,
+          "raid_table_index": 63
+        }
+      ],
+      "direct_species": [
+        328,
+        610,
+        611,
+        782,
+        840,
+        885
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 840,
+          "source": 840
+        },
+        {
+          "target": 841,
+          "source": 840
+        },
+        {
+          "target": 842,
+          "source": 840
+        },
+        {
+          "target": 885,
+          "source": 885
+        },
+        {
+          "target": 886,
+          "source": 885
+        },
+        {
+          "target": 887,
+          "source": 885
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 328,
+          "source": 328
+        },
+        {
+          "target": 329,
+          "source": 328
+        },
+        {
+          "target": 330,
+          "source": 328
+        },
+        {
+          "target": 610,
+          "source": 610
+        },
+        {
+          "target": 611,
+          "source": 610
+        },
+        {
+          "target": 612,
+          "source": 610
+        },
+        {
+          "target": 782,
+          "source": 782
+        },
+        {
+          "target": 783,
+          "source": 782
+        },
+        {
+          "target": 784,
+          "source": 782
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 6,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-rare-early-c7c9fffe1e9d",
+      "version": "sword",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 149,
+          "raid_table_index": 152
+        }
+      ],
+      "direct_species": [
+        127,
+        595,
+        742,
+        824
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 127,
+          "source": 127
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-rare-early-cddb31236364",
+      "version": "sword",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 179,
+          "raid_table_index": 182
+        }
+      ],
+      "direct_species": [
+        79,
+        122,
+        574,
+        876
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 79,
+          "source": 79
+        },
+        {
+          "target": 80,
+          "source": 79
+        },
+        {
+          "target": 199,
+          "source": 79
+        },
+        {
+          "target": 574,
+          "source": 574
+        },
+        {
+          "target": 575,
+          "source": 574
+        },
+        {
+          "target": 576,
+          "source": 574
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 6,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 6,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-rare-late-1b42017317fd",
+      "version": "sword",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 114,
+          "raid_table_index": 115
+        }
+      ],
+      "direct_species": [
+        6,
+        38,
+        242,
+        324,
+        609,
+        636,
+        637,
+        663,
+        757,
+        758
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 324,
+          "source": 324
+        },
+        {
+          "target": 636,
+          "source": 636
+        },
+        {
+          "target": 637,
+          "source": 636
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "sword-rare-late-f215d679476d",
+      "version": "sword",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 185,
+          "raid_table_index": 188
+        }
+      ],
+      "direct_species": [
+        149,
+        225,
+        372,
+        373,
+        696,
+        697,
+        776,
+        884
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 884,
+          "source": 884
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 149,
+          "source": 149
+        },
+        {
+          "target": 225,
+          "source": 225
+        },
+        {
+          "target": 372,
+          "source": 372
+        },
+        {
+          "target": 373,
+          "source": 372
+        },
+        {
+          "target": 696,
+          "source": 696
+        },
+        {
+          "target": 697,
+          "source": 696
+        },
+        {
+          "target": 776,
+          "source": 776
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 1,
+      "older_slot_count": 7,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 7,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-02d5ee080403",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 2,
+          "raid_table_index": 202
+        }
+      ],
+      "direct_species": [
+        280,
+        281,
+        517,
+        577,
+        605,
+        677
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 517,
+          "source": 517
+        },
+        {
+          "target": 518,
+          "source": 517
+        },
+        {
+          "target": 577,
+          "source": 577
+        },
+        {
+          "target": 578,
+          "source": 577
+        },
+        {
+          "target": 579,
+          "source": 577
+        },
+        {
+          "target": 605,
+          "source": 605
+        },
+        {
+          "target": 606,
+          "source": 605
+        },
+        {
+          "target": 677,
+          "source": 677
+        },
+        {
+          "target": 678,
+          "source": 677
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-1f6bc16fc810",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 4,
+          "raid_table_index": 204
+        }
+      ],
+      "direct_species": [
+        10,
+        11,
+        290,
+        595,
+        632,
+        736
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 10,
+          "source": 10
+        },
+        {
+          "target": 11,
+          "source": 10
+        },
+        {
+          "target": 12,
+          "source": 10
+        },
+        {
+          "target": 595,
+          "source": 595
+        },
+        {
+          "target": 596,
+          "source": 595
+        },
+        {
+          "target": 632,
+          "source": 632
+        },
+        {
+          "target": 736,
+          "source": 736
+        },
+        {
+          "target": 737,
+          "source": 736
+        },
+        {
+          "target": 738,
+          "source": 736
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-0d60ea5427cf",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 6,
+          "raid_table_index": 206
+        }
+      ],
+      "direct_species": [
+        92,
+        355,
+        425,
+        592,
+        708,
+        710
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 355,
+          "source": 355
+        },
+        {
+          "target": 356,
+          "source": 355
+        },
+        {
+          "target": 477,
+          "source": 355
+        },
+        {
+          "target": 592,
+          "source": 592
+        },
+        {
+          "target": 593,
+          "source": 592
+        },
+        {
+          "target": 708,
+          "source": 708
+        },
+        {
+          "target": 709,
+          "source": 708
+        },
+        {
+          "target": 710,
+          "source": 710
+        },
+        {
+          "target": 711,
+          "source": 710
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-c144ea074a20",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 8,
+          "raid_table_index": 208
+        }
+      ],
+      "direct_species": [
+        320,
+        422,
+        550,
+        751,
+        833,
+        846
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 320,
+          "source": 320
+        },
+        {
+          "target": 422,
+          "source": 422
+        },
+        {
+          "target": 423,
+          "source": 422
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-e6f2fe540d70",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 11,
+          "raid_table_index": 211
+        }
+      ],
+      "direct_species": [
+        52,
+        436,
+        597,
+        599,
+        624,
+        878
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 863,
+          "source": 52
+        },
+        {
+          "target": 878,
+          "source": 878
+        },
+        {
+          "target": 879,
+          "source": 878
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 52,
+          "source": 52
+        },
+        {
+          "target": 53,
+          "source": 52
+        },
+        {
+          "target": 436,
+          "source": 436
+        },
+        {
+          "target": 437,
+          "source": 436
+        },
+        {
+          "target": 597,
+          "source": 597
+        },
+        {
+          "target": 598,
+          "source": 597
+        },
+        {
+          "target": 599,
+          "source": 599
+        },
+        {
+          "target": 600,
+          "source": 599
+        },
+        {
+          "target": 601,
+          "source": 599
+        },
+        {
+          "target": 624,
+          "source": 624
+        },
+        {
+          "target": 625,
+          "source": 624
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 11,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 11,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-794b1fab5907",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 13,
+          "raid_table_index": 213
+        }
+      ],
+      "direct_species": [
+        77,
+        177,
+        439,
+        824,
+        856,
+        857
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 824,
+          "source": 824
+        },
+        {
+          "target": 825,
+          "source": 824
+        },
+        {
+          "target": 826,
+          "source": 824
+        },
+        {
+          "target": 856,
+          "source": 856
+        },
+        {
+          "target": 857,
+          "source": 856
+        },
+        {
+          "target": 858,
+          "source": 856
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 77,
+          "source": 77
+        },
+        {
+          "target": 78,
+          "source": 77
+        },
+        {
+          "target": 177,
+          "source": 177
+        },
+        {
+          "target": 178,
+          "source": 177
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 6,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-db048195ad2c",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 14,
+          "raid_table_index": 214
+        }
+      ],
+      "direct_species": [
+        122,
+        177,
+        343,
+        360,
+        436,
+        439
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 202,
+          "source": 360
+        },
+        {
+          "target": 343,
+          "source": 343
+        },
+        {
+          "target": 344,
+          "source": 343
+        },
+        {
+          "target": 360,
+          "source": 360
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-662df8e9bc49",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 16,
+          "raid_table_index": 216
+        }
+      ],
+      "direct_species": [
+        50,
+        95,
+        290,
+        339,
+        529,
+        749
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 50,
+          "source": 50
+        },
+        {
+          "target": 51,
+          "source": 50
+        },
+        {
+          "target": 95,
+          "source": 95
+        },
+        {
+          "target": 208,
+          "source": 95
+        },
+        {
+          "target": 290,
+          "source": 290
+        },
+        {
+          "target": 291,
+          "source": 290
+        },
+        {
+          "target": 292,
+          "source": 290
+        },
+        {
+          "target": 529,
+          "source": 529
+        },
+        {
+          "target": 530,
+          "source": 529
+        },
+        {
+          "target": 749,
+          "source": 749
+        },
+        {
+          "target": 750,
+          "source": 749
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 11,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 11,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-efd77f9dd0aa",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 17,
+          "raid_table_index": 217
+        }
+      ],
+      "direct_species": [
+        220,
+        221,
+        328,
+        449,
+        562,
+        843
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 843,
+          "source": 843
+        },
+        {
+          "target": 844,
+          "source": 843
+        },
+        {
+          "target": 867,
+          "source": 562
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 220,
+          "source": 220
+        },
+        {
+          "target": 221,
+          "source": 220
+        },
+        {
+          "target": 449,
+          "source": 449
+        },
+        {
+          "target": 450,
+          "source": 449
+        },
+        {
+          "target": 473,
+          "source": 220
+        },
+        {
+          "target": 562,
+          "source": 562
+        },
+        {
+          "target": 563,
+          "source": 562
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 7,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 7,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-96199d6aa45b",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 33,
+          "raid_table_index": 233
+        }
+      ],
+      "direct_species": [
+        35,
+        173,
+        175,
+        682,
+        742,
+        755
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 682,
+          "source": 682
+        },
+        {
+          "target": 683,
+          "source": 682
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-d119e9e56788",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 39,
+          "raid_table_index": 239
+        }
+      ],
+      "direct_species": [
+        163,
+        519,
+        572,
+        659,
+        694,
+        759
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 163,
+          "source": 163
+        },
+        {
+          "target": 164,
+          "source": 163
+        },
+        {
+          "target": 519,
+          "source": 519
+        },
+        {
+          "target": 520,
+          "source": 519
+        },
+        {
+          "target": 521,
+          "source": 519
+        },
+        {
+          "target": 572,
+          "source": 572
+        },
+        {
+          "target": 573,
+          "source": 572
+        },
+        {
+          "target": 659,
+          "source": 659
+        },
+        {
+          "target": 660,
+          "source": 659
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-01c28aa0450c",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 40,
+          "raid_table_index": 240
+        }
+      ],
+      "direct_species": [
+        263,
+        446,
+        819,
+        820,
+        831,
+        876
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 819,
+          "source": 819
+        },
+        {
+          "target": 820,
+          "source": 819
+        },
+        {
+          "target": 831,
+          "source": 831
+        },
+        {
+          "target": 832,
+          "source": 831
+        },
+        {
+          "target": 876,
+          "source": 876
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 143,
+          "source": 446
+        },
+        {
+          "target": 446,
+          "source": 446
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 5,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-4cb984e2c085",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 103,
+          "raid_table_index": 303
+        },
+        {
+          "pool_id": 117,
+          "raid_table_index": 304
+        }
+      ],
+      "direct_species": [
+        27,
+        104,
+        551
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 551,
+          "source": 551
+        },
+        {
+          "target": 552,
+          "source": 551
+        },
+        {
+          "target": 553,
+          "source": 551
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-27188fc16e5c",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 107,
+          "raid_table_index": 309
+        }
+      ],
+      "direct_species": [
+        527,
+        587,
+        629,
+        661
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 629,
+          "source": 629
+        },
+        {
+          "target": 630,
+          "source": 629
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-cbb1f046d2b5",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 111,
+          "raid_table_index": 313
+        }
+      ],
+      "direct_species": [
+        548,
+        590,
+        753,
+        754
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 548,
+          "source": 548
+        },
+        {
+          "target": 549,
+          "source": 548
+        },
+        {
+          "target": 590,
+          "source": 590
+        },
+        {
+          "target": 591,
+          "source": 590
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-ded294fe3c87",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 119,
+          "raid_table_index": 323
+        }
+      ],
+      "direct_species": [
+        72,
+        451,
+        543
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 72,
+          "source": 72
+        },
+        {
+          "target": 73,
+          "source": 72
+        },
+        {
+          "target": 543,
+          "source": 543
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-b660b0bf9cb3",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 125,
+          "raid_table_index": 329
+        }
+      ],
+      "direct_species": [
+        39,
+        174,
+        298,
+        764
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 39,
+          "source": 174
+        },
+        {
+          "target": 40,
+          "source": 174
+        },
+        {
+          "target": 174,
+          "source": 174
+        },
+        {
+          "target": 183,
+          "source": 298
+        },
+        {
+          "target": 184,
+          "source": 298
+        },
+        {
+          "target": 298,
+          "source": 298
+        },
+        {
+          "target": 764,
+          "source": 764
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 7,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 7,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-867ca9e0ad5c",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 131,
+          "raid_table_index": 335
+        }
+      ],
+      "direct_species": [
+        116,
+        117,
+        704,
+        840
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 116,
+          "source": 116
+        },
+        {
+          "target": 117,
+          "source": 116
+        },
+        {
+          "target": 230,
+          "source": 116
+        },
+        {
+          "target": 704,
+          "source": 704
+        },
+        {
+          "target": 705,
+          "source": 704
+        },
+        {
+          "target": 706,
+          "source": 704
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 6,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 6,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-dc218913b304",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 133,
+          "raid_table_index": 337
+        }
+      ],
+      "direct_species": [
+        60,
+        61,
+        118,
+        194
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 60,
+          "source": 60
+        },
+        {
+          "target": 61,
+          "source": 60
+        },
+        {
+          "target": 62,
+          "source": 60
+        },
+        {
+          "target": 118,
+          "source": 118
+        },
+        {
+          "target": 119,
+          "source": 118
+        },
+        {
+          "target": 186,
+          "source": 60
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 6,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 6,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-afac3a8bad7b",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 172,
+          "raid_table_index": 376
+        }
+      ],
+      "direct_species": [
+        532,
+        622,
+        838
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 532,
+          "source": 532
+        },
+        {
+          "target": 533,
+          "source": 532
+        },
+        {
+          "target": 534,
+          "source": 532
+        },
+        {
+          "target": 622,
+          "source": 622
+        },
+        {
+          "target": 623,
+          "source": 622
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 5,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 5,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-1a0076c3e726",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 174,
+          "raid_table_index": 378
+        }
+      ],
+      "direct_species": [
+        29,
+        32,
+        41
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 29,
+          "source": 29
+        },
+        {
+          "target": 30,
+          "source": 29
+        },
+        {
+          "target": 31,
+          "source": 29
+        },
+        {
+          "target": 32,
+          "source": 32
+        },
+        {
+          "target": 33,
+          "source": 32
+        },
+        {
+          "target": 34,
+          "source": 32
+        },
+        {
+          "target": 41,
+          "source": 41
+        },
+        {
+          "target": 42,
+          "source": 41
+        },
+        {
+          "target": 169,
+          "source": 41
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-early-76167131863f",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 176,
+          "raid_table_index": 380
+        }
+      ],
+      "direct_species": [
+        41,
+        42,
+        333,
+        714
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 333,
+          "source": 333
+        },
+        {
+          "target": 334,
+          "source": 333
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-aee215270a9b",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 2,
+          "raid_table_index": 202
+        }
+      ],
+      "direct_species": [
+        281,
+        282,
+        337,
+        518,
+        578,
+        579,
+        678
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 337,
+          "source": 337
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-492ae8371118",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 28,
+          "raid_table_index": 228
+        }
+      ],
+      "direct_species": [
+        315,
+        556,
+        709,
+        710,
+        711,
+        756,
+        781
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 556,
+          "source": 556
+        },
+        {
+          "target": 781,
+          "source": 781
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-1efcbadf8606",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 101,
+          "raid_table_index": 301
+        }
+      ],
+      "direct_species": [
+        108,
+        113,
+        128,
+        241,
+        294,
+        295,
+        463,
+        626
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 108,
+          "source": 108
+        },
+        {
+          "target": 128,
+          "source": 128
+        },
+        {
+          "target": 241,
+          "source": 241
+        },
+        {
+          "target": 463,
+          "source": 108
+        },
+        {
+          "target": 626,
+          "source": 626
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 5,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 5,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-f0cbbe7247ea",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 103,
+          "raid_table_index": 303
+        },
+        {
+          "pool_id": 117,
+          "raid_table_index": 304
+        }
+      ],
+      "direct_species": [
+        27,
+        28,
+        104,
+        105,
+        113,
+        115,
+        552,
+        553,
+        844
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 27,
+          "source": 27
+        },
+        {
+          "target": 28,
+          "source": 27
+        },
+        {
+          "target": 104,
+          "source": 104
+        },
+        {
+          "target": 105,
+          "source": 104
+        },
+        {
+          "target": 115,
+          "source": 115
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 5,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 5,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-170d8a35c6f8",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 129,
+          "raid_table_index": 333
+        }
+      ],
+      "direct_species": [
+        81,
+        82,
+        113,
+        227,
+        462,
+        624,
+        625,
+        707
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 81,
+          "source": 81
+        },
+        {
+          "target": 227,
+          "source": 227
+        },
+        {
+          "target": 707,
+          "source": 707
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-2b775ea68dad",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 135,
+          "raid_table_index": 339
+        }
+      ],
+      "direct_species": [
+        55,
+        113,
+        339,
+        340,
+        834,
+        845,
+        846,
+        847
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 845,
+          "source": 845
+        },
+        {
+          "target": 846,
+          "source": 846
+        },
+        {
+          "target": 847,
+          "source": 846
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 55,
+          "source": 55
+        },
+        {
+          "target": 339,
+          "source": 339
+        },
+        {
+          "target": 340,
+          "source": 339
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-95d65e20114b",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 139,
+          "raid_table_index": 343
+        }
+      ],
+      "direct_species": [
+        113,
+        120,
+        121,
+        171,
+        319,
+        320,
+        321,
+        690,
+        691,
+        746
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 690,
+          "source": 690
+        },
+        {
+          "target": 691,
+          "source": 690
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-4b4bbaaed035",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 154,
+          "raid_table_index": 358
+        }
+      ],
+      "direct_species": [
+        3,
+        102,
+        103,
+        113,
+        114,
+        465,
+        591,
+        753,
+        754
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 3,
+          "source": 3
+        },
+        {
+          "target": 102,
+          "source": 102
+        },
+        {
+          "target": 103,
+          "source": 102
+        },
+        {
+          "target": 114,
+          "source": 114
+        },
+        {
+          "target": 465,
+          "source": 114
+        },
+        {
+          "target": 753,
+          "source": 753
+        },
+        {
+          "target": 754,
+          "source": 753
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 7,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 7,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-22dad3256e86",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 162,
+          "raid_table_index": 366
+        }
+      ],
+      "direct_species": [
+        130,
+        140,
+        141,
+        340,
+        349,
+        350,
+        369,
+        531,
+        550
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 140,
+          "source": 140
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-36899e502516",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 164,
+          "raid_table_index": 368
+        }
+      ],
+      "direct_species": [
+        125,
+        239,
+        466,
+        531,
+        596,
+        778,
+        836,
+        871
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 125,
+          "source": 239
+        },
+        {
+          "target": 239,
+          "source": 239
+        },
+        {
+          "target": 466,
+          "source": 239
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-e8cb3d1b7971",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 170,
+          "raid_table_index": 374
+        }
+      ],
+      "direct_species": [
+        131,
+        363,
+        364,
+        365,
+        531,
+        584,
+        614,
+        615,
+        713,
+        875
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 875,
+          "source": 875
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 131,
+          "source": 131
+        },
+        {
+          "target": 363,
+          "source": 363
+        },
+        {
+          "target": 364,
+          "source": 363
+        },
+        {
+          "target": 365,
+          "source": 363
+        },
+        {
+          "target": 531,
+          "source": 531
+        },
+        {
+          "target": 584,
+          "source": 584
+        },
+        {
+          "target": 614,
+          "source": 614
+        },
+        {
+          "target": 615,
+          "source": 615
+        },
+        {
+          "target": 713,
+          "source": 713
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 1,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-876d65573075",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 182,
+          "raid_table_index": 386
+        }
+      ],
+      "direct_species": [
+        302,
+        361,
+        362,
+        478,
+        531,
+        709,
+        778,
+        886
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 302,
+          "source": 302
+        },
+        {
+          "target": 778,
+          "source": 778
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-common-late-2d3556ecc44c",
+      "version": "shield",
+      "beam": "common",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 188,
+          "raid_table_index": 392
+        }
+      ],
+      "direct_species": [
+        304,
+        305,
+        306,
+        374,
+        375,
+        531,
+        632,
+        823,
+        879
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 374,
+          "source": 374
+        },
+        {
+          "target": 375,
+          "source": 374
+        },
+        {
+          "target": 376,
+          "source": 374
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-5cfa01eb25e4",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 46,
+          "raid_table_index": 246
+        },
+        {
+          "pool_id": 92,
+          "raid_table_index": 292
+        }
+      ],
+      "direct_species": [
+        557,
+        588,
+        616,
+        751,
+        767,
+        824
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 588,
+          "source": 588
+        },
+        {
+          "target": 616,
+          "source": 616
+        },
+        {
+          "target": 751,
+          "source": 751
+        },
+        {
+          "target": 752,
+          "source": 751
+        },
+        {
+          "target": 767,
+          "source": 767
+        },
+        {
+          "target": 768,
+          "source": 767
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 6,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 6,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-fee384a4d710",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 51,
+          "raid_table_index": 251
+        }
+      ],
+      "direct_species": [
+        246,
+        438,
+        524,
+        557,
+        837,
+        838
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 837,
+          "source": 837
+        },
+        {
+          "target": 838,
+          "source": 837
+        },
+        {
+          "target": 839,
+          "source": 837
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 185,
+          "source": 438
+        },
+        {
+          "target": 246,
+          "source": 246
+        },
+        {
+          "target": 247,
+          "source": 246
+        },
+        {
+          "target": 248,
+          "source": 246
+        },
+        {
+          "target": 438,
+          "source": 438
+        },
+        {
+          "target": 524,
+          "source": 524
+        },
+        {
+          "target": 525,
+          "source": 524
+        },
+        {
+          "target": 526,
+          "source": 524
+        },
+        {
+          "target": 557,
+          "source": 557
+        },
+        {
+          "target": 558,
+          "source": 557
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 10,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 10,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-7d28345d44b9",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 53,
+          "raid_table_index": 253
+        },
+        {
+          "pool_id": 77,
+          "raid_table_index": 277
+        }
+      ],
+      "direct_species": [
+        4,
+        5,
+        58,
+        607,
+        631,
+        850
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 850,
+          "source": 850
+        },
+        {
+          "target": 851,
+          "source": 850
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 4,
+          "source": 4
+        },
+        {
+          "target": 5,
+          "source": 4
+        },
+        {
+          "target": 6,
+          "source": 4
+        },
+        {
+          "target": 58,
+          "source": 58
+        },
+        {
+          "target": 59,
+          "source": 58
+        },
+        {
+          "target": 607,
+          "source": 607
+        },
+        {
+          "target": 608,
+          "source": 607
+        },
+        {
+          "target": 609,
+          "source": 607
+        },
+        {
+          "target": 631,
+          "source": 631
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 2,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-09e00cfc1720",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 55,
+          "raid_table_index": 255
+        },
+        {
+          "pool_id": 83,
+          "raid_table_index": 283
+        }
+      ],
+      "direct_species": [
+        122,
+        225,
+        361,
+        582,
+        613,
+        712
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 582,
+          "source": 582
+        },
+        {
+          "target": 583,
+          "source": 582
+        },
+        {
+          "target": 613,
+          "source": 613
+        },
+        {
+          "target": 712,
+          "source": 712
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-4686de6df846",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 57,
+          "raid_table_index": 257
+        }
+      ],
+      "direct_species": [
+        25,
+        172,
+        309,
+        595,
+        694,
+        848
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 172,
+          "source": 172
+        },
+        {
+          "target": 309,
+          "source": 309
+        },
+        {
+          "target": 310,
+          "source": 309
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-0404e1df0e89",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 59,
+          "raid_table_index": 259
+        }
+      ],
+      "direct_species": [
+        270,
+        271,
+        420,
+        546,
+        755,
+        829
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 829,
+          "source": 829
+        },
+        {
+          "target": 830,
+          "source": 829
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 270,
+          "source": 270
+        },
+        {
+          "target": 271,
+          "source": 270
+        },
+        {
+          "target": 272,
+          "source": 270
+        },
+        {
+          "target": 420,
+          "source": 420
+        },
+        {
+          "target": 421,
+          "source": 420
+        },
+        {
+          "target": 546,
+          "source": 546
+        },
+        {
+          "target": 547,
+          "source": 546
+        },
+        {
+          "target": 755,
+          "source": 755
+        },
+        {
+          "target": 756,
+          "source": 755
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 2,
+      "older_slot_count": 9,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 9,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-f091b3a5029d",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 78,
+          "raid_table_index": 278
+        }
+      ],
+      "direct_species": [
+        98,
+        129,
+        550,
+        771,
+        833,
+        846
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 129,
+          "source": 129
+        },
+        {
+          "target": 130,
+          "source": 129
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-d1901e671c1f",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 81,
+          "raid_table_index": 281
+        }
+      ],
+      "direct_species": [
+        92,
+        222,
+        562,
+        679,
+        680,
+        854
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 854,
+          "source": 854
+        },
+        {
+          "target": 855,
+          "source": 854
+        },
+        {
+          "target": 864,
+          "source": 222
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 92,
+          "source": 92
+        },
+        {
+          "target": 93,
+          "source": 92
+        },
+        {
+          "target": 94,
+          "source": 92
+        },
+        {
+          "target": 222,
+          "source": 222
+        },
+        {
+          "target": 679,
+          "source": 679
+        },
+        {
+          "target": 680,
+          "source": 679
+        },
+        {
+          "target": 681,
+          "source": 679
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 3,
+      "older_slot_count": 7,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 7,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-60577b1baef0",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 100,
+          "raid_table_index": 300
+        }
+      ],
+      "direct_species": [
+        39,
+        427,
+        506,
+        759
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 506,
+          "source": 506
+        },
+        {
+          "target": 507,
+          "source": 506
+        },
+        {
+          "target": 508,
+          "source": 506
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-a43470bbcde6",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 102,
+          "raid_table_index": 302
+        }
+      ],
+      "direct_species": [
+        108,
+        128,
+        241,
+        293
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 293,
+          "source": 293
+        },
+        {
+          "target": 294,
+          "source": 293
+        },
+        {
+          "target": 295,
+          "source": 293
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-27809b402576",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 104,
+          "raid_table_index": 321
+        },
+        {
+          "pool_id": 118,
+          "raid_table_index": 322
+        }
+      ],
+      "direct_species": [
+        63,
+        79,
+        605
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 63,
+          "source": 63
+        },
+        {
+          "target": 64,
+          "source": 63
+        },
+        {
+          "target": 65,
+          "source": 63
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-db2fc0afa569",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 122,
+          "raid_table_index": 326
+        }
+      ],
+      "direct_species": [
+        318,
+        570,
+        686
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 318,
+          "source": 318
+        },
+        {
+          "target": 319,
+          "source": 318
+        },
+        {
+          "target": 570,
+          "source": 570
+        },
+        {
+          "target": 571,
+          "source": 570
+        },
+        {
+          "target": 686,
+          "source": 686
+        },
+        {
+          "target": 687,
+          "source": 686
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 6,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 6,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-6228c3cfe538",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 124,
+          "raid_table_index": 328
+        }
+      ],
+      "direct_species": [
+        453,
+        538,
+        619,
+        620
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 453,
+          "source": 453
+        },
+        {
+          "target": 454,
+          "source": 453
+        },
+        {
+          "target": 538,
+          "source": 538
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-1a94211ca584",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 136,
+          "raid_table_index": 340
+        }
+      ],
+      "direct_species": [
+        54,
+        535,
+        536,
+        846
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 54,
+          "source": 54
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-3ba100e0789b",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 138,
+          "raid_table_index": 342
+        }
+      ],
+      "direct_species": [
+        90,
+        223,
+        688,
+        747
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 223,
+          "source": 223
+        },
+        {
+          "target": 688,
+          "source": 688
+        },
+        {
+          "target": 689,
+          "source": 688
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-26b0937fce1c",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 161,
+          "raid_table_index": 365
+        }
+      ],
+      "direct_species": [
+        126,
+        240,
+        631
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 126,
+          "source": 240
+        },
+        {
+          "target": 240,
+          "source": 240
+        },
+        {
+          "target": 467,
+          "source": 240
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-early-aedec06fb2cc",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "early",
+      "aliases": [
+        {
+          "pool_id": 185,
+          "raid_table_index": 389
+        }
+      ],
+      "direct_species": [
+        443,
+        696,
+        780,
+        884
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 443,
+          "source": 443
+        },
+        {
+          "target": 444,
+          "source": 443
+        },
+        {
+          "target": 445,
+          "source": 443
+        },
+        {
+          "target": 780,
+          "source": 780
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-13bd9012a149",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 49,
+          "raid_table_index": 249
+        },
+        {
+          "pool_id": 85,
+          "raid_table_index": 285
+        }
+      ],
+      "direct_species": [
+        437,
+        598,
+        618,
+        625,
+        679,
+        863,
+        879,
+        884
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 618,
+          "source": 618
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-de32cc0e4437",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 56,
+          "raid_table_index": 256
+        }
+      ],
+      "direct_species": [
+        170,
+        171,
+        596,
+        777,
+        836,
+        849,
+        871,
+        877
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 777,
+          "source": 777
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-f84bc34bc008",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 57,
+          "raid_table_index": 257
+        }
+      ],
+      "direct_species": [
+        25,
+        479,
+        595
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 479,
+          "source": 479
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-ed22a64ba769",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 65,
+          "raid_table_index": 265
+        }
+      ],
+      "direct_species": [
+        133,
+        143,
+        520,
+        521,
+        765,
+        831,
+        832,
+        876
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 133,
+          "source": 133
+        },
+        {
+          "target": 134,
+          "source": 133
+        },
+        {
+          "target": 135,
+          "source": 133
+        },
+        {
+          "target": 136,
+          "source": 133
+        },
+        {
+          "target": 196,
+          "source": 133
+        },
+        {
+          "target": 197,
+          "source": 133
+        },
+        {
+          "target": 470,
+          "source": 133
+        },
+        {
+          "target": 471,
+          "source": 133
+        },
+        {
+          "target": 700,
+          "source": 133
+        },
+        {
+          "target": 765,
+          "source": 765
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 10,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 10,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-1854a00f884c",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 76,
+          "raid_table_index": 276
+        }
+      ],
+      "direct_species": [
+        98,
+        99,
+        211,
+        224,
+        226,
+        321,
+        550,
+        771
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 902,
+          "source": 550
+        },
+        {
+          "target": 904,
+          "source": 211
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 98,
+          "source": 98
+        },
+        {
+          "target": 99,
+          "source": 98
+        },
+        {
+          "target": 211,
+          "source": 211
+        },
+        {
+          "target": 224,
+          "source": 224
+        },
+        {
+          "target": 226,
+          "source": 226
+        },
+        {
+          "target": 321,
+          "source": 321
+        },
+        {
+          "target": 550,
+          "source": 550
+        },
+        {
+          "target": 771,
+          "source": 771
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 2,
+      "older_slot_count": 8,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 8,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-2e646e6aaf10",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 89,
+          "raid_table_index": 289
+        }
+      ],
+      "direct_species": [
+        12,
+        164,
+        178,
+        279,
+        561,
+        701,
+        822,
+        823
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 561,
+          "source": 561
+        },
+        {
+          "target": 701,
+          "source": 701
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-098e1fed72c3",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 100,
+          "raid_table_index": 300
+        }
+      ],
+      "direct_species": [
+        39,
+        40,
+        206,
+        242,
+        427,
+        428,
+        508,
+        760,
+        832
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 206,
+          "source": 206
+        },
+        {
+          "target": 427,
+          "source": 427
+        },
+        {
+          "target": 428,
+          "source": 427
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 3,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 3,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-62cc92b050aa",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 110,
+          "raid_table_index": 312
+        }
+      ],
+      "direct_species": [
+        123,
+        212,
+        213,
+        214,
+        242,
+        544,
+        545,
+        558,
+        589,
+        617
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 900,
+          "source": 123
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 123,
+          "source": 123
+        },
+        {
+          "target": 212,
+          "source": 123
+        },
+        {
+          "target": 213,
+          "source": 213
+        },
+        {
+          "target": 214,
+          "source": 214
+        },
+        {
+          "target": 544,
+          "source": 544
+        },
+        {
+          "target": 545,
+          "source": 544
+        },
+        {
+          "target": 589,
+          "source": 589
+        },
+        {
+          "target": 617,
+          "source": 617
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 1,
+      "older_slot_count": 8,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 8,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-46f645c4f366",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 116,
+          "raid_table_index": 318
+        }
+      ],
+      "direct_species": [
+        111,
+        112,
+        185,
+        213,
+        242,
+        464,
+        526,
+        558,
+        744,
+        745
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 111,
+          "source": 111
+        },
+        {
+          "target": 112,
+          "source": 111
+        },
+        {
+          "target": 464,
+          "source": 111
+        },
+        {
+          "target": 744,
+          "source": 744
+        },
+        {
+          "target": 745,
+          "source": 744
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 5,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 5,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-6007add160b4",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 128,
+          "raid_table_index": 332
+        }
+      ],
+      "direct_species": [
+        242,
+        425,
+        426,
+        593,
+        711,
+        769,
+        864
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 769,
+          "source": 769
+        },
+        {
+          "target": 770,
+          "source": 769
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-b4ae5b6193bc",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 144,
+          "raid_table_index": 348
+        }
+      ],
+      "direct_species": [
+        242,
+        415,
+        416
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 415,
+          "source": 415
+        },
+        {
+          "target": 416,
+          "source": 415
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-791b7a3e64fe",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 146,
+          "raid_table_index": 350
+        }
+      ],
+      "direct_species": [
+        9,
+        73,
+        120,
+        121,
+        130,
+        242,
+        688,
+        689
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 9,
+          "source": 9
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-a85cb8b3b73f",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 153,
+          "raid_table_index": 357
+        }
+      ],
+      "direct_species": [
+        132,
+        242
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 132,
+          "source": 132
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-4c09039de765",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 167,
+          "raid_table_index": 371
+        }
+      ],
+      "direct_species": [
+        12,
+        225,
+        345,
+        346,
+        347,
+        348,
+        752,
+        830
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 345,
+          "source": 345
+        },
+        {
+          "target": 346,
+          "source": 345
+        },
+        {
+          "target": 347,
+          "source": 347
+        },
+        {
+          "target": 348,
+          "source": 347
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-49dfc4195f8d",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 169,
+          "raid_table_index": 373
+        }
+      ],
+      "direct_species": [
+        124,
+        225,
+        238,
+        362,
+        460,
+        473,
+        698,
+        699,
+        873
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 124,
+          "source": 238
+        },
+        {
+          "target": 238,
+          "source": 238
+        },
+        {
+          "target": 698,
+          "source": 698
+        },
+        {
+          "target": 699,
+          "source": 698
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 4,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 4,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-fb1e6d2fb4a9",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 187,
+          "raid_table_index": 391
+        }
+      ],
+      "direct_species": [
+        215,
+        225,
+        359,
+        461,
+        510,
+        828,
+        861
+      ],
+      "baseline_generation_8_pool": false,
+      "generation_8_assignments": [],
+      "older_assignments": [
+        {
+          "target": 359,
+          "source": 359
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 0,
+      "older_slot_count": 1,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 1,
+      "non_generation_8_pool_credited": true
+    },
+    {
+      "pool_key": "shield-rare-late-562111ce005a",
+      "version": "shield",
+      "beam": "rare",
+      "progression_tier": "late",
+      "aliases": [
+        {
+          "pool_id": 197,
+          "raid_table_index": 401
+        }
+      ],
+      "direct_species": [
+        141,
+        142,
+        225,
+        880,
+        881,
+        882,
+        883
+      ],
+      "baseline_generation_8_pool": true,
+      "generation_8_assignments": [
+        {
+          "target": 880,
+          "source": 880
+        },
+        {
+          "target": 881,
+          "source": 881
+        },
+        {
+          "target": 882,
+          "source": 882
+        },
+        {
+          "target": 883,
+          "source": 883
+        }
+      ],
+      "older_assignments": [
+        {
+          "target": 141,
+          "source": 141
+        },
+        {
+          "target": 142,
+          "source": 142
+        }
+      ],
+      "future_assignments": [],
+      "generation_8_slot_count": 4,
+      "older_slot_count": 2,
+      "future_slot_count": 0,
+      "non_generation_8_slot_count": 2,
+      "non_generation_8_pool_credited": true
+    }
+  ]
+}
