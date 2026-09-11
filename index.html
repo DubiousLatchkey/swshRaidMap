@@ -720,24 +720,6 @@
             letter-spacing: 0.03em;
         }
 
-        .leaflet-tooltip.den-map-label {
-            border: 1px solid rgba(25, 25, 25, 0.5);
-            border-radius: 3px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            color: #111;
-            font-size: 11px;
-            font-weight: 700;
-            line-height: 1.1;
-            padding: 2px 4px;
-            pointer-events: none;
-            white-space: nowrap;
-        }
-
-        .leaflet-tooltip.den-map-label::before {
-            display: none;
-        }
-        
         /* Pokemon detail modal styles */
         .pokemon-detail-modal {
             position: fixed;
@@ -912,11 +894,11 @@
                     <div class="pokemon-search-container">
                         <input type="text" id="pokemonSearch" class="pokemon-search-input"
                                placeholder="Pokémon, Rolling Fields 3, WA-003, or pool 31"
-                               title="Search by Pokémon, physical den ID, location and local number, program den number, legacy den number, or encounter pool"
+                               title="Search by Pokémon, physical den ID, location and local number, program den number, or encounter pool"
                                autocomplete="off">
                         <div id="pokemonDropdown" class="pokemon-search-dropdown"></div>
                     </div>
-                    <div class="pool-filter-help">Try WA-003, Isle of Armor 12, Rolling Fields 3, legacy den 70, common 31, or a Pokémon name.</div>
+                    <div class="pool-filter-help">Try WA-003, Isle of Armor 12, Rolling Fields 3, common 31, or a Pokémon name.</div>
                     <button class="clear-stars-button" onclick="clearUnifiedSearch()">Clear Search</button>
                 </div>
                 
@@ -1111,7 +1093,7 @@
             })
             .then(data => {
                 earlyInaccessibleDens = new Set(
-                    Array.isArray(data.dens) ? data.dens.map(value => Number(value)) : []
+                    Array.isArray(data.dens) ? data.dens : []
                 );
                 dataLoaded++;
                 checkDataLoaded();
@@ -1177,7 +1159,7 @@
             const versionId = version === 'shield' ? 2 : 1;
             if (!Number.isInteger(poolId)) return [];
 
-            const cacheKey = `${den.den_number || `${den.location}:${den.MapX}:${den.MapY}`}|${beam}|${versionId}`;
+            const cacheKey = `${den.physical_id}|${beam}|${versionId}`;
             if (denRaidTableIndexCache.has(cacheKey)) {
                 return denRaidTableIndexCache.get(cacheKey);
             }
@@ -1205,7 +1187,7 @@
             if (!pool || !Array.isArray(pool.aliases)) return false;
 
             const tier = pool.progression_tier || pool.tier;
-            if (tier === 'early' && earlyInaccessibleDens.has(Number(den.den_number))) {
+            if (tier === 'early' && earlyInaccessibleDens.has(den.physical_id)) {
                 return false;
             }
 
@@ -1391,23 +1373,12 @@
                 
                 marker.denData = den;
                 marker.areaName = areaName;
-                marker.fullDenLabel = den.display_name || areaName;
-                marker.compactDenLabel = den.physical_id
-                    ? den.physical_id.toUpperCase().replace('-', ' ')
-                    : `Den ${den.den_number || (index + 1)}`;
-                marker.bindTooltip(marker.compactDenLabel, {
-                    permanent: true,
-                    direction: 'top',
-                    offset: [0, -7],
-                    opacity: 0.9,
-                    className: 'den-map-label'
-                });
                 allMarkers.push(marker);
                 
                 marker.on('click', function() {
                     if (editMode) return;
                     const locationLabel = den.display_name || areaName;
-                    const programLabel = den.physical_id ? den.physical_id.toUpperCase() : `Den #${den.den_number || (index + 1)}`;
+                    const programLabel = den.physical_id.toUpperCase();
                     openModal(createDenPopup(den, index), `${locationLabel} (${programLabel})`, den, index);
                 });
                 if (isDebug) {
@@ -1418,24 +1389,13 @@
             // Force map resize after initialization
             setTimeout(() => {
                 compositeMap.invalidateSize();
-                updateDenMapLabels();
             }, 100);
-            compositeMap.on('zoomend', updateDenMapLabels);
 
             // Map-level handlers for dragging pins
             if (isDebug) {
                 compositeMap.on('mousemove', onMapMouseMove);
                 compositeMap.on('mouseup', onMapMouseUp);
             }
-        }
-
-        function updateDenMapLabels() {
-            if (!compositeMap) return;
-            const showFullNames = compositeMap.getZoom() >= 0;
-            allMarkers.forEach(marker => {
-                const label = showFullNames ? marker.fullDenLabel : marker.compactDenLabel;
-                if (marker.getTooltip()) marker.setTooltipContent(label);
-            });
         }
 
         // Edit Mode and dragging helpers
@@ -1519,7 +1479,7 @@
             den.MapX = MapX;
             den.MapY = MapY;
             unsavedChanges = true;
-            const denNumber = den.physical_id || den.den_number || '?';
+            const denNumber = den.physical_id || '?';
             const status = document.getElementById('editStatus');
             if (status) {
                 status.innerHTML = `Moved ${denNumber.toString().toUpperCase()} to MapX ${MapX}, MapY ${MapY}`;
@@ -1762,28 +1722,22 @@
         function createDenPopup(den, index) {
             const commonPokemon = getPokemonFromBothVersions(den.common_pool);
             const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
-            const denNumber = den.den_number || (index + 1);
-            const imageFolder = den.physical_id || denNumber;
-            const denLabel = den.display_name || `Den ${denNumber}`;
-            const regionLabel = den.region === 'wild_area' ? 'Wild Area' : den.region === 'isle_of_armor' ? 'Isle of Armor' : 'Crown Tundra';
+            const tabKey = index + 1;
+            const imageFolder = den.physical_id;
+            const denLabel = den.display_name;
             
             return `
                 <div style="font-size: 16px;">
                     <div class="modal-tabs">
-                        <button class="modal-tab active" onclick="switchTab('pokemon', ${denNumber})">
+                        <button class="modal-tab active" onclick="switchTab('pokemon', ${tabKey})">
                             Pokemon
                         </button>
-                        <button class="modal-tab" onclick="switchTab('images', ${denNumber})">
+                        <button class="modal-tab" onclick="switchTab('images', ${tabKey})">
                             Images
                         </button>
                     </div>
                     
                     <div id="tab-pokemon" class="tab-content active">
-                        <div style="margin-bottom: 12px;">
-                            <strong>${denLabel}</strong><br>
-                            ${regionLabel} physical den ${den.program_den_number}
-                            ${den.legacy_den_number ? `<br><small>Legacy map den ${den.legacy_den_number}</small>` : ''}
-                        </div>
                         ${createPokemonGrid(commonPokemon, `Common Pool (#${den.common_pool})`)}
                         ${createPokemonGrid(rarePokemon, `Rare Pool (#${den.rare_pool})`)}
                     </div>
@@ -2182,7 +2136,6 @@
             const normalizedQuery = normalizeOptimizationSearchText(query);
             const criteria = {
                 denNumber: null,
-                legacyDenNumber: null,
                 physicalId: null,
                 region: null,
                 programDenNumber: null,
@@ -2192,15 +2145,13 @@
             };
 
             const denMatch = normalizedQuery.match(/\bden(?:\s+number)?\s+(\d+)\b/);
-            const legacyDenMatch = normalizedQuery.match(/\blegacy(?:\s+den)?(?:\s+number)?\s+(\d+)\b/);
             const physicalIdMatch = normalizedQuery.match(/\b(wa|ioa|ct)[\s-]*0*(\d{1,3})\b/);
             const regionDenMatch = normalizedQuery.match(/\b(wild\s+area|isle\s+of\s+armor|isle\s+of\s+armour|crown\s+tundra)\s+(?:den\s+)?0*(\d{1,3})\b/);
             const commonPoolMatch = normalizedQuery.match(/\bcommon(?:\s+pool)?(?:\s+number)?\s+(\d+)\b/);
             const rarePoolMatch = normalizedQuery.match(/\brare(?:\s+pool)?(?:\s+number)?\s+(\d+)\b/);
             const poolMatch = normalizedQuery.match(/\bpool(?:\s+(?:ids?|number))?\s+(\d+)\b/);
 
-            if (denMatch && !legacyDenMatch) criteria.denNumber = Number(denMatch[1]);
-            if (legacyDenMatch) criteria.legacyDenNumber = Number(legacyDenMatch[1]);
+            if (denMatch) criteria.denNumber = Number(denMatch[1]);
             if (physicalIdMatch) {
                 criteria.region = physicalIdMatch[1];
                 criteria.programDenNumber = Number(physicalIdMatch[2]);
@@ -2223,34 +2174,30 @@
         }
 
         function regularMapQueryIsExplicit(criteria) {
-            return criteria.denNumber !== null ||
-                criteria.legacyDenNumber !== null ||
-                criteria.physicalId !== null ||
-                criteria.programDenNumber !== null ||
-                criteria.commonPoolNumber !== null ||
-                criteria.rarePoolNumber !== null ||
-                criteria.poolNumber !== null;
+            return criteria.denNumber != null ||
+                criteria.physicalId != null ||
+                criteria.programDenNumber != null ||
+                criteria.commonPoolNumber != null ||
+                criteria.rarePoolNumber != null ||
+                criteria.poolNumber != null;
         }
 
         function getRegularMapDenMatches(criteria) {
             return new Set(
                 denData
                     .filter(den => {
-                        const denNumber = Number(den.den_number);
-                        const legacyDenNumber = Number(den.legacy_den_number || den.den_number);
                         const commonPoolNumber = Number(den.common_pool);
                         const rarePoolNumber = Number(den.rare_pool);
-                        if (criteria.denNumber !== null && denNumber !== criteria.denNumber) return false;
-                        if (criteria.legacyDenNumber !== null && legacyDenNumber !== criteria.legacyDenNumber) return false;
-                        if (criteria.physicalId !== null && den.physical_id !== criteria.physicalId) return false;
-                        if (criteria.programDenNumber !== null && Number(den.program_den_number) !== criteria.programDenNumber) return false;
-                        if (criteria.region !== null && !String(den.physical_id || '').startsWith(`${criteria.region}-`)) return false;
-                        if (criteria.commonPoolNumber !== null && commonPoolNumber !== criteria.commonPoolNumber) return false;
-                        if (criteria.rarePoolNumber !== null && rarePoolNumber !== criteria.rarePoolNumber) return false;
-                        if (criteria.poolNumber !== null && commonPoolNumber !== criteria.poolNumber && rarePoolNumber !== criteria.poolNumber) return false;
+                        if (criteria.denNumber != null && Number(den.program_den_number) !== criteria.denNumber) return false;
+                        if (criteria.physicalId != null && den.physical_id !== criteria.physicalId) return false;
+                        if (criteria.programDenNumber != null && Number(den.program_den_number) !== criteria.programDenNumber) return false;
+                        if (criteria.region != null && !String(den.physical_id || '').startsWith(`${criteria.region}-`)) return false;
+                        if (criteria.commonPoolNumber != null && commonPoolNumber !== criteria.commonPoolNumber) return false;
+                        if (criteria.rarePoolNumber != null && rarePoolNumber !== criteria.rarePoolNumber) return false;
+                        if (criteria.poolNumber != null && commonPoolNumber !== criteria.poolNumber && rarePoolNumber !== criteria.poolNumber) return false;
                         return true;
                     })
-                    .map(den => Number(den.den_number))
+                    .map(den => den.physical_id)
             );
         }
 
@@ -2287,14 +2234,11 @@
             };
 
             if (criteria.denNumber !== null) {
-                addSuggestion(`Den #${criteria.denNumber}`, getRegularMapDenMatches(criteria));
-            }
-            if (criteria.legacyDenNumber !== null) {
-                addSuggestion(`Legacy den #${criteria.legacyDenNumber}`, getRegularMapDenMatches(criteria));
+                addSuggestion(`Program den #${criteria.denNumber}`, getRegularMapDenMatches(criteria));
             }
             if (criteria.programDenNumber !== null) {
                 const matchingDens = getRegularMapDenMatches(criteria);
-                const matchingDen = denData.find(den => matchingDens.has(Number(den.den_number)));
+                const matchingDen = denData.find(den => matchingDens.has(den.physical_id));
                 addSuggestion(
                     matchingDen ? `${matchingDen.display_name} (${matchingDen.physical_id.toUpperCase()})` : normalizedQuery.toUpperCase(),
                     matchingDens
@@ -2312,7 +2256,7 @@
 
             if (!regularMapQueryIsExplicit(criteria) && /^\d+$/.test(normalizedQuery)) {
                 const number = Number(normalizedQuery);
-                addSuggestion(`Den #${number}`, getRegularMapDenMatches({denNumber: number, commonPoolNumber: null, rarePoolNumber: null, poolNumber: null}));
+                addSuggestion(`Program den #${number}`, getRegularMapDenMatches({denNumber: number, commonPoolNumber: null, rarePoolNumber: null, poolNumber: null}));
                 addSuggestion(`Common pool #${number}`, getRegularMapDenMatches({denNumber: null, commonPoolNumber: number, rarePoolNumber: null, poolNumber: null}));
                 addSuggestion(`Rare pool #${number}`, getRegularMapDenMatches({denNumber: null, commonPoolNumber: null, rarePoolNumber: number, poolNumber: null}));
             }
@@ -2321,7 +2265,7 @@
                 getDenIdentityMatches(query).slice(0, 30).forEach(den => {
                     addSuggestion(
                         `${den.display_name} (${den.physical_id.toUpperCase()})`,
-                        new Set([Number(den.den_number)])
+                        new Set([den.physical_id])
                     );
                 });
             }
@@ -2372,7 +2316,7 @@
                 currentRegularFilter = String(query).trim();
                 currentRegularDenMatches = regularMapQueryIsExplicit(regularQuery)
                     ? getRegularMapDenMatches(regularQuery)
-                    : new Set(identityMatches.map(den => Number(den.den_number)));
+                    : new Set(identityMatches.map(den => den.physical_id));
                 return;
             }
 
@@ -2605,7 +2549,7 @@
                     ? currentPoolMatches.filter(pool => denMatchesOptimizationPool(den, pool))
                     : [];
                 const poolMatches = !hasPoolFilter || matchingPools.length > 0;
-                const regularMatches = !hasRegularFilter || currentRegularDenMatches.has(Number(den.den_number));
+                const regularMatches = !hasRegularFilter || currentRegularDenMatches.has(den.physical_id);
                 let otherFiltersMatch = false;
                 let pokemonResult = null;
                 
@@ -2841,7 +2785,7 @@
                 const locationLabel = currentModalDen.display_name || getAreaName(currentModalDen.location);
                 const programLabel = currentModalDen.physical_id
                     ? currentModalDen.physical_id.toUpperCase()
-                    : `Den #${currentModalDen.den_number || (currentModalIndex + 1)}`;
+                    : 'Raid Den';
                 const title = `${locationLabel} (${programLabel})`;
                 
                 document.getElementById('modalContent').innerHTML = `

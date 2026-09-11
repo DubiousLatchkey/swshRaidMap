@@ -7,7 +7,7 @@ This is a static Sword/Shield raid-map app intended to support shiny Pokédex co
 ## Data model
 
 - `data/den_locations.json` is the hand-maintained legacy source, with arbitrary physical den numbers, common/rare pool IDs, hashes, and map coordinates.
-- `data/den_locations_pokefinder.json` is the generated app data source that adds SeedSearcher/PokéFinder physical IDs, region numbers, and location-local labels while retaining legacy numbers as aliases.
+- `data/den_locations_pokefinder.json` is the generated app data source with SeedSearcher/PokéFinder physical IDs, region numbers, and location-local labels. Do not expose or copy the former arbitrary den numbers into it.
 - `data/reference/pokefinder_den_locations.json` is the pinned 276-slot program reference, including the special Watchtower crystal slot; rebuild both generated files with `scripts/build_pokefinder_den_locations.py`.
 - `data/early_inaccessible_dens.json` lists water- or island-gated dens that cannot contribute 1-2 star coverage; unlisted and explicitly borderline dens default to early-accessible.
 - `data/raid_tables.json` contains versioned encounter tables (`version: 1` is Sword, `version: 2` is Shield).
@@ -23,9 +23,9 @@ Do not assume `(pool_id, version)` is unique. Pool IDs 103, 104, 117, and 118 ea
 - The app has no build step; serve the repository over HTTP when testing browser behavior because it fetches local JSON files.
 - Keep generated/reference data separate from the hand-maintained raid inputs and record its source and retrieval timestamp.
 - Preserve the untracked `images/map_ioa.afphoto` source file.
-- Den image folders are named by region-scoped physical ID (`wa-###`, `ioa-###`, `ct-###`), never by encounter-pool number. `scripts/rename_den_image_folders.py` provides checked forward and reverse migrations.
+- Den image folders are named by region-scoped physical ID (`wa-###`, `ioa-###`, `ct-###`), never by encounter-pool number.
 - The map's unified search parses Pokémon names/IDs, den numbers, regular pool numbers, and selected `pool_key` entries from `output/raid_coverage/coverage_solution.json`; it accepts key chunks, star ranges, pool IDs, signatures, and covered Pokémon names, uses output aliases and den source hashes to resolve duplicate pool IDs, and excludes early-inaccessible dens from `early` matches.
-- Physical-location search also accepts canonical IDs (`wa-003`, `ioa-012`, `ct-086`), full region plus program number, location-local labels such as `Rolling Fields 3`, and explicit `legacy den N` aliases. Map labels show canonical IDs at overview zoom and location-local names when zoomed in.
+- Physical-location search accepts canonical IDs (`wa-003`, `ioa-012`, `ct-086`), full region plus program number, and location-local labels such as `Rolling Fields 3`. The map uses uncluttered point markers without permanent text labels.
 
 ## Coverage optimizer
 

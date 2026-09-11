@@ -2,7 +2,7 @@
 
 `data/den_locations_pokefinder.json` is the map's generated, program-compatible
 location source. It preserves the hand-placed map coordinates and pool labels
-from `data/den_locations.json`, while adding the physical ordering shared by
+from `data/den_locations.json`, while using the physical ordering shared by
 SeedSearcher and PokéFinder.
 
 ## Physical identity and labels
@@ -15,9 +15,8 @@ Each ordinary den has a stable, region-scoped `physical_id`:
 
 `program_den_number` is the number shown by SeedSearcher/PokéFinder within that
 region. `location_name` and `local_number` form the familiar local label, such
-as `Rolling Fields 3`, also stored as `display_name`. `legacy_den_number` records
-this project's former `1..275` folder/map number and is retained only as an
-alias. The common and rare pool numbers remain display aliases; their 64-bit
+as `Rolling Fields 3`, also stored as `display_name`. The former arbitrary map
+number is not included. Common and rare pool numbers remain display aliases; their 64-bit
 hashes are the durable encounter-table joins.
 
 The source reference at `data/reference/pokefinder_den_locations.json` contains
@@ -42,14 +41,4 @@ identifier.
 ## Image folders
 
 Image folders use `physical_id`, so two map locations sharing encounter pools
-still have independent assets. The migration is dry-run by default:
-
-```powershell
-python scripts/rename_den_image_folders.py
-python scripts/rename_den_image_folders.py --apply
-```
-
-To restore the legacy numeric names, run the same command with `--reverse`
-(dry-run first, then add `--apply`). The script requires a complete 275-row
-bijection, rejects missing sources and target collisions, and stages every
-folder before assigning final names.
+still have independent assets.

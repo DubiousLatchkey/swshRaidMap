@@ -152,9 +152,8 @@ def match_rows(legacy: list[dict], source: list[dict]) -> tuple[list[dict], dict
             new = new_rows[new_i]
             distance = costs[old_i][new_i] ** 0.5
             distances.append(distance)
-            merged = dict(old)
+            merged = {key: value for key, value in old.items() if key != "den_number"}
             merged.update({
-                "legacy_den_number": old["den_number"],
                 "physical_id": new["physical_id"],
                 "game_slot_index": new["game_slot_index"],
                 "region": new["region"],
@@ -172,8 +171,7 @@ def match_rows(legacy: list[dict], source: list[dict]) -> tuple[list[dict], dict
 
     result.sort(key=lambda row: row["game_slot_index"])
     physical_ids = [row["physical_id"] for row in result]
-    legacy_ids = [row["legacy_den_number"] for row in result]
-    if len(result) != 275 or len(set(physical_ids)) != 275 or len(set(legacy_ids)) != 275:
+    if len(result) != 275 or len(set(physical_ids)) != 275:
         raise RuntimeError("Crosswalk is not a 275-by-275 bijection")
 
     stats = {
@@ -214,7 +212,7 @@ def main() -> None:
         "schema_version": 1,
         "generated_at": "2026-09-11",
         "source": {
-            "legacy_locations": "data/den_locations.json",
+            "map_locations": "data/den_locations.json",
             "program_locations": "data/reference/pokefinder_den_locations.json",
         },
         "validation": stats,
