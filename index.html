@@ -11,6 +11,10 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
         
         body.modal-open {
@@ -27,7 +31,9 @@
         }
         
         .map-container {
-            height: calc(100vh - 60px);
+            height: auto;
+            flex: 1 1 auto;
+            min-height: 0;
             width: 100%;
             margin: 0;
             position: relative;
@@ -790,23 +796,67 @@
         }
         
         @media (max-width: 768px) {
+            html,
             body {
+                height: 100%;
+                min-height: 100dvh;
                 padding: 0;
+                overflow: hidden;
+            }
+
+            h1 {
+                flex: 0 0 42px;
+                box-sizing: border-box;
+                height: 42px;
+                margin: 0;
+                padding: 6px 8px;
+                font-size: 18px;
+                line-height: 30px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
             
             .map-container {
-                height: calc(100vh - 50px);
+                height: auto;
+                flex: 1 1 auto;
+                min-height: 0;
             }
             
             .floating-filter-window {
-                min-width: 280px;
-                max-width: 300px;
-                bottom: 15px;
-                left: 15px;
+                min-width: 0;
+                width: auto;
+                max-width: none;
+                left: 8px;
+                right: 8px;
+                bottom: max(8px, env(safe-area-inset-bottom));
             }
-            
+
+            .filter-window-header {
+                padding: 8px 10px;
+            }
+
             .filter-window-content {
-                max-height: 300px;
+                padding: 10px;
+                max-height: min(300px, calc(100dvh - 100px));
+            }
+
+            .filter-section {
+                margin-bottom: 10px;
+            }
+
+            .filter-section label {
+                font-size: 12px;
+                margin-bottom: 4px;
+            }
+
+            .star-filter-container {
+                gap: 4px;
+            }
+
+            .star-button,
+            .clear-stars-button {
+                padding: 5px 8px;
             }
             
             .pokemon-grid {

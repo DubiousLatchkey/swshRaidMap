@@ -27,6 +27,7 @@ Do not assume `(pool_id, version)` is unique. Pool IDs 103, 104, 117, and 118 ea
 - The map's unified search parses Pokémon names/IDs, den numbers, regular pool numbers, and selected `pool_key` entries from `output/raid_coverage/coverage_solution.json`; it accepts key chunks, star ranges, pool IDs, signatures, and covered Pokémon names, uses output aliases and den source hashes to resolve duplicate pool IDs, and excludes early-inaccessible dens from `early` matches. When an optimization pool key is active, matching den popups highlight the selected version/beam's encounters in that pool's star tier.
 - Map search separates `Dens` and `Hunts`. Hunt suggestions and workbook Hunt Name fields use copy/pasteable `version-beam-tier-pool_id` keys such as `sword-common-early-9`; raw 12-character solution hashes remain internal compatibility aliases.
 - Physical-location search accepts canonical IDs (`wa-003`, `ioa-012`, `ct-004`, `ss-004`), SeedSearcher `tc` aliases for Crown Tundra, full region plus program number, and location-local labels such as `Rolling Fields 3`. The map uses uncluttered point markers without permanent text labels.
+- On mobile, the page uses a dynamic-height app shell with a compact title bar, a map that fills the remaining viewport, and an internally scrollable filter panel; the document itself should not become the scrolling surface.
 
 ## Coverage optimizer
 
