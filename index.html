@@ -938,10 +938,10 @@
             }
 
             .floating-filter-window {
-                top: 8px;
-                right: 8px;
-                bottom: auto;
-                left: auto;
+                top: auto;
+                right: auto;
+                bottom: max(8px, env(safe-area-inset-bottom));
+                left: 8px;
                 max-height: calc(100dvh - 78px);
                 overflow: hidden;
             }
