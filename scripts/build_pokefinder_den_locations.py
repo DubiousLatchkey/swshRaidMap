@@ -53,7 +53,13 @@ def region_fields(index: int) -> tuple[str, str, int]:
         return "wild_area", "wa", index + 1
     if index < 190:
         return "isle_of_armor", "ioa", index - 99
-    return "crown_tundra", "ct", index - 189
+    # SeedSearcher omits the six Slippery Slope (DLC_32) entries from its
+    # Crown Tundra selector. Keep those dens addressable under an explicit
+    # non-SeedSearcher prefix, then number Frostpoint Field onward exactly as
+    # SeedSearcher does: Frostpoint Field 1 is TC 1.
+    if index < 196:
+        return "crown_tundra", "ss", index - 189
+    return "crown_tundra", "ct", index - 195
 
 
 def fit_coordinate_transforms(old_groups: dict, new_groups: dict) -> dict[str, np.ndarray]:
@@ -95,7 +101,7 @@ def parse_source(text: str) -> list[dict]:
             "game_slot_index": index,
             "physical_id": f"{prefix}-{region_number:03d}",
             "region": region,
-            "program_den_number": region_number,
+            "program_den_number": region_number if prefix != "ss" else None,
             "location": location_id,
             "location_name": LOCATION_NAMES[location_id],
             "local_number": local_counts[location_id],

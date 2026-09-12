@@ -5,10 +5,10 @@
     "late_tier": "3-5 star raids",
     "borderline_policy": "Ambiguous shoreline/cave markers remain early-accessible until manually confirmed."
   },
-  "borderline_dens_not_excluded": ["ioa-013", "ct-068", "ct-067", "ct-070", "ct-086"],
+  "borderline_dens_not_excluded": ["ioa-013", "ct-062", "ct-061", "ct-064", "ct-080"],
   "dens": [
     "wa-028", "wa-018", "wa-093", "wa-081", "wa-099", "wa-040", "wa-042", "wa-029", "wa-030", "wa-031", "wa-069", "wa-067", "wa-025", "wa-022", "wa-023", "wa-026", "wa-027", "wa-024",
     "ioa-023", "ioa-025", "ioa-033", "ioa-047", "ioa-064", "ioa-063", "ioa-062", "ioa-065", "ioa-060", "ioa-061", "ioa-059", "ioa-071", "ioa-066", "ioa-074", "ioa-067", "ioa-069", "ioa-072", "ioa-070", "ioa-073", "ioa-068", "ioa-076", "ioa-077", "ioa-075", "ioa-079", "ioa-078", "ioa-084", "ioa-082", "ioa-081", "ioa-080", "ioa-083", "ioa-085", "ioa-086", "ioa-087", "ioa-088", "ioa-089", "ioa-090",
-    "ct-027", "ct-026", "ct-028", "ct-055", "ct-064", "ct-063", "ct-053", "ct-066", "ct-058", "ct-056", "ct-059", "ct-065", "ct-060", "ct-054", "ct-061", "ct-057", "ct-062", "ct-082", "ct-083", "ct-084", "ct-085"
+    "ct-021", "ct-020", "ct-022", "ct-049", "ct-058", "ct-057", "ct-047", "ct-060", "ct-052", "ct-050", "ct-053", "ct-059", "ct-054", "ct-048", "ct-055", "ct-051", "ct-056", "ct-076", "ct-077", "ct-078", "ct-079"
   ]
 }

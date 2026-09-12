@@ -890,7 +890,7 @@
             </div>
             <div class="filter-window-content" id="filterContent">
                 <div class="filter-section">
-                    <label for="pokemonSearch">Search Pokémon, dens, locations, or pools:</label>
+                    <label for="pokemonSearch">Search Pokémon, dens, locations, or hunts:</label>
                     <div class="pokemon-search-container">
                         <input type="text" id="pokemonSearch" class="pokemon-search-input"
                                placeholder="Pokémon, Rolling Fields 3, WA-003, or pool 31"
@@ -898,7 +898,7 @@
                                autocomplete="off">
                         <div id="pokemonDropdown" class="pokemon-search-dropdown"></div>
                     </div>
-                    <div class="pool-filter-help">Try WA-003, Isle of Armor 12, Rolling Fields 3, common 31, or a Pokémon name.</div>
+                    <div class="pool-filter-help">Try WA-003, Isle of Armor 12, Rolling Fields 3, common 31, a hunt name, or a Pokémon name.</div>
                     <button class="clear-stars-button" onclick="clearUnifiedSearch()">Clear Search</button>
                 </div>
                 
@@ -1173,7 +1173,7 @@
 
             if (candidates.length > 1) {
                 const denHash = String(den[`${beam}_hash`] || '').toLowerCase();
-                const variantIndex = DEN_POOL_VARIANT_BY_HASH[denHash];
+                const variantIndex = DEN_POOL_VARIANT_BY_ID_AND_HASH[`${poolId}|${denHash}`];
                 const resolved = variantIndex === undefined ? [] : [candidates[variantIndex]];
                 denRaidTableIndexCache.set(cacheKey, resolved);
                 return resolved;
@@ -1202,9 +1202,22 @@
             );
         }
         // Helper functions for raid data (keeping all existing functions)
-        function getPokemonFromBothVersions(poolId) {
-            const swordPool = raidTables.find(pool => pool.pool_id === poolId && pool.version === 1);
-            const shieldPool = raidTables.find(pool => pool.pool_id === poolId && pool.version === 2);
+        function getRaidTableForDen(poolId, den = null, beam = null, version) {
+            const versionId = version === 'shield' ? 2 : 1;
+            if (den && beam) {
+                const exactTableIndex = getRaidTableIndexesForDen(den, beam, version)
+                    .find(index => Number(raidTables[index]?.pool_id) === Number(poolId));
+                if (exactTableIndex !== undefined) {
+                    return raidTables[exactTableIndex];
+                }
+            }
+
+            return raidTables.find(pool => pool.pool_id === poolId && pool.version === versionId);
+        }
+
+        function getPokemonFromBothVersions(poolId, den = null, beam = null) {
+            const swordPool = getRaidTableForDen(poolId, den, beam, 'sword');
+            const shieldPool = getRaidTableForDen(poolId, den, beam, 'shield');
             
             const swordPokemon = swordPool ? swordPool.pokemon.map(p => ({...p, version: 1})) : [];
             const shieldPokemon = shieldPool ? shieldPool.pokemon.map(p => ({...p, version: 2})) : [];
@@ -1307,13 +1320,19 @@
         let unsavedChanges = false;
         const denRaidTableIndexCache = new Map();
 
-        // The source den hashes distinguish the duplicate pool IDs whose encounter
-        // tables appear twice per version in raid_tables.json.
-        const DEN_POOL_VARIANT_BY_HASH = {
-            '0xb8a5e528bfee71bc': 0,
-            '0x60ef1d711ae30cf0': 1,
-            '0xdf017f3fefba2704': 0,
-            '0xc80756327d5de060': 1
+        // The pool ID plus source den hash distinguish the duplicate pool IDs
+        // whose encounter tables appear twice per version in raid_tables.json.
+        // The same source hash can occur under different duplicate pool IDs, so
+        // the pool ID must be part of this lookup.
+        const DEN_POOL_VARIANT_BY_ID_AND_HASH = {
+            '103|0xb8a5e528bfee71bc': 0,
+            '103|0x60ef1d711ae30cf0': 0,
+            '104|0xdf017f3fefba2704': 0,
+            '104|0xc80756327d5de060': 0,
+            '117|0xb8a5e528bfee71bc': 1,
+            '117|0x60ef1d711ae30cf0': 1,
+            '118|0xdf017f3fefba2704': 1,
+            '118|0xc80756327d5de060': 1
         };
         const params = new URLSearchParams(window.location.search);
         const isDebug = params.has('debug');
@@ -1518,7 +1537,7 @@
         }
         
         // Keep all existing modal, filtering, and Pokemon functions
-        function createPokemonSprite(pokemon) {
+        function createPokemonSprite(pokemon, context = null) {
             const speciesId = pokemon.species;
             
             let spriteNumber = speciesId;
@@ -1552,7 +1571,7 @@
                 rankDisplay = formatRanks(pokemon.shieldRanks.min, pokemon.shieldRanks.max);
             }
             
-            const matchesFilter = pokemonMatchesCurrentFilters(pokemon);
+            const matchesFilter = pokemonMatchesCurrentFilters(pokemon, context);
             const highlightClass = matchesFilter ? 'filter-match' : '';
             
             const pokemonInstanceId = `pokemon-${speciesId}-${pokemon.altForm || 0}-${pokemon.gigantamax ? 'gmax' : 'normal'}-${Date.now()}-${Math.random()}`;
@@ -1567,12 +1586,12 @@
             `;
         }
         
-        function createPokemonGrid(pokemonList, title) {
+        function createPokemonGrid(pokemonList, title, context = null) {
             if (!pokemonList || pokemonList.length === 0) {
                 return `<div class="popup-section"><h3 style="margin: 10px 0 15px 0; color: #333;">${title}</h3><p>No Pokemon data available</p></div>`;
             }
             
-            const sprites = pokemonList.map(p => createPokemonSprite(p)).join('');
+            const sprites = pokemonList.map(p => createPokemonSprite(p, context)).join('');
             
             return `
                 <div class="popup-section">
@@ -1720,8 +1739,8 @@
         }
 
         function createDenPopup(den, index) {
-            const commonPokemon = getPokemonFromBothVersions(den.common_pool);
-            const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
+            const commonPokemon = getPokemonFromBothVersions(den.common_pool, den, 'common');
+            const rarePokemon = getPokemonFromBothVersions(den.rare_pool, den, 'rare');
             const tabKey = index + 1;
             const imageFolder = den.physical_id;
             const denLabel = den.display_name;
@@ -1738,8 +1757,8 @@
                     </div>
                     
                     <div id="tab-pokemon" class="tab-content active">
-                        ${createPokemonGrid(commonPokemon, `Common Pool (#${den.common_pool})`)}
-                        ${createPokemonGrid(rarePokemon, `Rare Pool (#${den.rare_pool})`)}
+                        ${createPokemonGrid(commonPokemon, `Common Pool (#${den.common_pool})`, {den, beam: 'common'})}
+                        ${createPokemonGrid(rarePokemon, `Rare Pool (#${den.rare_pool})`, {den, beam: 'rare'})}
                     </div>
                     
                     <div id="tab-images" class="tab-content">
@@ -1878,8 +1897,55 @@
             `;
         }
         
-        function pokemonMatchesCurrentFilters(pokemon) {
-            const hasFilters = currentFilter || selectedStars.size > 0;
+        function getOptimizationPoolVersionId(pool) {
+            return pool && pool.version === 'shield' ? 2 : 1;
+        }
+
+        function getOptimizationPoolRankBounds(pool) {
+            const tier = pool && (pool.progression_tier || pool.tier);
+            return tier === 'early' ? {min: 0, max: 1} : {min: 2, max: 4};
+        }
+
+        function encounterMatchesPokemon(candidate, pokemon) {
+            return ['species', 'altForm', 'ability', 'gender', 'gigantamax', 'flawlessIVs', 'minRank', 'maxRank']
+                .every(field => candidate[field] === pokemon[field]);
+        }
+
+        function optimizationPoolMatchesPokemon(den, beam, pokemon) {
+            if (!den || !Array.isArray(currentPoolMatches) || currentPoolMatches.length === 0) {
+                return false;
+            }
+
+            return currentPoolMatches.some(pool => {
+                if (!pool || pool.beam !== beam || !denMatchesOptimizationPool(den, pool)) {
+                    return false;
+                }
+
+                const versionId = getOptimizationPoolVersionId(pool);
+                if (!Array.isArray(pokemon.versions) || !pokemon.versions.includes(versionId)) {
+                    return false;
+                }
+
+                const rankBounds = getOptimizationPoolRankBounds(pool);
+                const denTableIndexes = getRaidTableIndexesForDen(den, beam, pool.version);
+                return pool.aliases.some(alias => {
+                    const tableIndex = Number(alias.raid_table_index);
+                    if (Number(alias.pool_id) !== Number(den[`${beam}_pool`]) ||
+                        !denTableIndexes.includes(tableIndex)) {
+                        return false;
+                    }
+
+                    const table = raidTables[tableIndex];
+                    return table && table.version === versionId && table.pokemon.some(candidate =>
+                        encounterMatchesPokemon(candidate, pokemon) &&
+                        candidate.maxRank >= rankBounds.min && candidate.minRank <= rankBounds.max
+                    );
+                });
+            });
+        }
+
+        function pokemonMatchesCurrentFilters(pokemon, context = null) {
+            const hasFilters = currentFilter || selectedStars.size > 0 || currentPoolFilter;
             if (!hasFilters) {
                 return false;
             }
@@ -1922,8 +1988,13 @@
                 
                 starMatches = selectedRanks.some(selectedRank => pokemonRanks.includes(selectedRank));
             }
+
+            let poolMatches = true;
+            if (currentPoolFilter) {
+                poolMatches = Boolean(context && optimizationPoolMatchesPokemon(context.den, context.beam, pokemon));
+            }
             
-            return pokemonMatches && starMatches;
+            return pokemonMatches && starMatches && poolMatches;
         }
         // Pokemon filter setup
         function setupPokemonFilter() {
@@ -1959,6 +2030,15 @@
                 .replace(/[^a-z0-9]+/g, ' ')
                 .replace(/\s+/g, ' ')
                 .trim();
+        }
+
+        function getOptimizationPoolDisplayName(pool) {
+            const version = pool && pool.version === 'shield' ? 'shield' : 'sword';
+            const rarity = pool && pool.beam === 'rare' ? 'rare' : 'common';
+            const tier = pool && (pool.progression_tier || pool.tier);
+            const poolId = Number(pool && pool.aliases && pool.aliases[0] && pool.aliases[0].pool_id);
+            const encounterPool = Number.isInteger(poolId) ? poolId : 'unknown';
+            return `${version}-${rarity}-${String(tier || 'unknown').toLowerCase()}-${encounterPool}`;
         }
 
         function getOptimizationPoolSearchEntry(pool) {
@@ -1997,14 +2077,17 @@
                 ];
             });
             const signature = pool.pool_key.split('-').pop().toLowerCase();
+            const label = getOptimizationPoolDisplayName(pool);
 
             return {
                 key: pool.pool_key,
+                label: label,
                 pool: pool,
                 signature: signature,
                 aliasPoolIds: aliasPoolIds,
                 speciesNames: speciesNames,
                 searchText: normalizeOptimizationSearchText([
+                    label,
                     pool.pool_key,
                     pool.version,
                     pool.beam,
@@ -2038,6 +2121,15 @@
                 parsed.beam = exactKey[2];
                 parsed.tier = exactKey[3];
                 parsed.signature = exactKey[4];
+                return parsed;
+            }
+
+            const exactHuntKey = rawQuery.match(/^(sword|shield)-(common|rare)-(early|late)-(\d+)$/);
+            if (exactHuntKey) {
+                parsed.version = exactHuntKey[1];
+                parsed.beam = exactHuntKey[2];
+                parsed.tier = exactHuntKey[3];
+                parsed.poolIds = [Number(exactHuntKey[4])];
                 return parsed;
             }
 
@@ -2145,7 +2237,7 @@
             };
 
             const denMatch = normalizedQuery.match(/\bden(?:\s+number)?\s+(\d+)\b/);
-            const physicalIdMatch = normalizedQuery.match(/\b(wa|ioa|ct)[\s-]*0*(\d{1,3})\b/);
+            const physicalIdMatch = normalizedQuery.match(/\b(wa|ioa|ct|tc|ss)[\s-]*0*(\d{1,3})\b/);
             const regionDenMatch = normalizedQuery.match(/\b(wild\s+area|isle\s+of\s+armor|isle\s+of\s+armour|crown\s+tundra)\s+(?:den\s+)?0*(\d{1,3})\b/);
             const commonPoolMatch = normalizedQuery.match(/\bcommon(?:\s+pool)?(?:\s+number)?\s+(\d+)\b/);
             const rarePoolMatch = normalizedQuery.match(/\brare(?:\s+pool)?(?:\s+number)?\s+(\d+)\b/);
@@ -2153,9 +2245,12 @@
 
             if (denMatch) criteria.denNumber = Number(denMatch[1]);
             if (physicalIdMatch) {
-                criteria.region = physicalIdMatch[1];
-                criteria.programDenNumber = Number(physicalIdMatch[2]);
-                criteria.physicalId = `${physicalIdMatch[1]}-${String(criteria.programDenNumber).padStart(3, '0')}`;
+                const requestedRegion = physicalIdMatch[1];
+                const canonicalRegion = requestedRegion === 'tc' ? 'ct' : requestedRegion;
+                criteria.region = canonicalRegion;
+                const requestedNumber = Number(physicalIdMatch[2]);
+                criteria.programDenNumber = canonicalRegion === 'ss' ? null : requestedNumber;
+                criteria.physicalId = `${canonicalRegion}-${String(requestedNumber).padStart(3, '0')}`;
             } else if (regionDenMatch) {
                 const regionAliases = {
                     'wild area': 'wa',
@@ -2213,7 +2308,8 @@
                     den.display_name,
                     den.location_name,
                     `${den.location_name || ''} den ${den.local_number || ''}`,
-                    `${prefix} ${den.program_den_number || ''}`
+                    `${prefix} ${den.program_den_number || ''}`,
+                    `${prefix === 'ct' ? 'tc' : prefix} ${den.program_den_number || ''}`
                 ].join(' '));
                 return searchable.includes(normalizedQuery) ||
                     searchable.replace(/[\s-]+/g, '').includes(compactQuery);
@@ -2236,7 +2332,7 @@
             if (criteria.denNumber !== null) {
                 addSuggestion(`Program den #${criteria.denNumber}`, getRegularMapDenMatches(criteria));
             }
-            if (criteria.programDenNumber !== null) {
+            if (criteria.physicalId !== null || criteria.programDenNumber !== null) {
                 const matchingDens = getRegularMapDenMatches(criteria);
                 const matchingDen = denData.find(den => matchingDens.has(den.physical_id));
                 addSuggestion(
@@ -2388,7 +2484,7 @@
             }
 
             if (regularMatches.length > 0) {
-                resultMarkup.push('<div class="search-results-heading">Dens and pools</div>');
+                resultMarkup.push('<div class="search-results-heading">Dens</div>');
                 resultMarkup.push(...regularMatches.map((suggestion, index) => `
                     <div class="pokemon-search-item" data-search-type="regular" data-regular-index="${index}">
                         ${escapeHtml(suggestion.label)}
@@ -2397,17 +2493,17 @@
             }
 
             if (poolMatches.length > 0) {
-                resultMarkup.push('<div class="search-results-heading">Pools</div>');
+                resultMarkup.push('<div class="search-results-heading">Hunts</div>');
                 resultMarkup.push(...poolMatches.map(entry => `
                     <div class="pokemon-search-item" data-search-type="pool" data-pool-key="${escapeHtml(entry.key)}">
-                        ${escapeHtml(entry.key)}
+                        ${escapeHtml(entry.label)}
                     </div>
                 `));
             }
 
             dropdown.innerHTML = resultMarkup.length > 0
                 ? resultMarkup.join('')
-                : '<div class="pokemon-search-item">No Pokémon or pool found</div>';
+                : '<div class="pokemon-search-item">No Pokémon, den, or hunt found</div>';
 
             dropdown.querySelectorAll('[data-search-type="pokemon"]').forEach(item => {
                 item.addEventListener('mousedown', function(event) {
@@ -2439,10 +2535,11 @@
         function selectOptimizationPool(poolKey) {
             const searchInput = document.getElementById('pokemonSearch');
             const normalizedKey = String(poolKey).toLowerCase();
-            if (searchInput) searchInput.value = poolKey;
             currentFilter = '';
-            currentPoolFilter = String(poolKey);
-            const selectedPool = optimizationPoolIndex.get(normalizedKey);
+            const selectedEntry = optimizationPoolList.find(entry => entry.key.toLowerCase() === normalizedKey);
+            if (searchInput) searchInput.value = selectedEntry ? selectedEntry.label : poolKey;
+            currentPoolFilter = selectedEntry ? selectedEntry.label : String(poolKey);
+            const selectedPool = selectedEntry ? selectedEntry.pool : optimizationPoolIndex.get(normalizedKey);
             currentPoolMatches = selectedPool ? [selectedPool] : [];
             currentRegularFilter = '';
             currentRegularDenMatches = null;
@@ -2631,8 +2728,8 @@
         }
         
         function denContainsPokemon(den, pokemonId) {
-            const commonPokemon = getPokemonFromBothVersions(den.common_pool);
-            const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
+            const commonPokemon = getPokemonFromBothVersions(den.common_pool, den, 'common');
+            const rarePokemon = getPokemonFromBothVersions(den.rare_pool, den, 'rare');
             
             const inCommon = commonPokemon.some(pokemon => pokemon.species === pokemonId);
             const inRare = rarePokemon.some(pokemon => pokemon.species === pokemonId);
@@ -2646,8 +2743,8 @@
         }
         
         function denContainsPokemonAtStarRanks(den, pokemonId, starSet) {
-            const commonPokemon = getPokemonFromBothVersions(den.common_pool);
-            const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
+            const commonPokemon = getPokemonFromBothVersions(den.common_pool, den, 'common');
+            const rarePokemon = getPokemonFromBothVersions(den.rare_pool, den, 'rare');
             const allPokemon = [...commonPokemon, ...rarePokemon];
             
             const selectedRanks = Array.from(starSet).map(star => star - 1);
@@ -2695,8 +2792,8 @@
         }
         
         function denContainsStarRanks(den, starSet) {
-            const commonPokemon = getPokemonFromBothVersions(den.common_pool);
-            const rarePokemon = getPokemonFromBothVersions(den.rare_pool);
+            const commonPokemon = getPokemonFromBothVersions(den.common_pool, den, 'common');
+            const rarePokemon = getPokemonFromBothVersions(den.rare_pool, den, 'rare');
             const allPokemon = [...commonPokemon, ...rarePokemon];
             
             const selectedRanks = Array.from(starSet).map(star => star - 1);
@@ -2744,9 +2841,9 @@
             if (pokemonName || (starSet && starSet.size > 0) || poolKey || regularFilter) {
                 const totalCount = (typeof counts === 'object' && counts.total !== undefined) ? counts.total : counts;
                 let statusText = regularFilter && !regularFound
-                    ? `No den or pool found for <strong>${escapeHtml(regularFilter)}</strong>`
+                    ? `No den found for <strong>${escapeHtml(regularFilter)}</strong>`
                     : poolKey && !poolFound
-                    ? `No pool found for <strong>${escapeHtml(poolKey)}</strong>`
+                    ? `No hunt found for <strong>${escapeHtml(poolKey)}</strong>`
                     : `Showing ${totalCount} of ${total} dens`;
                 
                 const filters = [];
@@ -2759,7 +2856,7 @@
                 }
                 if (poolKey && poolFound) {
                     const poolLabel = poolMatchCount > 1
-                        ? `${poolMatchCount} pools matching "${escapeHtml(poolKey)}"`
+                        ? `${poolMatchCount} hunts matching "${escapeHtml(poolKey)}"`
                         : escapeHtml(poolKey);
                     filters.push(`<strong>${poolLabel}</strong>`);
                 }

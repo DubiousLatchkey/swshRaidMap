@@ -16,16 +16,17 @@ This is a static Sword/Shield raid-map app intended to support shiny Pokédex co
 
 ## Known data caveat
 
-Do not assume `(pool_id, version)` is unique. Pool IDs 103, 104, 117, and 118 each occur twice per version with different encounters, and null pool IDs also occur. Resolve this ambiguity before using the tables for coverage optimization; the current UI uses `find()` and therefore selects the first matching table.
+Do not assume `(pool_id, version)` is unique. Pool IDs 103, 104, 117, and 118 each occur twice per version with different encounters, and null pool IDs also occur. The optimizer preserves explicit `raid_table_index` aliases, while the UI resolves mapped dens with the composite `(pool_id, source_hash)` crosswalk validated against Serebii; never fall back to a global hash-only or first-match lookup for these duplicate IDs.
 
 ## Development
 
 - The app has no build step; serve the repository over HTTP when testing browser behavior because it fetches local JSON files.
 - Keep generated/reference data separate from the hand-maintained raid inputs and record its source and retrieval timestamp.
 - Preserve the untracked `images/map_ioa.afphoto` source file.
-- Den image folders are named by region-scoped physical ID (`wa-###`, `ioa-###`, `ct-###`), never by encounter-pool number.
-- The map's unified search parses Pokémon names/IDs, den numbers, regular pool numbers, and selected `pool_key` entries from `output/raid_coverage/coverage_solution.json`; it accepts key chunks, star ranges, pool IDs, signatures, and covered Pokémon names, uses output aliases and den source hashes to resolve duplicate pool IDs, and excludes early-inaccessible dens from `early` matches.
-- Physical-location search accepts canonical IDs (`wa-003`, `ioa-012`, `ct-086`), full region plus program number, and location-local labels such as `Rolling Fields 3`. The map uses uncluttered point markers without permanent text labels.
+- Den image folders are named by region-scoped physical ID (`wa-###`, `ioa-###`, `ct-###`, or `ss-###` for Slippery Slope), never by encounter-pool number. Crown Tundra `ct-###` IDs follow SeedSearcher's TC numbering; the six omitted Slippery Slope slots use `ss-001` through `ss-006`.
+- The map's unified search parses Pokémon names/IDs, den numbers, regular pool numbers, and selected `pool_key` entries from `output/raid_coverage/coverage_solution.json`; it accepts key chunks, star ranges, pool IDs, signatures, and covered Pokémon names, uses output aliases and den source hashes to resolve duplicate pool IDs, and excludes early-inaccessible dens from `early` matches. When an optimization pool key is active, matching den popups highlight the selected version/beam's encounters in that pool's star tier.
+- Map search separates `Dens` and `Hunts`. Hunt suggestions and workbook Hunt Name fields use copy/pasteable `version-beam-tier-pool_id` keys such as `sword-common-early-9`; raw 12-character solution hashes remain internal compatibility aliases.
+- Physical-location search accepts canonical IDs (`wa-003`, `ioa-012`, `ct-004`, `ss-004`), SeedSearcher `tc` aliases for Crown Tundra, full region plus program number, and location-local labels such as `Rolling Fields 3`. The map uses uncluttered point markers without permanent text labels.
 
 ## Coverage optimizer
 

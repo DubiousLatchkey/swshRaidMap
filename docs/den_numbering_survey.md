@@ -16,18 +16,18 @@ Numbers from these two namespaces are not interchangeable. The 64-bit normal/rar
 | Family | What the number identifies | Range / offset | Common vs rare | Projects and sites found | Consistency |
 |---|---|---|---|---|---|
 | Game/save-array index | Physical den slot | Global zero-based `0..275`; boundaries `0`, `100`, `190`; includes special WA index 16 | Rarity is a separate field and selects one of two hashes | PKHeX internals, current PokéFinder internals, pkTeraRaid, CaptureSight-derived code, minidex, pokefinder_rs | Same underlying order where copied from the game/Leanny data |
-| Leanny / Seed Searcher UI | Physical den | One-based within each region: WA `1..100` except ordinary selection skips `17`; IoA `1..90`; CT `1..86`. Event den is displayed as `0`. | Separate Normal/Rare selector | SeedSearcher, PKHeX Raid Plugin, RaidFinder, PokéFinder UI, Seed Checker web den overview | Same physical order; labels differ from the zero-based internal index by region offset and +1 |
+| Leanny / Seed Searcher UI | Physical den | One-based within each selector: WA `1..16, 18..100`; IoA `1..90`; TC `1..80`. The six Slippery Slope slots are omitted. Event den is displayed separately. | Separate Normal/Rare selector | SeedSearcher, PKHeX Raid Plugin, RaidFinder, PokéFinder UI, Seed Checker web den overview | Same physical order; labels differ from the zero-based internal index by region offset and +1 |
 | PKHeX Raids display documented in 2020 | Physical den | Zero-based, padded (`Den 003` = Leanny `Rolling Fields 3`, i.e. Leanny physical den 3) | Separate raid type | PKHeX and Project Pokémon documentation | Same order as Leanny, but zero-based display creates a one-off mismatch |
 | Serebii pool number | Encounter pool, not a physical den | Base pools `1..93`; Isle of Armor pools extend through `157` (observed IoA normal/rare pairs include `99/100`); Crown Tundra pools `158..197` | Normal and rare have different numbers | Serebii Max Raid pages and Pokéarth location pages | Consistent as a pool-label system, but a physical location therefore has two "Den" numbers |
 | Serebii-derived map family | Encounter pool attached to a map point | Same pool numbers as Serebii | Usually shown as red/common and purple/rare | pokedens.github.io, cecilbowen map, Trainer_A maps, Poké Atlas, numerous static Reddit maps/guides | Generally aliases Serebii rather than defining a new physical numbering system |
 | Game8 / Japanese-wiki map family | Physical location ordinal within each named subarea | Restarts in each subarea (for example, the nth den shown for that area) | Separate normal and rare tables | Game8 maps and early translated Reddit maps | Not globally comparable by number alone; `(subarea, local ordinal)` is required |
-| This repository | Physical den, manually ordered | Global one-based `1..275`; segments are `1..99`, `100..189`, `190..275` | `common_pool`, `rare_pool`, `common_hash`, and `rare_hash` stored on each point | swshRaidMap | Count matches all ordinary selectable dens, but order is not Leanny's. Example: local den 1 has hashes belonging to Leanny/PokéFinder Wild Area physical den 28 (one-based). |
+| This repository | Physical den, program-compatible | Region-scoped `wa-###`, `ioa-###`, `ct-###`, and `ss-###`; CT follows SeedSearcher TC numbering and SS is the six-slot game-table area omitted by SeedSearcher | `common_pool`, `rare_pool`, `common_hash`, and `rare_hash` stored on each point | swshRaidMap | Physical IDs follow the generated SeedSearcher/PokéFinder crosswalk; pool numbers remain encounter-pool aliases. |
 
 ## Exact Seed Searcher behavior
 
 Seed Searcher exposes both namespaces in the same form:
 
-- **Den** chooses a physical location. Its source constructs Wild Area labels with the special Watchtower slot skipped, then labels DLC regions separately as `IoA 1..90` and `TC 1..86`.
+- **Den** chooses a physical location. Its source constructs Wild Area labels with the special Watchtower slot skipped, then labels DLC regions separately as `IoA 1..90` and `TC 1..80`; the six `DLC_32` Slippery Slope slots are not in the selector.
 - **Rarity** chooses Normal or Rare.
 - The selected physical den and rarity yield a 64-bit table hash from `NestLocations.Nests`.
 - Seed Searcher finds the matching raid table by that hash and updates **Nest**.
@@ -53,14 +53,18 @@ The physical numbering lines up. Both contain exactly 276 physical-table rows in
 | Map X coordinate | 190 | 86 |
 | Map Y coordinate | 190 | 86 |
 
-All coordinate differences are Crown Tundra rows `190..275`: Seed Searcher's bundled dependency stores `0,0`, while current PokéFinder supplies Crown Tundra coordinates. The identifiers and ordering still match exactly.
+All coordinate differences are the Crown Tundra-area rows `190..275`: Seed Searcher's bundled dependency stores `0,0`, while current PokéFinder supplies coordinates. The identifiers and ordering still match exactly; rows `190..195` are the six Slippery Slope slots omitted from the SeedSearcher selector.
 
-The user-facing conversion is therefore deterministic:
+The user-facing conversion is therefore deterministic for rows exposed by
+SeedSearcher:
 
 ```text
-global index 0..99    -> Wild Area display number = index + 1
-global index 100..189 -> Isle of Armor number      = index - 99
-global index 190..275 -> Crown Tundra number        = index - 189
+global index 0..16     -> Wild Area display number = index + 1
+global index 17        -> Watchtower special slot (skipped by ordinary selector)
+global index 18..99    -> Wild Area display number = index + 1
+global index 100..189  -> Isle of Armor number      = index - 99
+global index 190..195  -> Slippery Slope slot      = app ss-001..ss-006 (omitted by SeedSearcher)
+global index 196..275  -> Crown Tundra number     = index - 195
 ```
 
 There is one UI caveat. Global index `16` / Wild Area display number `17` is the special Watchtower Lair crystal slot with zero normal and rare hashes. Seed Searcher's ordinary Den list and PokéFinder's raid selector both skip it. PokéFinder's standalone Den Map includes it because that map displays all 100 physical Wild Area slots. Thus the ordinary selectable labels are:
@@ -68,7 +72,8 @@ There is one UI caveat. Global index `16` / Wild Area display number `17` is the
 ```text
 Wild Area:       1..16, 18..100 (99 ordinary dens)
 Isle of Armor:   1..90            (90 ordinary dens)
-Crown Tundra:    1..86            (86 ordinary dens)
+Slippery Slope:  app ss-001..006 (6 game-table slots, not in SeedSearcher)
+Crown Tundra:   1..80            (80 SeedSearcher TC entries)
 ```
 
 Seed Searcher's displayed `0: Event Den` is not physical slot zero; it is a separate event-table choice.
@@ -127,7 +132,7 @@ Use immutable identities and retain every numbering system as aliases:
 physical_den:
   region                 # wild_area | isle_of_armor | crown_tundra
   game_slot_index        # 0..275 global, canonical physical join
-  region_den_number      # 1..100 / 1..90 / 1..86, Leanny/PokeFinder UI alias
+  region_den_number      # WA 1..16,18..100 / IoA 1..90 / CT 1..80; null for SS slots
   swsh_raid_map_number   # current 1..275 alias
   subarea
   subarea_ordinal
