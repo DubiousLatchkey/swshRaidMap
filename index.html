@@ -928,6 +928,29 @@
                 padding: 0;
             }
         }
+
+        /* Keep controls reachable in short landscape viewports. */
+        @media (orientation: landscape) and (max-height: 600px) {
+            html,
+            body {
+                height: 100%;
+                min-height: 100dvh;
+            }
+
+            .floating-filter-window {
+                top: 8px;
+                right: 8px;
+                bottom: auto;
+                left: auto;
+                max-height: calc(100dvh - 78px);
+                overflow: hidden;
+            }
+
+            .filter-window-content {
+                box-sizing: border-box;
+                max-height: min(300px, calc(100dvh - 128px));
+            }
+        }
     </style>
 </head>
 <body>
